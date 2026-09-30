@@ -11,7 +11,7 @@ IC = json.load(open('data/icons.json'))
 REL = {r['id']: r for r in cat['releases']}
 SONGS = cat['songs']
 e = html.escape
-V = "12"  # bump to refresh cached css/js
+V = "14"  # bump to refresh cached css/js
 
 SITE = 'https://www.funkieteemusic.com/'
 YT = 'https://www.youtube.com/@Funkieteemusic'
@@ -38,7 +38,7 @@ def four(y, s, a, m, cls='plats', amazon='Amazon'):
 def head(title, desc, path, og_title):
     url = SITE + path
     ld = {"@context": "https://schema.org", "@type": "MusicGroup", "name": "Funkie Tee", "url": SITE,
-          "image": SITE + "img/portrait.jpg",
+          "image": SITE + "img/hero-wide.jpg",
           "description": "African contemporary gospel songwriter and creative artist.",
           "genre": ["Contemporary gospel", "African contemporary Christian", "Praise and worship", "Children's music"],
           "sameAs": [YT, SP, AP, AM, IG, TT, FB]}
@@ -184,7 +184,8 @@ home = head('Funkie Tee | Contemporary Gospel Music',
             'Contemporary gospel music by Funkie Tee — songs of faith, testimony, hope and Scripture, including music for children, families and choirs.',
             '', 'Funkie Tee | Contemporary Gospel Music') + header('home') + f'''
 <main id="main">
-<section class="hero" id="top" style="padding-block:0">
+<section class="hero hero-wide" id="top" style="padding-block:0">
+  <picture class="hero-bg"><source media="(max-width:820px)" srcset="img/hero-tall.jpg"><img src="img/hero-wide.jpg" alt="Funkie Tee in a gold beaded gown beside a window over a city at dusk" width="2000" height="1498" fetchpriority="high"></picture>
   <div class="wrap">
     <div class="hero-copy">
       <span class="eyebrow">African contemporary gospel</span>
@@ -197,10 +198,7 @@ home = head('Funkie Tee | Contemporary Gospel Music',
         <a class="btn btn-line" href="#about">Discover Funkie Tee</a>
       </div>
     </div>
-    <div class="hero-art">
-      <img src="img/portrait.jpg" alt="Funkie Tee in a gold suit, smiling" width="900" height="1125" fetchpriority="high">
-      <button class="nowpill" type="button" data-play="god-did-it"><span class="np-tag">Out now</span><span class="np-title">God Did It</span><span class="np-play">{PLAY}Play</span></button>
-    </div>
+    <button class="nowpill" type="button" data-play="god-did-it"><span class="np-tag">Out now</span><span class="np-title">God Did It</span><span class="np-play">{PLAY}Play</span></button>
   </div>
 </section>
 
@@ -238,7 +236,7 @@ home = head('Funkie Tee | Contemporary Gospel Music',
 
 <section class="on-ivory" id="about">
   <div class="wrap about">
-    <figure><img src="img/portrait-about.jpg?v=3" alt="Funkie Tee standing in a rose-pink dress" width="900" height="1613" loading="lazy"></figure>
+    <figure><img src="img/portrait-about.jpg?v=4" alt="Funkie Tee standing in a navy gown with gold detail" width="1000" height="1500" loading="lazy"></figure>
     <div class="stack">
       <span class="eyebrow">The heart behind the music</span>
       <h2 class="voice">An African voice in contemporary gospel, creating songs of faith for a global generation.</h2>
