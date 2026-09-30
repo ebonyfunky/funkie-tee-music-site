@@ -396,6 +396,66 @@ section,header.hero{scroll-margin-top:calc(env(safe-area-inset-top,0px) + 96px)}
   .player .ttl{font-size:1.1rem}
   footer .wrap{flex-direction:column}
 }
+/* ---- Round 5: static header like a record sleeve, no ticker, now-playing pill, cream songs panel ---- */
+section,header.hero{scroll-margin-top:12px}
+nav,nav.solid{position:relative;z-index:30;pointer-events:auto;padding-top:env(safe-area-inset-top,0px);background:linear-gradient(180deg,#FFFFFF 0%,#FCF8EC 60%,#F7EFD9 100%);border-bottom:1px solid #C9A227;box-shadow:0 8px 28px -14px rgba(0,0,0,.7);backdrop-filter:none}
+nav::after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:1px;background:rgba(232,196,92,.55)}
+nav .wrap{height:80px;width:auto;max-width:1160px;padding-inline:clamp(16px,5vw,48px);border-radius:0;background:none;border:0;box-shadow:none;gap:1.5rem}
+.brand{font-size:1.75rem}
+.brand img{width:46px;height:46px}
+.links{gap:2.4rem}
+.links a{font-size:.74rem}
+.nav-social{display:flex;gap:1.1rem;align-items:center}
+.nav-social a{display:grid;place-items:center;color:#1B2A6B;transition:color .2s,transform .2s}
+.nav-social a:hover{color:#8A6D12;transform:translateY(-1px)}
+.nav-social svg{width:19px;height:19px;fill:currentColor}
+.menu-btn{display:none;background:none;border:1px solid #C9A227;border-radius:999px;padding:.55rem 1.1rem;font:700 .7rem var(--body);letter-spacing:.18em;text-transform:uppercase;color:#0F1A4A;cursor:pointer}
+.menu-btn:focus-visible{outline:3px solid #12857E;outline-offset:2px}
+@media (max-width:860px){
+  nav .wrap{height:68px}
+  .brand{font-size:1.4rem}
+  .brand img{width:40px;height:40px}
+  .menu-btn{display:block}
+  .nav-social{display:none}
+  .links{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:0;background:#FDFAF0;border-bottom:1px solid #C9A227;box-shadow:0 24px 40px -18px rgba(0,0,0,.7);padding:.4rem clamp(16px,5vw,48px) 1rem}
+  nav.open .links{display:flex}
+  .links a{padding:1rem 0;border-bottom:1px solid rgba(201,162,39,.3);font-size:.8rem}
+  .links a:last-child{border-bottom:0}
+  .links a::after{display:none}
+}
+.hero{min-height:min(86vh,780px)}
+.hero .wrap{padding-block:clamp(56px,9vh,110px) clamp(56px,7vw,90px);align-items:center}
+.scroll-hint{display:none}
+.nowpill{position:relative;display:flex;align-items:center;gap:.7rem;width:max-content;max-width:100%;margin:1.1rem auto 0;padding:.45rem .5rem .45rem 1rem;border-radius:999px;border:1px solid rgba(232,196,92,.7);background:rgba(7,13,42,.72);backdrop-filter:blur(10px);color:#fff;cursor:pointer;font-family:var(--body);box-shadow:0 14px 30px -12px rgba(0,0,0,.8);transition:transform .2s,border-color .2s}
+.nowpill:hover{transform:translateY(-2px);border-color:#F3DB8A}
+.nowpill:focus-visible{outline:3px solid var(--aqua);outline-offset:3px}
+.np-tag{font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.np-title{font-family:var(--display);font-size:1.2rem;white-space:nowrap}
+.np-play{display:inline-flex;align-items:center;gap:.3rem;padding:.4rem .85rem;border-radius:999px;background:linear-gradient(180deg,#FBE9A6,#C9A227);color:#231A02;font-weight:700;font-size:.8rem}
+.np-play svg{width:14px;height:14px;fill:currentColor}
+.songhead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:1.5rem 3rem;align-items:end;margin-bottom:2rem}
+.anywhere{padding:1.1rem 1.2rem 1.2rem;border-radius:18px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(12px);box-shadow:inset 0 1px 0 rgba(255,255,255,.12)}
+.aw-title{display:block;font-weight:700;font-size:.92rem;margin-bottom:.7rem;color:#fff}
+.aw-grid{display:grid;grid-template-columns:1fr 1fr;gap:.55rem}
+.aw-grid a{display:block;text-align:center;padding:.7rem .5rem;border-radius:999px;background:#fff;color:#0F1A4A;font-weight:700;font-size:.86rem;text-decoration:none;box-shadow:0 6px 14px -8px rgba(0,0,0,.6);transition:transform .2s,background .2s}
+.aw-grid a:hover{transform:translateY(-2px);background:#FBF1D2}
+.songpanel{padding:clamp(10px,2vw,22px) clamp(12px,2.6vw,30px);border-radius:24px;background:linear-gradient(180deg,#FFFEFA 0%,#F8F0DC 100%);border:1px solid #D9B84A;box-shadow:0 40px 80px -34px rgba(0,0,0,.95),0 0 0 6px rgba(232,196,92,.12),inset 0 1px 0 #fff}
+.songpanel .songs li{border-bottom:1px solid rgba(15,26,74,.1);padding:.6rem .5rem;border-radius:12px}
+.songpanel .songs li:hover,.songpanel .songs li.on{background:rgba(232,196,92,.2)}
+.songpanel .songs .t{color:#0F1A4A}
+.songpanel .songs li.on .t{color:#7A5E0D}
+.songpanel .songs .pl{background:linear-gradient(180deg,#1B2A6B,#0F1A4A);border-color:#0F1A4A;color:#F3DB8A;box-shadow:0 6px 12px -6px rgba(15,26,74,.7)}
+.songpanel .songs .pl:hover,.songpanel .songs li.on .pl{background:linear-gradient(180deg,#FBE9A6,#C9A227);border-color:#B8901F;color:#231A02}
+.songpanel .songs .plats a{color:#3A4468}
+.songpanel .songs .plats a:hover{color:#8A6D12;text-decoration:underline}
+.songpanel .eq i{background:#B8901F}
+.newtag{display:inline-block;vertical-align:middle;margin-left:.5rem;font-family:var(--body);font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.18rem .5rem;border-radius:999px;background:linear-gradient(180deg,#FBE9A6,#E3BE4E);color:#231A02}
+@media (max-width:760px){
+  .hero{min-height:0}
+  .hero .wrap{padding-block:32px 48px}
+  .songhead{grid-template-columns:1fr}
+  .nowpill{margin-top:.9rem}
+}
 </style>
 </head>
 <body>
@@ -403,14 +463,19 @@ section,header.hero{scroll-margin-top:calc(env(safe-area-inset-top,0px) + 96px)}
 <nav id="nav">
   <div class="wrap">
     <a class="brand" href="#top"><img src="img/emblem-sm.png" alt="" width="40" height="40"><span>Funkie <em>Tee</em></span></a>
-    <div class="links">
-      <a href="#latest">Latest</a>
+    <button class="menu-btn" type="button" id="menu-btn" aria-expanded="false" aria-controls="navlinks">Menu</button>
+    <div class="links" id="navlinks">
+      <a href="#top">Home</a>
       <a href="#music">Music</a>
       <a href="#about">About</a>
       <a href="#families">For children</a>
       <a href="#connect">Connect</a>
     </div>
-    <a class="btn nav-cta" href="#music">Listen now</a>
+    <div class="nav-social">
+      <a href="https://www.youtube.com/@Funkieteemusic" target="_blank" rel="noopener" aria-label="Funkie Tee on YouTube"><svg viewBox="0 0 24 24"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.8 15.2V8.8l6 3.2-6 3.2z"/></svg></a>
+      <a href="https://www.tiktok.com/@funkieteemusic" target="_blank" rel="noopener" aria-label="Funkie Tee on TikTok"><svg viewBox="0 0 24 24"><path d="M16.5 2h-3.2v13.6a2.9 2.9 0 1 1-2.9-2.9c.3 0 .6 0 .9.1V9.5a6.1 6.1 0 1 0 5.2 6V8.6a7.5 7.5 0 0 0 4.5 1.5V6.9A4.5 4.5 0 0 1 16.5 2z"/></svg></a>
+      <a href="https://www.instagram.com/funkieteemusic" target="_blank" rel="noopener" aria-label="Funkie Tee on Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.2.1 4.8 1.7 4.9 4.9.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 4 4 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-10.8a1.4 1.4 0 1 0 0 2.9 1.4 1.4 0 0 0 0-2.9z"/></svg></a>
+    </div>
   </div>
 </nav>
 
@@ -425,8 +490,8 @@ section,header.hero{scroll-margin-top:calc(env(safe-area-inset-top,0px) + 96px)}
     <p class="tag">Where faith meets the future</p>
     <p class="sub">Songs of hope, faith and total dependence on God. Praise and worship for the grown-ups, and Bible verses set to music for children and children's choirs.</p>
     <div class="cta">
-      <button class="btn btn-gold" type="button" data-play="god-did-it"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Play a song</button>
-      <a class="btn btn-glass" href="#music">See all the music</a>
+      <a class="btn btn-gold" href="#music">Explore the music</a>
+      <a class="btn btn-glass" href="#about">About Funkie Tee</a>
     </div>
     <div class="stream">
       <span>Listen on</span>
@@ -438,14 +503,11 @@ section,header.hero{scroll-margin-top:calc(env(safe-area-inset-top,0px) + 96px)}
    </div>
    <div class="hero-portrait">
     <img src="img/portrait.jpg" alt="Funkie Tee, smiling, in a gold suit" width="900" height="1125" fetchpriority="high">
+    <button class="nowpill" type="button" data-play="god-did-it"><span class="np-tag">New single</span><span class="np-title">God Did It</span><span class="np-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Play</span></button>
    </div>
   </div>
   <div class="scroll-hint">Scroll</div>
 </header>
-
-<div class="ticker" aria-label="Songs by Funkie Tee. Select a title to hear it on YouTube.">
-  <div><a href="https://www.youtube.com/watch?v=jnyfwOIjw3c" target="_blank" rel="noopener">God Did It</a><a href="https://www.youtube.com/watch?v=ZLsl9BLj8iQ" target="_blank" rel="noopener">Streams of Joy</a><a href="https://www.youtube.com/watch?v=ZtKf0Vg5AOo" target="_blank" rel="noopener">Opemipo</a><a href="https://www.youtube.com/watch?v=rSNhOOLS7S8" target="_blank" rel="noopener">It&#x27;s Not Over for Me</a><a href="https://www.youtube.com/watch?v=SQhjYVacWhc" target="_blank" rel="noopener">Ebenezer</a><a href="https://www.youtube.com/watch?v=KdMxvjaxvCo" target="_blank" rel="noopener">The Blood of Jesus</a><a href="https://www.youtube.com/watch?v=P5xjOlPnFlc" target="_blank" rel="noopener">Christ is Enough for Me</a><a href="https://www.youtube.com/watch?v=ODlC7JhlicA" target="_blank" rel="noopener">This is My Jubilee</a><a href="https://www.youtube.com/watch?v=6CByZ2Kxt6Q" target="_blank" rel="noopener">Last Dance</a><a href="https://www.youtube.com/watch?v=ujAJvnErskE" target="_blank" rel="noopener">I Shall Not Want</a><a href="https://www.youtube.com/watch?v=pwVRElXzdYg" target="_blank" rel="noopener">Take The Praise</a><a href="https://www.youtube.com/watch?v=eKrR7AC9Myc" target="_blank" rel="noopener">Rapha</a><a href="https://www.youtube.com/watch?v=_r-bfaca9xo" target="_blank" rel="noopener">This Jesus is Different</a><a href="https://www.youtube.com/watch?v=khrubZGy0Zk" target="_blank" rel="noopener">There&#x27;s Prophecy Over Me</a><a href="https://www.youtube.com/watch?v=A40G8Z3KEhc" target="_blank" rel="noopener">Just Your Voice</a><a href="https://www.youtube.com/watch?v=RtqrzCLbOb8" target="_blank" rel="noopener">Nothing Missing, Nothing Broken</a><a href="https://www.youtube.com/results?search_query=Funkie%20Tee%20Come%20and%20See" target="_blank" rel="noopener">Come and See</a><a href="https://www.youtube.com/watch?v=b0FApMBq4No" target="_blank" rel="noopener">Great and Mighty God</a><a href="https://www.youtube.com/watch?v=KBpa7-DTzvM" target="_blank" rel="noopener">Apple of God&#x27;s Eyes</a><a href="https://www.youtube.com/watch?v=vPvw6wyyqkc" target="_blank" rel="noopener">El-Roi (You See Me)</a><a href="https://www.youtube.com/watch?v=2gA7b8HQSJo" target="_blank" rel="noopener">For Who You Are</a><a href="https://www.youtube.com/watch?v=cQY7DL0_xZA" target="_blank" rel="noopener">I Declare</a><a href="https://www.youtube.com/watch?v=mOnHxDej2jI" target="_blank" rel="noopener">A Basket of Goodies</a><a href="https://www.youtube.com/watch?v=eF5pqTqbDN0" target="_blank" rel="noopener">My Father&#x27;s Plans For Me</a><a href="https://www.youtube.com/watch?v=sQZP6BmwSYo" target="_blank" rel="noopener">New Thing</a><a href="https://www.youtube.com/watch?v=jnyfwOIjw3c" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">God Did It</a><a href="https://www.youtube.com/watch?v=ZLsl9BLj8iQ" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">Streams of Joy</a><a href="https://www.youtube.com/watch?v=ZtKf0Vg5AOo" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">Opemipo</a><a href="https://www.youtube.com/watch?v=rSNhOOLS7S8" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">It&#x27;s Not Over for Me</a><a href="https://www.youtube.com/watch?v=SQhjYVacWhc" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">Ebenezer</a><a href="https://www.youtube.com/watch?v=KdMxvjaxvCo" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">The Blood of Jesus</a><a href="https://www.youtube.com/watch?v=P5xjOlPnFlc" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">Christ is Enough for Me</a><a href="https://www.youtube.com/watch?v=ODlC7JhlicA" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">This is My Jubilee</a><a href="https://www.youtube.com/watch?v=6CByZ2Kxt6Q" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">Last Dance</a><a href="https://www.youtube.com/watch?v=ujAJvnErskE" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">I Shall Not Want</a><a href="https://www.youtube.com/watch?v=pwVRElXzdYg" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">Take The Praise</a><a href="https://www.youtube.com/watch?v=eKrR7AC9Myc" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">Rapha</a><a href="https://www.youtube.com/watch?v=_r-bfaca9xo" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">This Jesus is Different</a><a href="https://www.youtube.com/watch?v=khrubZGy0Zk" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">There&#x27;s Prophecy Over Me</a><a href="https://www.youtube.com/watch?v=A40G8Z3KEhc" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">Just Your Voice</a><a href="https://www.youtube.com/watch?v=RtqrzCLbOb8" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">Nothing Missing, Nothing Broken</a><a href="https://www.youtube.com/results?search_query=Funkie%20Tee%20Come%20and%20See" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">Come and See</a><a href="https://www.youtube.com/watch?v=b0FApMBq4No" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">Great and Mighty God</a><a href="https://www.youtube.com/watch?v=KBpa7-DTzvM" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">Apple of God&#x27;s Eyes</a><a href="https://www.youtube.com/watch?v=vPvw6wyyqkc" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">El-Roi (You See Me)</a><a href="https://www.youtube.com/watch?v=2gA7b8HQSJo" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">For Who You Are</a><a href="https://www.youtube.com/watch?v=cQY7DL0_xZA" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">I Declare</a><a href="https://www.youtube.com/watch?v=mOnHxDej2jI" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">A Basket of Goodies</a><a href="https://www.youtube.com/watch?v=eF5pqTqbDN0" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">My Father&#x27;s Plans For Me</a><a href="https://www.youtube.com/watch?v=sQZP6BmwSYo" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">New Thing</a></div>
-</div>
 
 <section id="latest" class="glow-gold">
   <div class="wrap">
@@ -558,13 +620,25 @@ section,header.hero{scroll-margin-top:calc(env(safe-area-inset-top,0px) + 96px)}
       </article>
     </div>
 
-    <div class="head" style="margin-top:5rem">
-      <span class="eyebrow">All 25 songs</span>
-      <h2>Listen right here</h2>
-      <p class="lead">Tap play for a 30-second preview. Every song opens in full on YouTube, Spotify, Apple Music and Amazon.</p>
+    <div class="songhead" style="margin-top:5rem">
+      <div class="head" style="margin-bottom:0">
+        <span class="eyebrow">All 25 songs</span>
+        <h2>Press play and listen</h2>
+        <p class="lead">Tap play for a 30-second preview of any song. Every one opens in full on the platform you use.</p>
+      </div>
+      <div class="anywhere">
+        <span class="aw-title">Listen anywhere</span>
+        <div class="aw-grid">
+          <a href="https://www.youtube.com/@Funkieteemusic" target="_blank" rel="noopener">YouTube</a>
+          <a href="https://open.spotify.com/artist/38PxBexr2CgpQjC7OwSqL5" target="_blank" rel="noopener">Spotify</a>
+          <a href="https://music.apple.com/us/artist/funkie-tee/1867356216" target="_blank" rel="noopener">Apple Music</a>
+          <a href="https://music.amazon.ca/artists/B0GFKVNXMG" target="_blank" rel="noopener">Amazon Music</a>
+        </div>
+      </div>
     </div>
+    <div class="songpanel">
     <ul class="songs">
-      <li data-song="god-did-it" data-audio="god-did-it" data-title="God Did It" data-cover="img/cv/god-did-it.jpg" data-yt="https://www.youtube.com/watch?v=jnyfwOIjw3c" data-sp="https://open.spotify.com/track/3BAfG6dZxP5Ydbwav6AU3O" data-ap="https://music.apple.com/us/album/god-did-it/6811753024?i=6811753535" data-am="https://music.amazon.ca/artists/B0GFKVNXMG"><button class="pl" type="button" aria-label="Play a preview of God Did It"><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button><span class="body"><span class="t">God Did It</span><span class="plats"><a href="https://www.youtube.com/watch?v=jnyfwOIjw3c" target="_blank" rel="noopener">YouTube</a><a href="https://open.spotify.com/track/3BAfG6dZxP5Ydbwav6AU3O" target="_blank" rel="noopener">Spotify</a><a href="https://music.apple.com/us/album/god-did-it/6811753024?i=6811753535" target="_blank" rel="noopener">Apple Music</a><a href="https://music.amazon.ca/artists/B0GFKVNXMG" target="_blank" rel="noopener">Amazon</a></span></span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></li>
+      <li data-song="god-did-it" data-audio="god-did-it" data-title="God Did It" data-cover="img/cv/god-did-it.jpg" data-yt="https://www.youtube.com/watch?v=jnyfwOIjw3c" data-sp="https://open.spotify.com/track/3BAfG6dZxP5Ydbwav6AU3O" data-ap="https://music.apple.com/us/album/god-did-it/6811753024?i=6811753535" data-am="https://music.amazon.ca/artists/B0GFKVNXMG"><button class="pl" type="button" aria-label="Play a preview of God Did It"><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button><span class="body"><span class="t">God Did It <span class="newtag">New</span></span><span class="plats"><a href="https://www.youtube.com/watch?v=jnyfwOIjw3c" target="_blank" rel="noopener">YouTube</a><a href="https://open.spotify.com/track/3BAfG6dZxP5Ydbwav6AU3O" target="_blank" rel="noopener">Spotify</a><a href="https://music.apple.com/us/album/god-did-it/6811753024?i=6811753535" target="_blank" rel="noopener">Apple Music</a><a href="https://music.amazon.ca/artists/B0GFKVNXMG" target="_blank" rel="noopener">Amazon</a></span></span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></li>
       <li data-song="streams-of-joy" data-audio="streams-of-joy" data-title="Streams of Joy" data-cover="img/cv/this-is-my-jubilee.jpg" data-yt="https://www.youtube.com/watch?v=ZLsl9BLj8iQ" data-sp="https://open.spotify.com/track/2vslhYYccxakUEcilEmjza" data-ap="https://music.apple.com/us/album/streams-of-joy/1892508185?i=1892508186" data-am="https://music.amazon.ca/artists/B0GFKVNXMG"><button class="pl" type="button" aria-label="Play a preview of Streams of Joy"><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button><span class="body"><span class="t">Streams of Joy</span><span class="plats"><a href="https://www.youtube.com/watch?v=ZLsl9BLj8iQ" target="_blank" rel="noopener">YouTube</a><a href="https://open.spotify.com/track/2vslhYYccxakUEcilEmjza" target="_blank" rel="noopener">Spotify</a><a href="https://music.apple.com/us/album/streams-of-joy/1892508185?i=1892508186" target="_blank" rel="noopener">Apple Music</a><a href="https://music.amazon.ca/artists/B0GFKVNXMG" target="_blank" rel="noopener">Amazon</a></span></span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></li>
       <li data-song="opemipo" data-audio="opemipo" data-title="Opemipo" data-cover="img/cv/this-is-my-jubilee.jpg" data-yt="https://www.youtube.com/watch?v=ZtKf0Vg5AOo" data-sp="https://open.spotify.com/search/Funkie%20Tee%20Opemipo" data-ap="https://music.apple.com/us/album/opemipo/1892508185?i=1892508188" data-am="https://music.amazon.ca/artists/B0GFKVNXMG"><button class="pl" type="button" aria-label="Play a preview of Opemipo"><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button><span class="body"><span class="t">Opemipo</span><span class="plats"><a href="https://www.youtube.com/watch?v=ZtKf0Vg5AOo" target="_blank" rel="noopener">YouTube</a><a href="https://open.spotify.com/search/Funkie%20Tee%20Opemipo" target="_blank" rel="noopener">Spotify</a><a href="https://music.apple.com/us/album/opemipo/1892508185?i=1892508188" target="_blank" rel="noopener">Apple Music</a><a href="https://music.amazon.ca/artists/B0GFKVNXMG" target="_blank" rel="noopener">Amazon</a></span></span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></li>
       <li data-song="its-not-over-for-me" data-audio="its-not-over" data-title="It&#x27;s Not Over for Me" data-cover="img/cv/this-is-my-jubilee.jpg" data-yt="https://www.youtube.com/watch?v=rSNhOOLS7S8" data-sp="https://open.spotify.com/track/1O4rcaFprqFdpLiAzd7b89" data-ap="https://music.apple.com/us/album/its-not-over-for-me/1892508185?i=1892508339" data-am="https://music.amazon.ca/artists/B0GFKVNXMG"><button class="pl" type="button" aria-label="Play a preview of It&#x27;s Not Over for Me"><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button><span class="body"><span class="t">It&#x27;s Not Over for Me</span><span class="plats"><a href="https://www.youtube.com/watch?v=rSNhOOLS7S8" target="_blank" rel="noopener">YouTube</a><a href="https://open.spotify.com/track/1O4rcaFprqFdpLiAzd7b89" target="_blank" rel="noopener">Spotify</a><a href="https://music.apple.com/us/album/its-not-over-for-me/1892508185?i=1892508339" target="_blank" rel="noopener">Apple Music</a><a href="https://music.amazon.ca/artists/B0GFKVNXMG" target="_blank" rel="noopener">Amazon</a></span></span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></li>
@@ -590,6 +664,7 @@ section,header.hero{scroll-margin-top:calc(env(safe-area-inset-top,0px) + 96px)}
       <li data-song="my-fathers-plans-for-me" data-audio="my-fathers-plans-for-me" data-title="My Father&#x27;s Plans For Me" data-cover="img/cv/my-fathers-plans-for-me.jpg" data-yt="https://www.youtube.com/watch?v=eF5pqTqbDN0" data-sp="https://open.spotify.com/search/Funkie%20Tee%20My%20Father%27s%20Plans%20For%20Me" data-ap="https://music.apple.com/us/album/my-fathers-plans-for-me/1867908155?i=1867908157" data-am="https://music.amazon.ca/artists/B0GFKVNXMG"><button class="pl" type="button" aria-label="Play a preview of My Father&#x27;s Plans For Me"><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button><span class="body"><span class="t">My Father&#x27;s Plans For Me</span><span class="plats"><a href="https://www.youtube.com/watch?v=eF5pqTqbDN0" target="_blank" rel="noopener">YouTube</a><a href="https://open.spotify.com/search/Funkie%20Tee%20My%20Father%27s%20Plans%20For%20Me" target="_blank" rel="noopener">Spotify</a><a href="https://music.apple.com/us/album/my-fathers-plans-for-me/1867908155?i=1867908157" target="_blank" rel="noopener">Apple Music</a><a href="https://music.amazon.ca/artists/B0GFKVNXMG" target="_blank" rel="noopener">Amazon</a></span></span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></li>
       <li data-song="new-thing" data-audio="new-thing" data-title="New Thing" data-cover="img/cv/new-thing.jpg" data-yt="https://www.youtube.com/watch?v=sQZP6BmwSYo" data-sp="https://open.spotify.com/search/Funkie%20Tee%20New%20Thing" data-ap="https://music.apple.com/us/album/new-thing/1867400771?i=1867400772" data-am="https://music.amazon.ca/artists/B0GFKVNXMG"><button class="pl" type="button" aria-label="Play a preview of New Thing"><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button><span class="body"><span class="t">New Thing</span><span class="plats"><a href="https://www.youtube.com/watch?v=sQZP6BmwSYo" target="_blank" rel="noopener">YouTube</a><a href="https://open.spotify.com/search/Funkie%20Tee%20New%20Thing" target="_blank" rel="noopener">Spotify</a><a href="https://music.apple.com/us/album/new-thing/1867400771?i=1867400772" target="_blank" rel="noopener">Apple Music</a><a href="https://music.amazon.ca/artists/B0GFKVNXMG" target="_blank" rel="noopener">Amazon</a></span></span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></li>
     </ul>
+    </div>
   </div>
 </section>
 
@@ -730,7 +805,9 @@ section,header.hero{scroll-margin-top:calc(env(safe-area-inset-top,0px) + 96px)}
 (function(){
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   // Nav turns solid once the hero scrolls away
-  var nav=document.getElementById('nav');
+  var nav=document.getElementById('nav'),mb=document.getElementById('menu-btn');
+  mb.addEventListener('click',function(){var o=nav.classList.toggle('open');mb.setAttribute('aria-expanded',o)});
+  [].forEach.call(document.querySelectorAll('#navlinks a'),function(l){l.addEventListener('click',function(){nav.classList.remove('open');mb.setAttribute('aria-expanded','false')})});
   function onScroll(){nav.classList.toggle('solid',scrollY>40)}
   addEventListener('scroll',onScroll,{passive:true});onScroll();
   // Gold dust drifting up through the hero
