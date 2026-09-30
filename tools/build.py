@@ -11,7 +11,7 @@ IC = json.load(open('data/icons.json'))
 REL = {r['id']: r for r in cat['releases']}
 SONGS = cat['songs']
 e = html.escape
-V = "24"  # bump to refresh cached css/js
+V = "25"  # bump to refresh cached css/js
 
 SITE = 'https://www.funkieteemusic.com/'
 YT = 'https://www.youtube.com/@Funkieteemusic'
@@ -269,7 +269,7 @@ home = head('Funkie Tee | Contemporary Gospel Music',
       <a class="btn btn-gold btn-big" href="https://charlenplay.com" target="_blank" rel="noopener">{PLAY}Play the Bible games</a>
       <a class="btn btn-line" href="music.html#kids">Explore kids music</a>
     </div>
-    <p class="playnote">Free at <a href="https://charlenplay.com" target="_blank" rel="noopener">charlenplay.com</a> · no sign-up, no ads</p>
+    <p class="playnote">Free to play · no sign-up, no ads</p>
   </div>
 </section>
 
