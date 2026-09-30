@@ -11,7 +11,7 @@ IC = json.load(open('data/icons.json'))
 REL = {r['id']: r for r in cat['releases']}
 SONGS = cat['songs']
 e = html.escape
-V = "22"  # bump to refresh cached css/js
+V = "23"  # bump to refresh cached css/js
 
 SITE = 'https://www.funkieteemusic.com/'
 YT = 'https://www.youtube.com/@Funkieteemusic'
@@ -238,8 +238,8 @@ home = head('Funkie Tee | Contemporary Gospel Music',
 <section class="on-ivory" id="about">
   <div class="wrap about">
     <figure class="pair">
-      <img src="img/portrait-rose.jpg?v=2" alt="Funkie Tee standing in a rose peplum dress" width="1000" height="1792" loading="lazy">
-      <img src="img/portrait-about.jpg?v=5" alt="Funkie Tee standing in a navy gown with gold embroidery" width="1000" height="1500" loading="lazy">
+      <img class="big" src="img/portrait-about.jpg?v=5" alt="Funkie Tee standing in a navy gown with gold embroidery" width="1000" height="1500" loading="lazy">
+      <img class="small" src="img/portrait-rose.jpg?v=2" alt="Funkie Tee standing in a rose peplum dress" width="1000" height="1792" loading="lazy">
     </figure>
     <div class="stack">
       <span class="eyebrow">The heart behind the music</span>

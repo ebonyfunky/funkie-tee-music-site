@@ -442,3 +442,11 @@ section{padding-block:clamp(80px,11vw,140px)}
 .picks li{transition:background .3s}
 .picks li:hover{background:linear-gradient(90deg,rgba(235,203,107,.06),transparent 70%)}
 @media (max-width:820px){.feature .also{display:grid;grid-template-columns:auto auto;justify-content:start;gap:.4rem 1.4rem}.feature .also span{grid-column:1/-1}}
+
+/* About: editorial overlap. The navy portrait stands tall at the back; the rose portrait sits forward on an ivory mat. */
+.about figure.pair{display:block;position:relative;width:100%;max-width:520px;aspect-ratio:1/1.18;margin:0;justify-self:center}
+.about figure.pair::before{content:"";position:absolute;right:-14px;top:14px;width:72%;height:86%;border:1px solid rgba(201,162,39,.55);pointer-events:none}
+.about figure.pair img{position:absolute;object-fit:cover;object-position:50% 0;border-radius:3px;margin:0;aspect-ratio:auto;height:auto}
+.about figure.pair .big{right:0;top:0;width:72%;height:86%;box-shadow:0 34px 60px -34px rgba(15,26,74,.55)}
+.about figure.pair .small{left:0;bottom:0;width:50%;aspect-ratio:3/4;border:9px solid var(--ivory);box-shadow:0 44px 70px -30px rgba(15,26,74,.65),0 0 0 1px rgba(201,162,39,.5)}
+@media (max-width:820px){.about figure.pair{max-width:360px;justify-self:start}.about figure.pair::before{right:-10px;top:10px}.about figure.pair .small{border-width:6px}}
