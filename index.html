@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Funkie Tee Music</title>
+<meta name="description" content="Funkie Tee — faith-filled African contemporary praise with gospel-soul depth. Listen to This Is My Jubilee, God Did It, and Scripture songs for children.">
+<meta property="og:title" content="Funkie Tee Music">
+<meta property="og:description" content="Where faith meets the future. Praise, testimony and Scripture songs by Funkie Tee.">
+<meta property="og:image" content="img/banner.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Karla:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one continuous night sky. Her banner fills the hero; every section after it sits on deep indigo lit by gold and aqua light. Gold is the only bright thing. */
+:root{
+  --night:#070D2A;
+  --indigo:#0F1A4A;
+  --indigo-2:#16256A;
+  --gold:#E8C45C;
+  --gold-2:#C9A227;
+  --gold-3:#8A6D12;
+  --aqua:#3FE0CC;
+  --ivory:#FBF6E8;
+  --ink-soft:rgba(251,246,232,.72);
+  --line:rgba(232,196,92,.22);
+  --glass:rgba(255,255,255,.05);
+  --bg:var(--night);
+  --fg:var(--ivory);
+  --display:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --body:"Karla","Helvetica Neue",Arial,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.06;margin:0;text-wrap:balance}
+h2{font-size:clamp(2.4rem,5.2vw,3.8rem)}
+h3{font-size:1.5rem}
+p{margin:0}
+.wrap{max-width:1160px;margin-inline:auto;padding-inline:clamp(16px,5vw,48px)}
+.eyebrow{font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:700;display:flex;align-items:center;gap:.8rem}
+.eyebrow::before{content:"";width:28px;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
+.gold-text{background:linear-gradient(100deg,#F7E7A8 0%,#E8C45C 35%,#B8901F 55%,#F3DB8A 80%,#FFF3C4 100%);-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% 100%;animation:sheen 7s linear infinite}
+@keyframes sheen{to{background-position:200% 0}}
+
+/* Buttons */
+.btn{position:relative;display:inline-flex;align-items:center;gap:.55rem;padding:.9rem 1.6rem;border-radius:999px;font-weight:700;font-size:.92rem;letter-spacing:.02em;text-decoration:none;border:1px solid transparent;transition:transform .2s,box-shadow .2s,background .2s;overflow:hidden}
+.btn:hover{transform:translateY(-2px)}
+.btn:focus-visible,a:focus-visible{outline:3px solid var(--aqua);outline-offset:3px}
+.btn-gold{background:linear-gradient(180deg,#FBE9A6 0%,#E3BE4E 45%,#B98F1E 100%);color:#231A02;box-shadow:0 10px 30px -8px rgba(232,196,92,.55),inset 0 1px 0 rgba(255,255,255,.7)}
+.btn-gold:hover{box-shadow:0 16px 40px -8px rgba(232,196,92,.75),inset 0 1px 0 rgba(255,255,255,.8)}
+.btn-gold::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);transform:translateX(-120%);transition:transform .6s}
+.btn-gold:hover::after{transform:translateX(120%)}
+.btn-glass{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.22);color:#fff;backdrop-filter:blur(10px)}
+.btn-glass:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.4)}
+.btn svg{width:18px;height:18px;fill:currentColor}
+
+/* Nav */
+nav{position:fixed;left:0;right:0;top:0;z-index:30;padding-top:env(safe-area-inset-top,0px);transition:background .3s,backdrop-filter .3s}
+nav.solid{background:rgba(7,13,42,.72);backdrop-filter:blur(16px);border-bottom:1px solid rgba(232,196,92,.14)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:72px}
+.brand{font-family:var(--display);font-size:1.55rem;font-weight:600;letter-spacing:.06em;text-decoration:none;color:#fff}
+.brand em{font-style:normal;color:var(--gold)}
+.links{display:flex;gap:1.7rem;font-size:.86rem;font-weight:600;letter-spacing:.04em}
+.links a{text-decoration:none;color:rgba(255,255,255,.72);transition:color .2s}
+.links a:hover{color:var(--gold)}
+@media (max-width:760px){.links{display:none}}
+
+/* Hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;isolation:isolate;background:var(--indigo)}
+.hero .art{position:absolute;inset:-6%;background:url("img/banner.jpg") center 40%/cover no-repeat;z-index:-3;animation:drift 28s ease-in-out infinite alternate;will-change:transform}
+@keyframes drift{from{transform:scale(1) translate(0,0)}to{transform:scale(1.08) translate(-1.5%,1.2%)}}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;z-index:-2;pointer-events:none}
+.hero .veil{position:absolute;inset:0;z-index:-1;background:
+  radial-gradient(60% 50% at 20% 85%,rgba(232,196,92,.22),transparent 60%),
+  linear-gradient(180deg,rgba(7,13,42,.55) 0%,rgba(7,13,42,.05) 35%,rgba(7,13,42,.55) 75%,var(--night) 100%)}
+.hero .wrap{position:relative;width:100%;padding-block:clamp(140px,20vh,220px) clamp(72px,9vw,120px)}
+.hero .kicker{font-size:.78rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:1.2rem;opacity:0;animation:rise 1s .2s forwards}
+.hero h1{font-size:clamp(3.6rem,11vw,8.6rem);letter-spacing:.08em;font-weight:500;line-height:.95;text-shadow:0 0 40px rgba(232,196,92,.25),0 4px 30px rgba(0,0,0,.5);opacity:0;animation:rise 1.1s .4s forwards}
+.hero .tag{font-family:var(--display);font-style:italic;font-size:clamp(1.5rem,3.4vw,2.4rem);color:#F7E7A8;margin-top:.6rem;opacity:0;animation:rise 1s .7s forwards}
+.hero .sub{max-width:36rem;margin-top:1.4rem;font-size:1.08rem;color:rgba(255,255,255,.82);opacity:0;animation:rise 1s .9s forwards}
+.hero .cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2.2rem;opacity:0;animation:rise 1s 1.1s forwards}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.scroll-hint{position:absolute;right:clamp(16px,5vw,48px);bottom:28px;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.5);writing-mode:vertical-rl;display:flex;align-items:center;gap:.6rem}
+.scroll-hint::after{content:"";width:1px;height:48px;background:linear-gradient(180deg,var(--gold),transparent);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.3}}
+@media (max-width:760px){.scroll-hint{display:none}}
+
+/* Ticker */
+.ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:linear-gradient(90deg,rgba(232,196,92,.06),rgba(63,224,204,.05),rgba(232,196,92,.06));overflow:hidden;padding-block:.9rem}
+.ticker div{display:flex;gap:3rem;white-space:nowrap;width:max-content;animation:scrollx 60s linear infinite;font-family:var(--display);font-size:1.3rem;font-style:italic;color:rgba(255,255,255,.75)}
+.ticker span::before{content:"✦";color:var(--gold);margin-right:3rem;font-style:normal;font-size:.9rem}
+@keyframes scrollx{to{transform:translateX(-50%)}}
+
+/* Sections */
+section{position:relative;padding-block:clamp(80px,11vw,140px)}
+.glow-gold::before,.glow-aqua::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0}
+.glow-gold::before{background:radial-gradient(50% 45% at 85% 30%,rgba(232,196,92,.16),transparent 65%)}
+.glow-aqua::before{background:radial-gradient(45% 40% at 10% 70%,rgba(63,224,204,.12),transparent 65%)}
+section>.wrap{position:relative;z-index:1}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,90px);align-items:center}
+@media (max-width:760px){.split{grid-template-columns:1fr}}
+.stack{display:flex;flex-direction:column;gap:1.2rem}
+.lead{font-size:1.14rem;color:var(--ink-soft);max-width:36rem}
+.row{display:flex;flex-wrap:wrap;gap:.8rem}
+.verse{font-family:var(--display);font-style:italic;font-size:1.45rem;border-left:2px solid var(--gold);padding-left:1.1rem;color:#fff}
+.verse small{display:block;font-family:var(--body);font-style:normal;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:.4rem}
+
+/* Featured cover with halo + reflection */
+.halo{position:relative;padding:6%}
+.halo::before{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(closest-side,rgba(232,196,92,.45),rgba(63,224,204,.12) 55%,transparent 75%);filter:blur(30px);animation:breathe 6s ease-in-out infinite}
+@keyframes breathe{50%{transform:scale(1.08);opacity:.85}}
+.halo .cover{position:relative;border-radius:16px;box-shadow:0 40px 90px -30px rgba(0,0,0,.9),0 0 0 1px rgba(232,196,92,.35),0 0 60px -10px rgba(232,196,92,.35);transform:perspective(1200px) rotateY(-6deg);transition:transform .5s}
+.halo:hover .cover{transform:perspective(1200px) rotateY(0deg) translateY(-6px)}
+.halo .reflect{position:relative;margin-top:6px;aspect-ratio:3/1;overflow:hidden;border-radius:16px;opacity:.28;transform:scaleY(-1);-webkit-mask-image:linear-gradient(180deg,transparent 30%,#000);mask-image:linear-gradient(180deg,transparent 30%,#000)}
+.halo .reflect img{filter:blur(1px)}
+
+.head{display:flex;flex-direction:column;gap:.8rem;margin-bottom:3rem}
+
+/* Catalogue cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:2rem 1.6rem}
+.card{position:relative;text-decoration:none;display:flex;flex-direction:column;gap:.8rem}
+.card .frame{position:relative;border-radius:14px;overflow:hidden;box-shadow:0 24px 50px -20px rgba(0,0,0,.9),0 0 0 1px rgba(232,196,92,.18);transition:transform .35s,box-shadow .35s}
+.card .frame::after{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(255,255,255,.22),transparent 40%,transparent 70%,rgba(232,196,92,.12));pointer-events:none}
+.card .frame img{transition:transform .6s}
+.card:hover .frame{transform:translateY(-8px);box-shadow:0 34px 60px -20px rgba(0,0,0,.95),0 0 0 1px rgba(232,196,92,.5),0 0 50px -8px rgba(232,196,92,.45)}
+.card:hover .frame img{transform:scale(1.05)}
+.card .play{position:absolute;inset:0;display:grid;place-items:center;opacity:0;transition:opacity .3s}
+.card:hover .play{opacity:1}
+.card .play span{width:58px;height:58px;border-radius:50%;background:linear-gradient(180deg,#FBE9A6,#C9A227);display:grid;place-items:center;color:#231A02;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+.card .play svg{width:22px;height:22px;fill:currentColor;margin-left:3px}
+.card h3{font-size:1.4rem;color:#fff}
+.card .meta{font-size:.84rem;color:var(--ink-soft)}
+.pill{display:inline-block;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;padding:.22rem .65rem;border-radius:999px;border:1px solid rgba(63,224,204,.5);color:var(--aqua);align-self:flex-start}
+
+/* Songs list */
+.songs{columns:2;column-gap:4rem;list-style:none;padding:0;margin:0}
+@media (max-width:640px){.songs{columns:1}}
+.songs li{break-inside:avoid;border-bottom:1px solid rgba(255,255,255,.08)}
+.songs a{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.9rem .4rem;text-decoration:none;transition:background .2s,padding-left .2s}
+.songs a:hover{background:rgba(232,196,92,.06);padding-left:.9rem}
+.songs a span:first-child{font-family:var(--display);font-size:1.4rem;color:#fff}
+.songs a:hover span:first-child{color:var(--gold)}
+.songs a span:last-child{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap}
+
+/* Videos */
+.videos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem}
+@media (max-width:760px){.videos{grid-template-columns:1fr}}
+.video{position:relative;border-radius:14px;overflow:hidden;display:block;aspect-ratio:16/10;background:var(--indigo);box-shadow:0 24px 50px -20px rgba(0,0,0,.9),0 0 0 1px rgba(232,196,92,.18);transition:transform .35s,box-shadow .35s}
+.video:hover{transform:translateY(-6px);box-shadow:0 34px 60px -20px rgba(0,0,0,.95),0 0 0 1px rgba(232,196,92,.5),0 0 50px -8px rgba(232,196,92,.4)}
+.video img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.video:hover img{transform:scale(1.05)}
+.video .play{position:absolute;inset:0;display:grid;place-items:center}
+.video .play span{width:68px;height:68px;border-radius:50%;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.5);backdrop-filter:blur(8px);display:grid;place-items:center;color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.45);transition:background .3s,transform .3s}
+.video:hover .play span{background:linear-gradient(180deg,#FBE9A6,#C9A227);color:#231A02;transform:scale(1.08)}
+.video .play svg{width:26px;height:26px;fill:currentColor;margin-left:3px}
+.video .title{position:absolute;left:0;right:0;bottom:0;padding:1.1rem 1.2rem;color:#fff;font-family:var(--display);font-size:1.45rem;background:linear-gradient(180deg,transparent,rgba(7,13,42,.92))}
+
+/* About */
+.about .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,90px);align-items:start}
+@media (max-width:760px){.about .wrap{grid-template-columns:1fr}}
+.about p{max-width:38rem;color:var(--ink-soft)}
+.signature{font-family:var(--display);font-style:italic;font-size:1.9rem;color:#F7E7A8;text-shadow:0 0 30px rgba(232,196,92,.35)}
+.glass{background:var(--glass);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:clamp(1.4rem,3vw,2.4rem);backdrop-filter:blur(14px);box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 30px 60px -30px rgba(0,0,0,.8)}
+
+/* Families */
+.family{background:linear-gradient(180deg,var(--night),var(--indigo-2) 50%,var(--night));overflow:hidden}
+.family::before{content:"";position:absolute;inset:0;background:radial-gradient(40% 50% at 75% 50%,rgba(232,196,92,.2),transparent 70%);pointer-events:none}
+.trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;perspective:1200px}
+.trio a{display:block;border-radius:12px;overflow:hidden;box-shadow:0 24px 50px -20px rgba(0,0,0,.9),0 0 0 1px rgba(232,196,92,.25);transition:transform .4s}
+.trio a:nth-child(1){transform:rotateY(14deg)}
+.trio a:nth-child(3){transform:rotateY(-14deg)}
+.trio a:nth-child(2){transform:translateY(-12px) scale(1.04)}
+.trio a:hover{transform:translateY(-10px) scale(1.05)}
+
+/* Connect */
+.social{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1rem}
+.social a{display:flex;align-items:center;gap:1rem;padding:1.2rem 1.3rem;border:1px solid rgba(255,255,255,.1);background:var(--glass);border-radius:14px;text-decoration:none;transition:border-color .2s,background .2s,transform .2s;box-shadow:inset 0 1px 0 rgba(255,255,255,.1)}
+.social a:hover{border-color:rgba(232,196,92,.6);background:rgba(232,196,92,.08);transform:translateY(-4px)}
+.social svg{width:26px;height:26px;fill:var(--gold);flex:none}
+.social b{display:block;font-weight:700;color:#fff}
+.social small{color:var(--ink-soft)}
+
+footer{border-top:1px solid var(--line);padding-block:2.2rem;font-size:.84rem;color:var(--ink-soft);background:#040819}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem 2rem}
+
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Funkie <em>Tee</em></a>
+    <div class="links">
+      <a href="#latest">Latest</a>
+      <a href="#music">Music</a>
+      <a href="#videos">Videos</a>
+      <a href="#about">About</a>
+      <a href="#families">For families</a>
+      <a href="#connect">Connect</a>
+    </div>
+    <a class="btn btn-gold" href="https://www.youtube.com/@Funkieteemusic" target="_blank" rel="noopener">Listen now</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="art" role="img" aria-label="Royal blue sky with a sweep of aqua light and gold stars"></div>
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <div class="veil"></div>
+  <div class="wrap">
+    <p class="kicker">Praise · Testimony · Scripture songs</p>
+    <h1 class="gold-text">FUNKIE TEE</h1>
+    <p class="tag">Where faith meets the future</p>
+    <p class="sub">African contemporary praise with gospel-soul warmth and a live-band pulse. Songs for the shut door, the open door, and the children singing in the back seat.</p>
+    <div class="cta">
+      <a class="btn btn-gold" href="https://www.youtube.com/@Funkieteemusic" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.8 15.2V8.8l6 3.2-6 3.2z"/></svg>
+        YouTube
+      </a>
+      <a class="btn btn-glass" href="https://music.apple.com/us/artist/funkie-tee/1867356216" target="_blank" rel="noopener">Apple Music</a>
+      <a class="btn btn-glass" href="https://open.spotify.com/artist/38PxBexr2CgpQjC7OwSqL5" target="_blank" rel="noopener">Spotify</a>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll</div>
+</header>
+
+<div class="ticker" aria-hidden="true">
+  <div>
+    <span>God Did It</span><span>This Is My Jubilee</span><span>Christ Is Enough for Me</span><span>Ebenezer</span><span>It's Not Over for Me</span><span>Streams of Joy</span><span>Last Dance</span><span>I Shall Not Want</span><span>Take the Praise</span><span>Rapha</span><span>Just Your Voice</span><span>My Father's Plans For Me</span><span>El-Roi (You See Me)</span>
+    <span>God Did It</span><span>This Is My Jubilee</span><span>Christ Is Enough for Me</span><span>Ebenezer</span><span>It's Not Over for Me</span><span>Streams of Joy</span><span>Last Dance</span><span>I Shall Not Want</span><span>Take the Praise</span><span>Rapha</span><span>Just Your Voice</span><span>My Father's Plans For Me</span><span>El-Roi (You See Me)</span>
+  </div>
+</div>
+
+<section id="latest" class="glow-gold">
+  <div class="wrap split">
+    <div class="halo">
+      <img class="cover" src="img/god-did-it.jpg" alt="God Did It single cover: a golden doorway standing open in a dark hall" width="640" height="640">
+      <div class="reflect" aria-hidden="true"><img src="img/god-did-it.jpg" alt="" width="640" height="640"></div>
+    </div>
+    <div class="stack">
+      <span class="eyebrow">Latest single</span>
+      <h2>God Did It</h2>
+      <p class="lead">When the door was shut, He showed up. A testimony song for anyone who waited longer than they expected and still saw God move.</p>
+      <p class="verse">This is the Lord's doing; it is marvellous in our eyes.<small>Psalm 118:23</small></p>
+      <div class="row">
+        <a class="btn btn-gold" href="https://www.youtube.com/watch?v=jnyfwOIjw3c" target="_blank" rel="noopener">Hear it on YouTube</a>
+        <a class="btn btn-glass" href="https://music.apple.com/us/artist/funkie-tee/1867356216" target="_blank" rel="noopener">Apple Music</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="music" class="glow-aqua">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Releases</span>
+      <h2>The catalogue</h2>
+      <p class="lead">Every release is on YouTube, Apple Music, Spotify and the other major platforms. Tap a cover to listen.</p>
+    </div>
+    <div class="grid">
+      <a class="card" href="https://www.youtube.com/playlist?list=OLAK5uy_mR7O0LCR9sVA8fv-7o6KX9vIK4O8wJd3s" target="_blank" rel="noopener">
+        <span class="frame"><img src="img/jubilee.jpg" alt="This Is My Jubilee album cover: a jewelled crown under fireworks" width="640" height="640"><span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span></span>
+        <span class="pill">Album</span>
+        <h3>This Is My Jubilee</h3>
+        <span class="meta">Praise and testimony · 2026</span>
+      </a>
+      <a class="card" href="https://www.youtube.com/playlist?list=OLAK5uy_kGRXI_ujmY8qt5tMy8edhc8ZU_q_V4lS8" target="_blank" rel="noopener">
+        <span class="frame"><img src="img/last-dance.jpg" alt="Last Dance cover: a single rose on a lit ballroom floor beneath a chandelier" width="640" height="640"><span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span></span>
+        <span class="pill">Album</span>
+        <h3>Last Dance</h3>
+        <span class="meta">Worship and surrender</span>
+      </a>
+      <a class="card" href="https://www.youtube.com/watch?v=eF5pqTqbDN0" target="_blank" rel="noopener">
+        <span class="frame"><img src="img/fathers-plans.jpg" alt="My Father's Plans For Me cover: a golden road through green hills at sunrise" width="640" height="640"><span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span></span>
+        <span class="pill">Single</span>
+        <h3>My Father's Plans For Me</h3>
+        <span class="meta">Encouragement</span>
+      </a>
+      <a class="card" href="https://www.youtube.com/watch?v=vPvw6wyyqkc" target="_blank" rel="noopener">
+        <span class="frame"><img src="img/el-roi.jpg" alt="El-Roi (You See Me) cover: a column of light breaking through storm clouds" width="640" height="640"><span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span></span>
+        <span class="pill">Single</span>
+        <h3>El-Roi (You See Me)</h3>
+        <span class="meta">The God who sees</span>
+      </a>
+    </div>
+
+    <div class="head" style="margin-top:5rem">
+      <span class="eyebrow">Songs</span>
+      <h2>Listen by title</h2>
+    </div>
+    <ul class="songs">
+      <li><a href="https://www.youtube.com/watch?v=jnyfwOIjw3c" target="_blank" rel="noopener"><span>God Did It</span><span>Single</span></a></li>
+      <li><a href="https://www.youtube.com/watch?v=ODlC7JhlicA" target="_blank" rel="noopener"><span>This Is My Jubilee</span><span>Album</span></a></li>
+      <li><a href="https://www.youtube.com/watch?v=P5xjOlPnFlc" target="_blank" rel="noopener"><span>Christ Is Enough for Me</span><span>Album</span></a></li>
+      <li><a href="https://www.youtube.com/watch?v=SQhjYVacWhc" target="_blank" rel="noopener"><span>Ebenezer</span><span>Album</span></a></li>
+      <li><a href="https://www.youtube.com/watch?v=rSNhOOLS7S8" target="_blank" rel="noopener"><span>It's Not Over for Me</span><span>Album</span></a></li>
+      <li><a href="https://www.youtube.com/watch?v=ZLsl9BLj8iQ" target="_blank" rel="noopener"><span>Streams of Joy</span><span>Album</span></a></li>
+      <li><a href="https://www.youtube.com/watch?v=6CByZ2Kxt6Q" target="_blank" rel="noopener"><span>Last Dance</span><span>Album</span></a></li>
+      <li><a href="https://www.youtube.com/watch?v=ujAJvnErskE" target="_blank" rel="noopener"><span>I Shall Not Want</span><span>Album</span></a></li>
+      <li><a href="https://www.youtube.com/watch?v=pwVRElXzdYg" target="_blank" rel="noopener"><span>Take the Praise</span><span>Album</span></a></li>
+      <li><a href="https://www.youtube.com/watch?v=eKrR7AC9Myc" target="_blank" rel="noopener"><span>Rapha</span><span>Album</span></a></li>
+      <li><a href="https://www.youtube.com/watch?v=A40G8Z3KEhc" target="_blank" rel="noopener"><span>Just Your Voice</span><span>Album</span></a></li>
+      <li><a href="https://www.youtube.com/watch?v=eF5pqTqbDN0" target="_blank" rel="noopener"><span>My Father's Plans For Me</span><span>Single</span></a></li>
+      <li><a href="https://www.youtube.com/watch?v=vPvw6wyyqkc" target="_blank" rel="noopener"><span>El-Roi (You See Me)</span><span>Single</span></a></li>
+    </ul>
+  </div>
+</section>
+
+<section id="videos" class="glow-gold">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Watch</span>
+      <h2>Music videos</h2>
+    </div>
+    <div class="videos">
+      <a class="video" href="https://www.youtube.com/watch?v=jnyfwOIjw3c" target="_blank" rel="noopener">
+        <img src="img/god-did-it.jpg" alt="" width="640" height="640">
+        <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span>
+        <span class="title">God Did It</span>
+      </a>
+      <a class="video" href="https://www.youtube.com/watch?v=ODlC7JhlicA" target="_blank" rel="noopener">
+        <img src="img/jubilee.jpg" alt="" width="640" height="640">
+        <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span>
+        <span class="title">This Is My Jubilee</span>
+      </a>
+      <a class="video" href="https://www.youtube.com/watch?v=6CByZ2Kxt6Q" target="_blank" rel="noopener">
+        <img src="img/last-dance.jpg" alt="" width="640" height="640">
+        <span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span>
+        <span class="title">Last Dance</span>
+      </a>
+    </div>
+    <div class="row" style="margin-top:2.4rem">
+      <a class="btn btn-glass" href="https://www.youtube.com/@Funkieteemusic" target="_blank" rel="noopener">All videos on YouTube</a>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about glow-aqua">
+  <div class="wrap">
+    <div class="stack">
+      <span class="eyebrow">About</span>
+      <h2>Faith first.<br>Always.</h2>
+      <p class="signature">"God cannot leave me stranded."</p>
+    </div>
+    <div class="glass stack">
+      <p>Funkie Tee has been singing in choirs since she was six. The music grew up with her: through Nigeria, Canada and the United States, through a career in clinical research and medical affairs, through seasons of waiting, and through raising two sons.</p>
+      <p>The songs are what she sings when the door is shut and when it opens. Praise with a live-band pulse. Testimony without exaggeration. Scripture set to melodies simple enough for a child to carry home.</p>
+      <p>Off stage she is Dr. Olufunke Omotayo, a pharmacist and public-health professional. On every record she is Funkie Tee, and the message is the same in both places: God is faithful, and it is not over.</p>
+      <p style="color:var(--gold)">Released through Charlen Legacy Records.</p>
+    </div>
+  </div>
+</section>
+
+<section id="families" class="family">
+  <div class="wrap split">
+    <div class="stack">
+      <span class="eyebrow">For families</span>
+      <h2>Bible verses you can sing</h2>
+      <p class="lead">Verse Vanish is a three-volume set of Scripture songs for children, one KJV verse per song, short enough to learn on the school run. Each volume pairs with a free memory-verse game at Charlen Play.</p>
+      <div class="row">
+        <a class="btn btn-gold" href="https://www.youtube.com/playlist?list=OLAK5uy_km_A4u-g6XJtyzuR9VsN4Z_U0F-Cp-2rM" target="_blank" rel="noopener">Listen to Vol. 1</a>
+        <a class="btn btn-glass" href="https://charlenplay.com" target="_blank" rel="noopener">Play the games</a>
+      </div>
+    </div>
+    <div class="trio">
+      <a href="https://www.youtube.com/playlist?list=OLAK5uy_km_A4u-g6XJtyzuR9VsN4Z_U0F-Cp-2rM" target="_blank" rel="noopener"><img src="img/verse-vanish-1.jpg" alt="Verse Vanish Vol. 1: Trust and Courage" width="640" height="640"></a>
+      <a href="https://www.youtube.com/playlist?list=OLAK5uy_nNXoYNPy8DpgBagwQBBnLxB4j_WO_fQMM" target="_blank" rel="noopener"><img src="img/verse-vanish-2.jpg" alt="Verse Vanish Vol. 2: Praise and Wonder" width="640" height="640"></a>
+      <a href="https://www.youtube.com/playlist?list=OLAK5uy_kYufB1T3ET3UrKcsDPgxCz0owRfBmcB-M" target="_blank" rel="noopener"><img src="img/verse-vanish-3.jpg" alt="Verse Vanish Vol. 3: Love and Kindness" width="640" height="640"></a>
+    </div>
+  </div>
+</section>
+
+<section id="connect" class="glow-gold">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Connect</span>
+      <h2>Come and sing along</h2>
+      <p class="lead">New songs, behind-the-song stories and live moments land here first.</p>
+    </div>
+    <div class="social">
+      <a href="https://www.youtube.com/@Funkieteemusic" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.8 15.2V8.8l6 3.2-6 3.2z"/></svg>
+        <span><b>YouTube</b><small>@Funkieteemusic</small></span>
+      </a>
+      <a href="https://www.tiktok.com/@funkieteemusic" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M16.5 2h-3.2v13.6a2.9 2.9 0 1 1-2.9-2.9c.3 0 .6 0 .9.1V9.5a6.1 6.1 0 1 0 5.2 6V8.6a7.5 7.5 0 0 0 4.5 1.5V6.9A4.5 4.5 0 0 1 16.5 2z"/></svg>
+        <span><b>TikTok</b><small>@funkieteemusic</small></span>
+      </a>
+      <a href="https://www.instagram.com/funkieteemusic" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.2.1 4.8 1.7 4.9 4.9.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 4 4 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-10.8a1.4 1.4 0 1 0 0 2.9 1.4 1.4 0 0 0 0-2.9z"/></svg>
+        <span><b>Instagram</b><small>@funkieteemusic</small></span>
+      </a>
+      <a href="https://www.facebook.com/funkieteemusic" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.3l-.5 3.5h-2.8v8.4A12 12 0 0 0 24 12z"/></svg>
+        <span><b>Facebook</b><small>funkieteemusic</small></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Funkie Tee Music · Charlen Legacy Records</span>
+    <span>Songs available on YouTube, Apple Music, Spotify, Amazon Music and more</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Nav turns solid once the hero scrolls away
+  var nav=document.getElementById('nav');
+  function onScroll(){nav.classList.toggle('solid',scrollY>40)}
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+  // Gold dust drifting up through the hero
+  var c=document.getElementById('stars');if(!c||reduce)return;
+  var ctx=c.getContext('2d'),P=[],W,H,dpr=Math.min(devicePixelRatio||1,2);
+  function size(){W=c.clientWidth;H=c.clientHeight;c.width=W*dpr;c.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}
+  function mk(y){return{x:Math.random()*W,y:y==null?Math.random()*H:y,r:Math.random()*1.8+.4,s:Math.random()*.25+.08,a:Math.random()*Math.PI*2,t:Math.random()<.85?0:1}}
+  size();addEventListener('resize',size);
+  for(var i=0;i<110;i++)P.push(mk());
+  function frame(){
+    ctx.clearRect(0,0,W,H);
+    for(var i=0;i<P.length;i++){var p=P[i];p.y-=p.s;p.a+=.02;p.x+=Math.sin(p.a)*.15;if(p.y<-4)P[i]=p=mk(H+4);
+      var tw=.55+.45*Math.sin(p.a*1.7);ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,6.283);
+      ctx.fillStyle=p.t?'rgba(63,224,204,'+(tw*.7)+')':'rgba(247,231,168,'+tw+')';ctx.shadowBlur=8;ctx.shadowColor=p.t?'#3FE0CC':'#E8C45C';ctx.fill()}
+    requestAnimationFrame(frame)}
+  frame();
+})();
+</script>
+</body>
+</html>
