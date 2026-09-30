@@ -160,6 +160,7 @@ PICKS = [
     ('Last Dance', 'Album · 7 songs', 'Seven songs of worship, healing and trust.'),
     ('El-Roi (You See Me)', 'Single', 'For the one who feels unseen. He sees you.'),
     ('Just Your Voice', 'From the album Last Dance', 'When everything else is loud, His voice is the one you need.'),
+    ('Rapha', 'From the album Last Dance', 'For the one who needs healing. He is the God who heals.'),
     ("My Father's Plans For Me", 'Single', 'When you cannot see the road, His plans still stand.'),
 ]
 
