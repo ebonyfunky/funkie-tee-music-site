@@ -53,6 +53,15 @@
     a.addEventListener('ended',function(){load(cur+1)});
   }
 
+  // Release switch: before the premiere the page shows the preview film; from the premiere it shows the YouTube video
+  var filmBox=document.getElementById('film'),ytBox=document.getElementById('ytfilm');
+  if(filmBox&&ytBox&&filmBox.dataset.release){
+    var live=Date.now()>=Date.parse(filmBox.dataset.release);
+    var cap=document.getElementById('vcap-title'),lnk=document.getElementById('vcap-link');
+    if(live){filmBox.hidden=true;ytBox.hidden=false;if(cap)cap.textContent='Official music video';if(lnk)lnk.textContent='Watch on YouTube';var h=document.querySelector('#video h2'),ey=document.querySelector('#video .eyebrow');if(h)h.textContent='God Did It, the official video';if(ey)ey.textContent='Watch'}
+    else{if(cap)cap.textContent='Official video premieres 1 October, 1:00 PM CT';if(lnk)lnk.textContent='Set a reminder on YouTube'}
+  }
+
   // Film: plays silently while it is on screen; one tap restarts it with sound
   var film=document.getElementById('film');
   if(film){

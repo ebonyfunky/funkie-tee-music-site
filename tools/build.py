@@ -11,7 +11,7 @@ IC = json.load(open('data/icons.json'))
 REL = {r['id']: r for r in cat['releases']}
 SONGS = cat['songs']
 e = html.escape
-V = "29"  # bump to refresh cached css/js
+V = "30"  # bump to refresh cached css/js
 
 SITE = 'https://www.funkieteemusic.com/'
 YT = 'https://www.youtube.com/@Funkieteemusic'
@@ -279,11 +279,15 @@ home = head('Funkie Tee | Contemporary Gospel Music',
       <span class="eyebrow">Video preview</span>
       <h2>A first look at God Did It</h2>
     </div>
-    <div class="video film" id="film">
+    <div class="video film" id="film" data-release="2026-10-01T13:00:00-05:00" data-yt="QLBroPtO5vY">
       <video muted loop playsinline preload="none" poster="img/video-god-did-it.jpg" width="1366" height="768" aria-label="God Did It, a short film: a woman in a rose dress in a glass-walled room above a city at dusk"><source src="video/god-did-it.mp4" type="video/mp4"></video>
       <button class="shade" type="button" id="film-btn" aria-label="Watch the God Did It video preview with sound"><span class="disc">{PLAY}</span><span class="lbl">Watch the preview</span></button>
     </div>
-    <div class="videocap"><b>Official music video</b>{ext(YT, 'Watch on YouTube', 'playlink')}</div>
+    <button class="video" id="ytfilm" type="button" data-yt="QLBroPtO5vY" data-title="God Did It (Official Music Video) by Funkie Tee" aria-label="Watch God Did It, the official music video" hidden>
+      <img src="img/video-god-did-it.jpg" alt="" width="1366" height="768" loading="lazy">
+      <span class="shade"><span class="disc">{PLAY}</span><span class="lbl">Watch video</span></span>
+    </button>
+    <div class="videocap"><b id="vcap-title">Official music video</b><a id="vcap-link" class="playlink" href="https://youtu.be/QLBroPtO5vY" target="_blank" rel="noopener">Set a reminder on YouTube</a></div>
   </div>
 </section>
 
