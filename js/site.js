@@ -45,6 +45,24 @@
     a.addEventListener('ended',function(){load(cur+1)});
   }
 
+  // Film: plays silently while it is on screen; one tap restarts it with sound
+  var film=document.getElementById('film');
+  if(film){
+    var fv=film.querySelector('video'),fb=document.getElementById('film-btn'),sound=false;
+    var still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if('IntersectionObserver' in window&&!still){
+      new IntersectionObserver(function(en){en.forEach(function(x){
+        if(sound)return;
+        if(x.isIntersecting)fv.play().catch(function(){});else fv.pause();
+      })},{threshold:.35}).observe(film);
+    }
+    fb.addEventListener('click',function(){
+      sound=true;if(a)a.pause();
+      fv.muted=false;fv.loop=false;fv.controls=true;fv.currentTime=0;fv.play().catch(function(){});
+      fb.hidden=true;
+    });
+  }
+
   // Video: a still image until the visitor asks for it, then the YouTube player
   [].forEach.call(document.querySelectorAll('.video[data-yt]'),function(v){
     v.addEventListener('click',function(){

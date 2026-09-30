@@ -309,3 +309,12 @@ body.has-player{padding-bottom:96px}
 .follow .socials{margin-top:1.4rem;gap:.5rem 1.8rem}
 .follow .socials a{font-size:.9rem}
 .follow .socials svg{width:18px;height:18px}
+
+/* Film block */
+.film{cursor:default}
+.film video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000}
+.film .shade{border:0;padding:0;cursor:pointer;width:100%;background:linear-gradient(180deg,rgba(8,14,44,0) 40%,rgba(8,14,44,.55));font:inherit}
+.film .shade:hover .disc{transform:scale(1.06)}
+.film .disc{transition:transform .25s}
+.videocap{align-items:center}
+.videocap .playlink{color:var(--gold-soft)}

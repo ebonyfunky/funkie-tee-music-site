@@ -11,7 +11,7 @@ IC = json.load(open('data/icons.json'))
 REL = {r['id']: r for r in cat['releases']}
 SONGS = cat['songs']
 e = html.escape
-V = "10"  # bump to refresh cached css/js
+V = "11"  # bump to refresh cached css/js
 
 SITE = 'https://www.funkieteemusic.com/'
 YT = 'https://www.youtube.com/@Funkieteemusic'
@@ -277,11 +277,11 @@ home = head('Funkie Tee | Contemporary Gospel Music',
       <span class="eyebrow">Watch</span>
       <h2>See the song</h2>
     </div>
-    <button class="video" type="button" data-yt="jnyfwOIjw3c" data-title="God Did It by Funkie Tee" aria-label="Watch God Did It">
-      <img src="img/video-god-did-it.jpg" alt="" width="1280" height="720" loading="lazy">
-      <span class="shade"><span class="disc">{PLAY}</span><span class="lbl">Watch video</span></span>
-    </button>
-    <div class="videocap"><b>God Did It</b><span>More on {ext(YT, 'the Funkie Tee YouTube channel')}</span></div>
+    <div class="video film" id="film">
+      <video muted loop playsinline preload="none" poster="img/video-god-did-it.jpg" width="1366" height="768" aria-label="God Did It, a short film: a woman in a rose dress in a glass-walled room above a city at dusk"><source src="video/god-did-it.mp4" type="video/mp4"></video>
+      <button class="shade" type="button" id="film-btn" aria-label="Watch God Did It with sound"><span class="disc">{PLAY}</span><span class="lbl">Watch video</span></button>
+    </div>
+    <div class="videocap"><b>God Did It</b>{ext(YT, 'Watch on YouTube', 'playlink')}</div>
   </div>
 </section>
 
