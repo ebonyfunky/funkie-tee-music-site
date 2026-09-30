@@ -11,7 +11,7 @@ IC = json.load(open('data/icons.json'))
 REL = {r['id']: r for r in cat['releases']}
 SONGS = cat['songs']
 e = html.escape
-V = "17"  # bump to refresh cached css/js
+V = "19"  # bump to refresh cached css/js
 
 SITE = 'https://www.funkieteemusic.com/'
 YT = 'https://www.youtube.com/@Funkieteemusic'
@@ -156,7 +156,7 @@ def kids_vols():
 # ------------------------------------------------------------------ HOME
 # One-liners below the titles. Drafted from the titles and their Scripture; Funkie to confirm each.
 PICKS = [
-    ('This is My Jubilee', 'Album · 7 songs', "Released for Funkie Tee's Ruby Jubilee. A timeless song for every thanksgiving occasion."),
+    ('This is My Jubilee', 'Album · 7 songs', "Seven songs of thanksgiving, celebration and faith, created for Funkie Tee's Ruby Jubilee."),
     ('Last Dance', 'Album · 7 songs', 'Seven songs of worship, healing and trust.'),
     ('El-Roi (You See Me)', 'Single', 'For the one who feels unseen. He sees you.'),
     ("My Father's Plans For Me", 'Single', 'When you cannot see the road, His plans still stand.'),
@@ -181,7 +181,7 @@ def picks():
 
 
 home = head('Funkie Tee | Contemporary Gospel Music',
-            'Contemporary gospel music by Funkie Tee — songs of faith, testimony, hope and Scripture, including music for children, families and choirs.',
+            'Contemporary gospel music by Funkie Tee — songs of faith, testimony, worship and hope, plus Scripture music for children, families and choirs.',
             '', 'Funkie Tee | Contemporary Gospel Music') + header('home') + f'''
 <main id="main">
 <section class="hero hero-wide" id="top" style="padding-block:0">
@@ -191,7 +191,7 @@ home = head('Funkie Tee | Contemporary Gospel Music',
       <span class="eyebrow">African contemporary gospel</span>
       <h1>FUNKIE TEE</h1>
       <p class="tagline">Where Faith Meets the Future</p>
-      <p class="statement"><span>Music for the waiting season.</span><span>Music that declares the victory.</span><span>Songs that point hearts back to God.</span></p>
+      <p class="statement">Music for the waiting season.<br>Music that declares the victory.<br>Songs that point hearts back to God.</p>
       <p class="support">Funkie Tee is an African contemporary gospel songwriter creating music of faith, testimony and hope — alongside Scripture songs for children, families and choirs.</p>
       <div class="row">
         <a class="btn btn-gold" href="music.html">Listen now</a>
@@ -209,7 +209,7 @@ home = head('Funkie Tee | Contemporary Gospel Music',
       <span class="eyebrow">Out now · Single</span>
       <h2>God Did It</h2>
       <p class="pitch">When the door was shut, He showed up. A testimony song for anyone who waited longer than they expected and still saw God move.</p>
-      <blockquote>“This is the Lord's doing; it is marvellous in our eyes.”<cite>Psalm 118:23</cite></blockquote>
+      <blockquote>“This is the LORD's doing; it is marvellous in our eyes.”<cite>— Psalm 118:23</cite></blockquote>
       <div class="row">
         <button class="btn btn-ink" type="button" data-play="god-did-it">{PLAY}Listen now</button>
         <a class="btn btn-line" href="#video">Watch video</a>
@@ -246,7 +246,7 @@ home = head('Funkie Tee | Contemporary Gospel Music',
       <p>Funkie Tee has been singing in choirs since she was six, and faith has been at the centre of her life and her music ever since. She writes from real experience, testimony, prayer and Scripture.</p>
       <p class="credit">{CREDIT}</p>
       <p>The songs begin with lived experience and faith. Technology helps bring them to life. The message, the testimony and the creative direction stay personal.</p>
-      <blockquote>“My prayer is that you leave every song more certain of God than when you pressed play.”<cite>Funkie Tee</cite></blockquote>
+      <blockquote>“My prayer is that you leave every song more certain of God than when you pressed play.”<cite>— Funkie Tee</cite></blockquote>
       <p class="closing">Written from faith. Brought to life with technology. Released for God's glory.</p>
     </div>
   </div>
@@ -258,13 +258,12 @@ home = head('Funkie Tee | Contemporary Gospel Music',
       <span class="eyebrow">Kids Zone · Verse Vanish</span>
       <h2>Scripture songs for little voices</h2>
       <p class="lead">Bible truth made memorable through music for children, families, Sunday schools and children's choirs.</p>
-      <ul class="chips" aria-label="Made for">
-        <li>Parents</li><li>Families</li><li>Churches</li><li>Children's ministries</li><li>Sunday schools</li><li>Christian schools</li><li>Children's choirs</li>
-      </ul>
+      <p class="madefor">Made for families, churches, Christian schools, Sunday schools and children's choirs.</p>
     </div>
     <div class="vols">
 {kids_vols()}
     </div>
+    <p class="playline">Songs children can sing — and Scripture they can play.</p>
     <div class="row">
       <a class="btn btn-gold" href="music.html#kids">Explore kids music</a>
       <a class="btn btn-line" href="https://charlenplay.com" target="_blank" rel="noopener">Play the Bible games</a>
