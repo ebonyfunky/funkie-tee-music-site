@@ -12,6 +12,8 @@
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://www.funkieteemusic.com/">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Karla:wght@400;500;600;700&display=swap">
@@ -145,11 +147,6 @@ section>.wrap{position:relative;z-index:1}
 .songs{columns:2;column-gap:4rem;list-style:none;padding:0;margin:0}
 @media (max-width:640px){.songs{columns:1}}
 .songs li{break-inside:avoid;border-bottom:1px solid rgba(255,255,255,.08)}
-.songs a{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.9rem .4rem;text-decoration:none;transition:background .2s,padding-left .2s}
-.songs a:hover{background:rgba(232,196,92,.06);padding-left:.9rem}
-.songs a span:first-child{font-family:var(--display);font-size:1.4rem;color:#fff}
-.songs a:hover span:first-child{color:var(--gold)}
-.songs a span:last-child{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap}
 
 /* Videos */
 .videos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem}
@@ -167,10 +164,6 @@ section>.wrap{position:relative;z-index:1}
 /* About */
 .about .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,90px);align-items:center}
 @media (max-width:760px){.about .wrap{grid-template-columns:1fr}}
-.portrait{position:relative;max-width:440px;margin-inline:auto}
-.portrait::before{content:"";position:absolute;inset:-12%;border-radius:50%;background:radial-gradient(closest-side,rgba(232,196,92,.4),transparent 72%);filter:blur(34px);z-index:0}
-.portrait img{position:relative;z-index:1;border-radius:18px;aspect-ratio:4/5;object-fit:cover;width:100%;box-shadow:0 40px 90px -30px rgba(0,0,0,.9),0 0 0 1px rgba(232,196,92,.6),0 0 0 8px rgba(7,13,42,.9),0 0 0 9px rgba(232,196,92,.3)}
-.portrait figcaption{position:relative;z-index:1;margin-top:1rem;text-align:center;font-family:var(--display);font-style:italic;font-size:1.15rem;color:var(--ink-soft)}
 .about p{max-width:38rem;color:var(--ink-soft)}
 .signature{font-family:var(--display);font-style:italic;font-size:1.9rem;color:#F7E7A8;text-shadow:0 0 30px rgba(232,196,92,.35)}
 .glass{background:var(--glass);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:clamp(1.4rem,3vw,2.4rem);backdrop-filter:blur(14px);box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 30px 60px -30px rgba(0,0,0,.8)}
@@ -196,13 +189,75 @@ section>.wrap{position:relative;z-index:1}
 footer{border-top:1px solid var(--line);padding-block:2.2rem;font-size:.84rem;color:var(--ink-soft);background:#040819}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem 2rem}
 
+/* Brand mark */
+.brand{display:flex;align-items:center;gap:.7rem}
+.brand img{width:40px;height:40px;border-radius:50%;box-shadow:0 0 18px rgba(232,196,92,.45)}
+
+/* Hero with portrait */
+.hero .wrap{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:clamp(24px,5vw,72px);align-items:end}
+.hero-portrait{position:relative;justify-self:end;width:100%;max-width:380px;opacity:0;animation:rise 1.2s .6s forwards}
+.hero-portrait::before{content:"";position:absolute;inset:-14%;background:radial-gradient(closest-side,rgba(232,196,92,.5),rgba(63,224,204,.12) 60%,transparent 75%);filter:blur(36px);animation:breathe 6s ease-in-out infinite}
+.hero-portrait img{position:relative;width:100%;aspect-ratio:4/5.4;object-fit:cover;object-position:50% 12%;border-radius:999px 999px 18px 18px;box-shadow:0 50px 100px -30px rgba(0,0,0,.9),0 0 0 1px rgba(232,196,92,.75),0 0 0 9px rgba(7,13,42,.55),0 0 0 10px rgba(232,196,92,.35)}
+@media (max-width:760px){
+  .hero .wrap{grid-template-columns:1fr;padding-block:110px 56px}
+  .hero-portrait{order:-1;justify-self:start;max-width:190px}
+}
+
+/* Song rows with preview */
+.songs li{display:flex;align-items:center;gap:.9rem;padding:.55rem .4rem;transition:background .2s}
+.songs li:hover,.songs li.on{background:rgba(232,196,92,.06)}
+.songs .pl{flex:none;width:42px;height:42px;border-radius:50%;border:1px solid rgba(232,196,92,.55);background:rgba(232,196,92,.08);color:var(--gold);display:grid;place-items:center;cursor:pointer;transition:background .2s,color .2s,transform .2s}
+.songs .pl:hover,.songs li.on .pl{background:linear-gradient(180deg,#FBE9A6,#C9A227);color:#231A02;transform:scale(1.06)}
+.songs .pl:focus-visible{outline:3px solid var(--aqua);outline-offset:3px}
+.songs .pl svg{width:16px;height:16px;fill:currentColor}
+.songs .pl .i-pause,.songs li.playing .pl .i-play{display:none}
+.songs li.playing .pl .i-pause{display:block}
+.songs .t{flex:1;min-width:0;font-family:var(--display);font-size:1.4rem;color:#fff}
+.songs li.on .t{color:var(--gold)}
+.songs .full{flex:none;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none;white-space:nowrap;padding:.4rem 0}
+.songs .full:hover{color:var(--gold)}
+.eq{display:none;align-items:flex-end;gap:3px;height:16px;flex:none}
+.songs li.playing .eq{display:flex}
+.eq i{width:3px;background:var(--gold);border-radius:2px;animation:eq 0.9s ease-in-out infinite}
+.eq i:nth-child(2){animation-delay:.2s}.eq i:nth-child(3){animation-delay:.4s}
+@keyframes eq{0%,100%{height:4px}50%{height:16px}}
+
+/* Player bar */
+.player{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:.7rem clamp(12px,3vw,28px) calc(.7rem + env(safe-area-inset-bottom,0px));background:rgba(7,13,42,.86);backdrop-filter:blur(18px);border-top:1px solid rgba(232,196,92,.35);box-shadow:0 -20px 50px -20px rgba(0,0,0,.8);display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:.6rem 1rem;align-items:center;animation:rise .4s}
+.player .cv{width:52px;height:52px;border-radius:8px;object-fit:cover;box-shadow:0 0 0 1px rgba(232,196,92,.4)}
+.player .info{min-width:0}
+.player .ttl{font-family:var(--display);font-size:1.25rem;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.2}
+.player .sub{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.player .ctl{display:flex;align-items:center;gap:.4rem}
+.player button{background:none;border:0;color:#fff;cursor:pointer;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;transition:background .2s}
+.player button:hover{background:rgba(255,255,255,.1)}
+.player button:focus-visible{outline:3px solid var(--aqua)}
+.player button svg{width:20px;height:20px;fill:currentColor}
+.player .pp{background:linear-gradient(180deg,#FBE9A6,#C9A227);color:#231A02;width:46px;height:46px}
+.player .pp:hover{background:linear-gradient(180deg,#FFF3C4,#D9B23A)}
+.player .pp .i-pause,.player.playing .pp .i-play{display:none}
+.player.playing .pp .i-pause{display:block}
+.player .fullbtn{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);text-decoration:none;padding:.5rem .8rem;border:1px solid rgba(232,196,92,.5);border-radius:999px;white-space:nowrap}
+.player .fullbtn:hover{background:rgba(232,196,92,.12)}
+.player .bar{grid-column:1/-1;height:4px;border-radius:4px;background:rgba(255,255,255,.14);cursor:pointer;position:relative}
+.player .bar i{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:4px;background:linear-gradient(90deg,#C9A227,#FBE9A6);box-shadow:0 0 12px rgba(232,196,92,.7)}
+@media (max-width:560px){.player .fullbtn,.player .skip{display:none}}
+body.has-player{padding-bottom:96px}
+.player[hidden]{display:none}
+
+/* About emblem */
+.emblem{position:relative;max-width:360px;margin-inline:auto}
+.emblem::before{content:"";position:absolute;inset:-10%;border-radius:50%;background:radial-gradient(closest-side,rgba(232,196,92,.4),transparent 72%);filter:blur(30px);animation:breathe 6s ease-in-out infinite}
+.emblem img{position:relative;width:100%;filter:drop-shadow(0 30px 50px rgba(0,0,0,.7))}
+footer .mark{display:flex;align-items:center;gap:.7rem}
+footer .mark img{width:32px;height:32px}
 </style>
 </head>
 <body>
 
 <nav id="nav">
   <div class="wrap">
-    <a class="brand" href="#top">Funkie <em>Tee</em></a>
+    <a class="brand" href="#top"><img src="img/emblem.png" alt="" width="40" height="40"><span>Funkie <em>Tee</em></span></a>
     <div class="links">
       <a href="#latest">Latest</a>
       <a href="#music">Music</a>
@@ -220,6 +275,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem
   <canvas id="stars" aria-hidden="true"></canvas>
   <div class="veil"></div>
   <div class="wrap">
+   <div>
     <p class="kicker">Praise · Testimony · Scripture songs</p>
     <h1 class="gold-text">FUNKIE TEE</h1>
     <p class="tag">Where faith meets the future</p>
@@ -231,7 +287,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem
       </a>
       <a class="btn btn-glass" href="https://music.apple.com/us/artist/funkie-tee/1867356216" target="_blank" rel="noopener">Apple Music</a>
       <a class="btn btn-glass" href="https://open.spotify.com/artist/38PxBexr2CgpQjC7OwSqL5" target="_blank" rel="noopener">Spotify</a>
+      <a class="btn btn-glass" href="https://music.amazon.ca/artists/B0GFKVNXMG" target="_blank" rel="noopener">Amazon Music</a>
     </div>
+   </div>
+   <div class="hero-portrait">
+    <img src="img/portrait.jpg" alt="Funkie Tee, smiling, in a gold suit" width="900" height="1125" fetchpriority="high">
+   </div>
   </div>
   <div class="scroll-hint">Scroll</div>
 </header>
@@ -255,7 +316,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem
       <p class="lead">When the door was shut, He showed up. A testimony song for anyone who waited longer than they expected and still saw God move.</p>
       <p class="verse">This is the Lord's doing; it is marvellous in our eyes.<small>Psalm 118:23</small></p>
       <div class="row">
-        <a class="btn btn-gold" href="https://www.youtube.com/watch?v=jnyfwOIjw3c" target="_blank" rel="noopener">Hear it on YouTube</a>
+        <button class="btn btn-gold" type="button" data-play="god-did-it"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Play a preview</button>
+        <a class="btn btn-glass" href="https://www.youtube.com/watch?v=jnyfwOIjw3c" target="_blank" rel="noopener">Full song on YouTube</a>
         <a class="btn btn-glass" href="https://music.apple.com/us/artist/funkie-tee/1867356216" target="_blank" rel="noopener">Apple Music</a>
       </div>
     </div>
@@ -298,22 +360,23 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem
 
     <div class="head" style="margin-top:5rem">
       <span class="eyebrow">Songs</span>
-      <h2>Listen by title</h2>
+      <h2>Listen right here</h2>
+      <p class="lead">Tap play for a 30-second preview of each song. The full song is one tap away.</p>
     </div>
     <ul class="songs">
-      <li><a href="https://www.youtube.com/watch?v=jnyfwOIjw3c" target="_blank" rel="noopener"><span>God Did It</span><span>Single</span></a></li>
-      <li><a href="https://www.youtube.com/watch?v=ODlC7JhlicA" target="_blank" rel="noopener"><span>This Is My Jubilee</span><span>Album</span></a></li>
-      <li><a href="https://www.youtube.com/watch?v=P5xjOlPnFlc" target="_blank" rel="noopener"><span>Christ Is Enough for Me</span><span>Album</span></a></li>
-      <li><a href="https://www.youtube.com/watch?v=SQhjYVacWhc" target="_blank" rel="noopener"><span>Ebenezer</span><span>Album</span></a></li>
-      <li><a href="https://www.youtube.com/watch?v=rSNhOOLS7S8" target="_blank" rel="noopener"><span>It's Not Over for Me</span><span>Album</span></a></li>
-      <li><a href="https://www.youtube.com/watch?v=ZLsl9BLj8iQ" target="_blank" rel="noopener"><span>Streams of Joy</span><span>Album</span></a></li>
-      <li><a href="https://www.youtube.com/watch?v=6CByZ2Kxt6Q" target="_blank" rel="noopener"><span>Last Dance</span><span>Album</span></a></li>
-      <li><a href="https://www.youtube.com/watch?v=ujAJvnErskE" target="_blank" rel="noopener"><span>I Shall Not Want</span><span>Album</span></a></li>
-      <li><a href="https://www.youtube.com/watch?v=pwVRElXzdYg" target="_blank" rel="noopener"><span>Take the Praise</span><span>Album</span></a></li>
-      <li><a href="https://www.youtube.com/watch?v=eKrR7AC9Myc" target="_blank" rel="noopener"><span>Rapha</span><span>Album</span></a></li>
-      <li><a href="https://www.youtube.com/watch?v=A40G8Z3KEhc" target="_blank" rel="noopener"><span>Just Your Voice</span><span>Album</span></a></li>
-      <li><a href="https://www.youtube.com/watch?v=eF5pqTqbDN0" target="_blank" rel="noopener"><span>My Father's Plans For Me</span><span>Single</span></a></li>
-      <li><a href="https://www.youtube.com/watch?v=vPvw6wyyqkc" target="_blank" rel="noopener"><span>El-Roi (You See Me)</span><span>Single</span></a></li>
+      <li data-song="god-did-it" data-title="God Did It" data-cover="img/god-did-it.jpg" data-full="https://www.youtube.com/watch?v=jnyfwOIjw3c"><button class="pl" type="button" aria-label="Play a preview of God Did It"><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button><span class="t">God Did It</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span><a class="full" href="https://www.youtube.com/watch?v=jnyfwOIjw3c" target="_blank" rel="noopener">Full song</a></li>
+      <li data-song="this-is-my-jubilee" data-title="This Is My Jubilee" data-cover="img/jubilee.jpg" data-full="https://www.youtube.com/watch?v=ODlC7JhlicA"><button class="pl" type="button" aria-label="Play a preview of This Is My Jubilee"><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button><span class="t">This Is My Jubilee</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span><a class="full" href="https://www.youtube.com/watch?v=ODlC7JhlicA" target="_blank" rel="noopener">Full song</a></li>
+      <li data-song="christ-is-enough" data-title="Christ Is Enough for Me" data-cover="img/jubilee.jpg" data-full="https://www.youtube.com/watch?v=P5xjOlPnFlc"><button class="pl" type="button" aria-label="Play a preview of Christ Is Enough for Me"><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button><span class="t">Christ Is Enough for Me</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span><a class="full" href="https://www.youtube.com/watch?v=P5xjOlPnFlc" target="_blank" rel="noopener">Full song</a></li>
+      <li data-song="ebenezer" data-title="Ebenezer" data-cover="img/jubilee.jpg" data-full="https://www.youtube.com/watch?v=SQhjYVacWhc"><button class="pl" type="button" aria-label="Play a preview of Ebenezer"><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button><span class="t">Ebenezer</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span><a class="full" href="https://www.youtube.com/watch?v=SQhjYVacWhc" target="_blank" rel="noopener">Full song</a></li>
+      <li data-song="its-not-over" data-title="It's Not Over for Me" data-cover="img/jubilee.jpg" data-full="https://www.youtube.com/watch?v=rSNhOOLS7S8"><button class="pl" type="button" aria-label="Play a preview of It's Not Over for Me"><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button><span class="t">It's Not Over for Me</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span><a class="full" href="https://www.youtube.com/watch?v=rSNhOOLS7S8" target="_blank" rel="noopener">Full song</a></li>
+      <li data-song="streams-of-joy" data-title="Streams of Joy" data-cover="img/jubilee.jpg" data-full="https://www.youtube.com/watch?v=ZLsl9BLj8iQ"><button class="pl" type="button" aria-label="Play a preview of Streams of Joy"><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button><span class="t">Streams of Joy</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span><a class="full" href="https://www.youtube.com/watch?v=ZLsl9BLj8iQ" target="_blank" rel="noopener">Full song</a></li>
+      <li data-song="last-dance" data-title="Last Dance" data-cover="img/last-dance.jpg" data-full="https://www.youtube.com/watch?v=6CByZ2Kxt6Q"><button class="pl" type="button" aria-label="Play a preview of Last Dance"><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button><span class="t">Last Dance</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span><a class="full" href="https://www.youtube.com/watch?v=6CByZ2Kxt6Q" target="_blank" rel="noopener">Full song</a></li>
+      <li data-song="i-shall-not-want" data-title="I Shall Not Want" data-cover="img/last-dance.jpg" data-full="https://www.youtube.com/watch?v=ujAJvnErskE"><button class="pl" type="button" aria-label="Play a preview of I Shall Not Want"><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button><span class="t">I Shall Not Want</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span><a class="full" href="https://www.youtube.com/watch?v=ujAJvnErskE" target="_blank" rel="noopener">Full song</a></li>
+      <li data-song="take-the-praise" data-title="Take the Praise" data-cover="img/last-dance.jpg" data-full="https://www.youtube.com/watch?v=pwVRElXzdYg"><button class="pl" type="button" aria-label="Play a preview of Take the Praise"><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button><span class="t">Take the Praise</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span><a class="full" href="https://www.youtube.com/watch?v=pwVRElXzdYg" target="_blank" rel="noopener">Full song</a></li>
+      <li data-song="rapha" data-title="Rapha" data-cover="img/last-dance.jpg" data-full="https://www.youtube.com/watch?v=eKrR7AC9Myc"><button class="pl" type="button" aria-label="Play a preview of Rapha"><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button><span class="t">Rapha</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span><a class="full" href="https://www.youtube.com/watch?v=eKrR7AC9Myc" target="_blank" rel="noopener">Full song</a></li>
+      <li data-song="just-your-voice" data-title="Just Your Voice" data-cover="img/last-dance.jpg" data-full="https://www.youtube.com/watch?v=A40G8Z3KEhc"><button class="pl" type="button" aria-label="Play a preview of Just Your Voice"><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button><span class="t">Just Your Voice</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span><a class="full" href="https://www.youtube.com/watch?v=A40G8Z3KEhc" target="_blank" rel="noopener">Full song</a></li>
+      <li><a class="pl" href="https://www.youtube.com/watch?v=eF5pqTqbDN0" target="_blank" rel="noopener" aria-label="Listen to My Father's Plans For Me on YouTube"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></a><span class="t">My Father's Plans For Me</span><a class="full" href="https://www.youtube.com/watch?v=eF5pqTqbDN0" target="_blank" rel="noopener">On YouTube</a></li>
+      <li><a class="pl" href="https://www.youtube.com/watch?v=vPvw6wyyqkc" target="_blank" rel="noopener" aria-label="Listen to El-Roi (You See Me) on YouTube"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></a><span class="t">El-Roi (You See Me)</span><a class="full" href="https://www.youtube.com/watch?v=vPvw6wyyqkc" target="_blank" rel="noopener">On YouTube</a></li>
     </ul>
   </div>
 </section>
@@ -349,10 +412,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem
 
 <section id="about" class="about glow-aqua">
   <div class="wrap">
-    <figure class="portrait" style="margin:0">
-      <img src="img/portrait.jpg" alt="Funkie Tee, smiling, in a gold suit against a warm bronze backdrop" width="1200" height="1500" loading="lazy">
-      <figcaption>Funkie Tee</figcaption>
-    </figure>
+    <div class="emblem"><img src="img/emblem.png" alt="Funkie Tee Music emblem: a gold cross with a diamond at its centre inside a gold ring" width="512" height="512" loading="lazy"></div>
     <div class="stack">
       <span class="eyebrow">About</span>
       <h2>Faith first. Always.</h2>
@@ -393,6 +453,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem
       <h2>Come and sing along</h2>
       <p class="lead">New songs, behind-the-song stories and live moments land here first.</p>
     </div>
+    <div class="row" style="margin-bottom:1.6rem">
+      <a class="btn btn-glass" href="https://open.spotify.com/artist/38PxBexr2CgpQjC7OwSqL5" target="_blank" rel="noopener">Spotify</a>
+      <a class="btn btn-glass" href="https://music.apple.com/us/artist/funkie-tee/1867356216" target="_blank" rel="noopener">Apple Music</a>
+      <a class="btn btn-glass" href="https://music.amazon.ca/artists/B0GFKVNXMG" target="_blank" rel="noopener">Amazon Music</a>
+      <a class="btn btn-glass" href="https://www.youtube.com/@Funkieteemusic" target="_blank" rel="noopener">YouTube</a>
+    </div>
     <div class="social">
       <a href="https://www.youtube.com/@Funkieteemusic" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.8 15.2V8.8l6 3.2-6 3.2z"/></svg>
@@ -416,10 +482,50 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem
 
 <footer>
   <div class="wrap">
-    <span>© 2026 Funkie Tee Music · Charlen Legacy Records</span>
+    <span class="mark"><img src="img/emblem.png" alt="" width="32" height="32">© 2026 Funkie Tee Music · Charlen Legacy Records</span>
     <span>Songs available on YouTube, Apple Music, Spotify, Amazon Music and more</span>
   </div>
 </footer>
+
+
+<div class="player" id="player" hidden>
+  <img class="cv" id="p-cover" src="img/god-did-it.jpg" alt="" width="52" height="52">
+  <div class="info"><div class="ttl" id="p-title">God Did It</div><div class="sub">30-second preview</div></div>
+  <div class="ctl">
+    <button class="skip" type="button" id="p-prev" aria-label="Previous song"><svg viewBox="0 0 24 24"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg></button>
+    <button class="pp" type="button" id="p-pp" aria-label="Play or pause"><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button>
+    <button class="skip" type="button" id="p-next" aria-label="Next song"><svg viewBox="0 0 24 24"><path d="M16 5h2v14h-2zM4 5v14l11-7z"/></svg></button>
+    <a class="fullbtn" id="p-full" href="#" target="_blank" rel="noopener">Full song</a>
+    <button type="button" id="p-close" aria-label="Close player"><svg viewBox="0 0 24 24"><path d="M6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6 13.4 12 19 6.4 17.6 5 12 10.6z"/></svg></button>
+  </div>
+  <div class="bar" id="p-bar" role="slider" aria-label="Preview progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0"><i id="p-fill"></i></div>
+</div>
+<audio id="audio" preload="none"></audio>
+
+<script>
+(function(){
+  // Preview player: one audio element, rows in the songs list are the playlist
+  var rows=[].slice.call(document.querySelectorAll('.songs li[data-song]')),a=document.getElementById('audio'),P=document.getElementById('player'),
+      fill=document.getElementById('p-fill'),bar=document.getElementById('p-bar'),cur=-1;
+  function mark(){rows.forEach(function(r,i){r.classList.toggle('on',i===cur);r.classList.toggle('playing',i===cur&&!a.paused)});P.classList.toggle('playing',!a.paused)}
+  function load(i){cur=(i+rows.length)%rows.length;var r=rows[cur];a.src='audio/'+r.dataset.song+'.m4a';
+    document.getElementById('p-title').textContent=r.dataset.title;document.getElementById('p-cover').src=r.dataset.cover;document.getElementById('p-full').href=r.dataset.full;
+    P.hidden=false;document.body.classList.add('has-player');a.play().catch(function(){});mark()}
+  function toggle(i){if(i===cur){a.paused?a.play().catch(function(){}):a.pause()}else load(i)}
+  rows.forEach(function(r,i){r.querySelector('.pl').addEventListener('click',function(){toggle(i)})});
+  [].forEach.call(document.querySelectorAll('[data-play]'),function(b){b.addEventListener('click',function(){
+    for(var i=0;i<rows.length;i++)if(rows[i].dataset.song===b.dataset.play){toggle(i);break}})});
+  document.getElementById('p-pp').onclick=function(){if(cur<0)load(0);else toggle(cur)};
+  document.getElementById('p-next').onclick=function(){load(cur+1)};
+  document.getElementById('p-prev').onclick=function(){load(cur-1)};
+  document.getElementById('p-close').onclick=function(){a.pause();P.hidden=true;document.body.classList.remove('has-player');cur=-1;mark()};
+  bar.onclick=function(e){if(a.duration){var b=bar.getBoundingClientRect();a.currentTime=a.duration*(e.clientX-b.left)/b.width}};
+  bar.onkeydown=function(e){if(!a.duration)return;if(e.key==='ArrowRight')a.currentTime=Math.min(a.duration,a.currentTime+3);if(e.key==='ArrowLeft')a.currentTime=Math.max(0,a.currentTime-3)};
+  a.addEventListener('timeupdate',function(){var p=a.duration?a.currentTime/a.duration*100:0;fill.style.width=p+'%';bar.setAttribute('aria-valuenow',Math.round(p))});
+  ['play','pause'].forEach(function(ev){a.addEventListener(ev,mark)});
+  a.addEventListener('ended',function(){load(cur+1)});
+})();
+</script>
 
 <script>
 (function(){
