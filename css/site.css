@@ -318,3 +318,12 @@ body.has-player{padding-bottom:96px}
 .film .disc{transition:transform .25s}
 .videocap{align-items:center}
 .videocap .playlink{color:var(--gold-soft)}
+
+/* Music page header: the dusk room, with the words on the dark wall side */
+.pagehead{position:relative;isolation:isolate;background:var(--night);padding-block:clamp(72px,11vw,150px)}
+.pagehead::before{content:"";position:absolute;inset:0;z-index:-2;background:url("../img/video-god-did-it.jpg") 70% 50%/cover no-repeat}
+.pagehead::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(8,14,44,.94) 0%,rgba(8,14,44,.8) 38%,rgba(8,14,44,.25) 70%,rgba(8,14,44,.1) 100%),linear-gradient(180deg,rgba(8,14,44,0) 60%,rgba(8,14,44,.7) 100%)}
+@media (max-width:820px){
+  .pagehead::before{background-position:78% 50%}
+  .pagehead::after{background:linear-gradient(180deg,rgba(8,14,44,.82) 0%,rgba(8,14,44,.7) 60%,rgba(8,14,44,.85) 100%)}
+}
