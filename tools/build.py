@@ -11,7 +11,7 @@ IC = json.load(open('data/icons.json'))
 REL = {r['id']: r for r in cat['releases']}
 SONGS = cat['songs']
 e = html.escape
-V = "34"  # bump to refresh cached css/js
+V = "35"  # bump to refresh cached css/js
 
 SITE = 'https://www.funkieteemusic.com/'
 YT = 'https://www.youtube.com/@Funkieteemusic'
@@ -103,10 +103,6 @@ def footer():
   <div class="wrap">
     <span>© 2026 Funkie Tee Music · Charlen Legacy Records</span>
     <span class="made">{CREDIT}</span>
-    <span class="sep" aria-hidden="true"></span>
-    <nav aria-label="Follow and listen">
-      {ext(YT, 'YouTube')}{ext(IG, 'Instagram')}{ext(FB, 'Facebook')}{ext(TT, 'TikTok')}{ext(SP, 'Spotify')}{ext(AP, 'Apple Music')}{ext(AM, 'Amazon Music')}
-    </nav>
   </div>
 </footer>
 
@@ -309,7 +305,6 @@ home = head('Funkie Tee | Contemporary Gospel Music',
       <a href="{IG}" target="_blank" rel="noopener">{IC['ig']}Instagram</a>
       <a href="{TT}" target="_blank" rel="noopener">{IC['tt']}TikTok</a>
       <a href="{FB}" target="_blank" rel="noopener">{IC['fb']}Facebook</a>
-      <a href="{YT}" target="_blank" rel="noopener">{IC['yt']}YouTube</a>
     </div>
   </div>
 </section>
