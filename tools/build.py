@@ -159,7 +159,7 @@ PICKS = [
     ('This is My Jubilee', 'Album · 7 songs', "Released for Funkie Tee's Ruby Jubilee. A timeless song for every thanksgiving occasion."),
     ('Last Dance', 'Album · 7 songs', 'Seven songs of worship, healing and trust.'),
     ('El-Roi (You See Me)', 'Single', 'For the one who feels unseen. He sees you.'),
-    ('Nothing Missing, Nothing Broken', 'Single', 'Peace that leaves nothing missing and nothing broken.'),
+    ('Just Your Voice', 'From the album Last Dance', 'When everything else is loud, His voice is the one you need.'),
     ("My Father's Plans For Me", 'Single', 'When you cannot see the road, His plans still stand.'),
 ]
 
@@ -167,7 +167,10 @@ PICKS = [
 def picks():
     out = []
     for name, kind, line in PICKS:
-        r = release(name)
+        r = next((x for x in cat['releases'] if x['name'] == name), None)
+        if r is None:  # a song from an album, not a release of its own
+            s = next(x for x in SONGS if x['name'] == name)
+            r = {'cover': s['cover'], 'lead': s['slug']}
         out.append(f'''      <li>
         <img src="{r['cover']}" alt="{e(name)} cover" width="900" height="900" loading="lazy">
         <div><h3>{e(name)}</h3><span class="kind">{kind}</span></div>
