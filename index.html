@@ -272,6 +272,24 @@ footer .mark img{width:32px;height:32px}
 .about-photo::before{content:"";position:absolute;inset:-10%;background:radial-gradient(closest-side,rgba(63,224,204,.22),rgba(232,196,92,.2) 55%,transparent 75%);filter:blur(36px);animation:breathe 6s ease-in-out infinite}
 .about-photo img{position:relative;width:100%;border-radius:18px;box-shadow:0 40px 90px -30px rgba(0,0,0,.9),0 0 0 1px rgba(232,196,92,.6),0 0 0 8px rgba(7,13,42,.9),0 0 0 9px rgba(232,196,92,.3)}
 @media (max-width:760px){.about-photo{max-width:300px}}
+/* Hero legibility: dark scrim behind the words, crisp gold name on one line, dust kept to the picture side */
+.hero .veil{background:
+  linear-gradient(90deg,rgba(5,10,34,.9) 0%,rgba(5,10,34,.78) 34%,rgba(5,10,34,.35) 56%,rgba(5,10,34,0) 72%),
+  radial-gradient(60% 50% at 20% 85%,rgba(232,196,92,.14),transparent 60%),
+  linear-gradient(180deg,rgba(7,13,42,.55) 0%,rgba(7,13,42,.05) 35%,rgba(7,13,42,.55) 75%,var(--night) 100%)}
+.hero canvas{-webkit-mask-image:linear-gradient(90deg,transparent 0,transparent 46%,#000 72%);mask-image:linear-gradient(90deg,transparent 0,transparent 46%,#000 72%)}
+.hero h1{white-space:nowrap;font-size:clamp(3rem,7.5vw,6.4rem);letter-spacing:.06em;text-shadow:none;filter:drop-shadow(0 3px 14px rgba(0,0,0,.6))}
+.hero h1.gold-text{background-image:linear-gradient(100deg,#FFF1BF 0%,#F2D272 30%,#E0B94A 52%,#F7E09A 78%,#FFF6D6 100%)}
+.hero .kicker{color:#FBE9A6;letter-spacing:.2em;text-shadow:0 1px 10px rgba(0,0,0,.9)}
+.hero .tag{color:#FFF1BF;text-shadow:0 2px 14px rgba(0,0,0,.8)}
+.hero .sub{color:#fff;font-weight:500;font-size:1.12rem;text-shadow:0 1px 12px rgba(0,0,0,.85)}
+.stream span{color:rgba(255,255,255,.75)}
+.stream a{text-shadow:0 1px 8px rgba(0,0,0,.8)}
+@media (max-width:760px){
+  .hero h1{font-size:12.4vw}
+  .hero .veil{background:linear-gradient(180deg,rgba(5,10,34,.55) 0%,rgba(5,10,34,.72) 45%,rgba(5,10,34,.88) 80%,var(--night) 100%)}
+  .hero canvas{-webkit-mask-image:linear-gradient(180deg,#000 0,#000 38%,transparent 55%);mask-image:linear-gradient(180deg,#000 0,#000 38%,transparent 55%)}
+}
 </style>
 </head>
 <body>
