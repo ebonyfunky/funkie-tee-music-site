@@ -11,7 +11,7 @@ IC = json.load(open('data/icons.json'))
 REL = {r['id']: r for r in cat['releases']}
 SONGS = cat['songs']
 e = html.escape
-V = "31"  # bump to refresh cached css/js
+V = "33"  # bump to refresh cached css/js
 
 SITE = 'https://www.funkieteemusic.com/'
 YT = 'https://www.youtube.com/@Funkieteemusic'
@@ -87,6 +87,7 @@ def header(page):
       <a href="{home}#kids">Kids Zone</a>
       <a href="{home}#follow">Connect</a>
     </nav>
+    <button class="stereo" type="button" id="stereo-btn" aria-pressed="false" aria-label="Turn on the stereo: play a continuous mix of Funkie Tee songs"><span class="dot"></span><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg><span class="full">Turn on the stereo</span><span class="short">Stereo</span></button>
     <div class="head-social">
       <a href="{YT}" target="_blank" rel="noopener" aria-label="Funkie Tee on YouTube">{IC['yt']}</a>
       <a href="{TT}" target="_blank" rel="noopener" aria-label="Funkie Tee on TikTok">{IC['tt']}</a>
@@ -222,19 +223,6 @@ home = head('Funkie Tee | Contemporary Gospel Music',
 
 <section class="on-indigo" id="music">
   <div class="wrap">
-    <div class="radio" id="radio">
-      <div class="radio-face">
-        <span class="onair" id="onair"><i></i>Off air</span>
-        <span class="eyebrow">Funkie Tee Radio</span>
-        <h2>Turn on the stereo</h2>
-        <p class="lead">A continuous mix of all 25 songs, 30 seconds each, in a new order every time. Press play and let it run.</p>
-        <div class="radio-row">
-          <button class="radio-btn" type="button" id="radio-btn" aria-pressed="false" aria-label="Play Funkie Tee Radio"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button>
-          <div class="radio-now"><span class="lbl">Now playing</span><b id="radio-title">Press play</b><a id="radio-full" href="music.html" class="also-link">All songs</a></div>
-          <span class="eq radio-eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
-        </div>
-      </div>
-    </div>
     <div class="head">
       <span class="eyebrow">Selected music</span>
       <h2>Start here</h2>

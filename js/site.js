@@ -51,9 +51,9 @@
     a.addEventListener('timeupdate',function(){var p=a.duration?a.currentTime/a.duration*100:0;fill.style.width=p+'%';bar.setAttribute('aria-valuenow',Math.round(p))});
     ['play','pause'].forEach(function(ev){a.addEventListener(ev,mark)});
     // Radio: a shuffled, continuous mix of every preview
-    var radio=false,order=[],rpos=0,rb=document.getElementById('radio-btn'),rt=document.getElementById('radio-title'),rf=document.getElementById('radio-full'),onair=document.getElementById('onair');
+    var radio=false,order=[],rpos=0,rb=document.getElementById('stereo-btn'),rt=document.getElementById('radio-title'),rf=document.getElementById('radio-full'),onair=document.getElementById('onair');
     function shuffle(){order=SONGS.map(function(_,i){return i});for(var i=order.length-1;i>0;i--){var k=Math.floor(Math.random()*(i+1)),x=order[i];order[i]=order[k];order[k]=x}rpos=0}
-    function radioUI(){var on=radio&&!a.paused;document.getElementById('radio').classList.toggle('playing',on);if(rb){rb.setAttribute('aria-pressed',on);rb.classList.toggle('on',on)}if(onair)onair.innerHTML='<i></i>'+(on?'On air':(radio?'Paused':'Off air'));if(radio&&cur>=0){rt.textContent=SONGS[cur].name;rf.href=SONGS[cur].yt;rf.textContent='Full song'}}
+    function radioUI(){var on=radio&&!a.paused;if(rb){rb.setAttribute('aria-pressed',on);rb.classList.toggle('on',on);rb.classList.toggle('armed',radio);rb.querySelector('.full').textContent=on?'On air':(radio?'Stereo paused':'Turn on the stereo')}var ps=document.querySelector('.player .sub');if(ps)ps.firstChild.nodeValue=radio?'Funkie Tee Radio · 30-second mix':'30-second preview'}
     function radioNext(){rpos=(rpos+1)%order.length;if(rpos===0)shuffle();load(order[rpos])}
     if(rb){rb.addEventListener('click',function(){
       if(!radio){radio=true;shuffle();load(order[0])}
@@ -65,7 +65,7 @@
     rows.forEach(function(r){r.querySelector('.pl').addEventListener('click',function(){radio=false;radioUI()})});
     [].forEach.call(document.querySelectorAll('[data-play]'),function(b){b.addEventListener('click',function(){radio=false;radioUI()})});
     document.getElementById('p-next').addEventListener('click',function(){if(radio){radioNext();radioUI()}});
-    document.getElementById('p-close').addEventListener('click',function(){radio=false;radioUI();if(rt)rt.textContent='Press play'});
+    document.getElementById('p-close').addEventListener('click',function(){radio=false;radioUI()});
   }
 
   // Release switch: before the premiere the page shows the preview film; from the premiere it shows the YouTube video
