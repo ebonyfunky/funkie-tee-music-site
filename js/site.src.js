@@ -3,6 +3,14 @@
   var SONGS=/*SONGS*/[];
   var pre=document.documentElement.dataset.root||'';
 
+  // Hero: a slow parallax on the portrait while the page scrolls (desktop only, never with reduced motion)
+  var heroImg=document.querySelector('.hero-bg img');
+  if(heroImg&&!matchMedia('(prefers-reduced-motion: reduce)').matches&&matchMedia('(min-width: 821px)').matches){
+    var ticking=false;
+    function par(){var y=Math.min(scrollY,900);heroImg.style.setProperty('--py',(y*0.16)+'px');ticking=false}
+    addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(par);ticking=true}},{passive:true});par();
+  }
+
   // Phone menu
   var head=document.getElementById('site-head'),mb=document.getElementById('menu-btn');
   if(mb){

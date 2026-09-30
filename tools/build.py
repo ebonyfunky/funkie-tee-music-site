@@ -11,7 +11,7 @@ IC = json.load(open('data/icons.json'))
 REL = {r['id']: r for r in cat['releases']}
 SONGS = cat['songs']
 e = html.escape
-V = "20"  # bump to refresh cached css/js
+V = "21"  # bump to refresh cached css/js
 
 SITE = 'https://www.funkieteemusic.com/'
 YT = 'https://www.youtube.com/@Funkieteemusic'
@@ -186,6 +186,7 @@ home = head('Funkie Tee | Contemporary Gospel Music',
 <main id="main">
 <section class="hero hero-wide" id="top" style="padding-block:0">
   <picture class="hero-bg"><source media="(max-width:820px)" srcset="img/hero-tall.jpg"><img src="img/hero-wide.jpg" alt="Funkie Tee in a gold beaded gown beside a window over a city at dusk" width="2000" height="1125" fetchpriority="high"></picture>
+  <div class="hero-light" aria-hidden="true"><i class="gold"></i><i class="teal"></i></div>
   <div class="wrap">
     <div class="hero-copy">
       <span class="eyebrow">African contemporary gospel</span>
