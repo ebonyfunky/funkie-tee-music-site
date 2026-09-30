@@ -11,10 +11,11 @@ IC = json.load(open('data/icons.json'))
 REL = {r['id']: r for r in cat['releases']}
 SONGS = cat['songs']
 e = html.escape
-V = "35"  # bump to refresh cached css/js
+V = "36"  # bump to refresh cached css/js
 
 SITE = 'https://www.funkieteemusic.com/'
 YT = 'https://www.youtube.com/@Funkieteemusic'
+YT_SUB = YT + '?sub_confirmation=1'
 SP = 'https://open.spotify.com/artist/38PxBexr2CgpQjC7OwSqL5'
 AP = 'https://music.apple.com/us/artist/funkie-tee/1867356216'
 AM = 'https://music.amazon.ca/artists/B0GFKVNXMG'
@@ -59,7 +60,7 @@ def head(title, desc, path, og_title):
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#080E2C">
+<meta name="theme-color" content="#0C1544">
 <script type="application/ld+json">{json.dumps(ld)}</script>
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -89,7 +90,7 @@ def header(page):
     </nav>
     <button class="stereo" type="button" id="stereo-btn" aria-pressed="false" aria-label="Turn on the stereo: play a continuous mix of Funkie Tee songs"><span class="dot"></span><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg><span class="full">Turn on the stereo</span><span class="short">Stereo</span></button>
     <div class="head-social">
-      <a href="{YT}" target="_blank" rel="noopener" aria-label="Funkie Tee on YouTube">{IC['yt']}</a>
+      <a href="{YT_SUB}" target="_blank" rel="noopener" aria-label="Subscribe to Funkie Tee on YouTube">{IC['yt']}</a>
       <a href="{TT}" target="_blank" rel="noopener" aria-label="Funkie Tee on TikTok">{IC['tt']}</a>
       <a href="{IG}" target="_blank" rel="noopener" aria-label="Funkie Tee on Instagram">{IC['ig']}</a>
     </div>
@@ -108,7 +109,7 @@ def footer():
 
 <div class="player" id="player" hidden>
   <img class="cv" id="p-cover" src="img/cv/god-did-it.jpg" alt="" width="52" height="52">
-  <div class="info"><div class="ttl" id="p-title">God Did It</div><div class="sub">30-second preview<a id="p-yt" href="#" target="_blank" rel="noopener">YouTube</a><a id="p-sp" href="#" target="_blank" rel="noopener">Spotify</a><a id="p-ap" href="#" target="_blank" rel="noopener">Apple Music</a><a id="p-am" href="#" target="_blank" rel="noopener">Amazon</a></div></div>
+  <div class="info"><div class="ttl" id="p-title">God Did It</div><div class="sub">30-second preview<a id="p-yt" href="{e(SONGS[0]['yt'])}" target="_blank" rel="noopener">YouTube</a><a id="p-sp" href="{e(SONGS[0]['sp'])}" target="_blank" rel="noopener">Spotify</a><a id="p-ap" href="{e(SONGS[0]['apple'])}" target="_blank" rel="noopener">Apple Music</a><a id="p-am" href="{e(SONGS[0]['am'])}" target="_blank" rel="noopener">Amazon</a></div></div>
   <div class="ctl">
     <button class="skip" type="button" id="p-prev" aria-label="Previous song"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg></button>
     <button class="pp" type="button" id="p-pp" aria-label="Play or pause">{PP}</button>
@@ -153,10 +154,10 @@ def kids_vols():
 # ------------------------------------------------------------------ HOME
 # One-liners below the titles. Drafted from the titles and their Scripture; Funkie to confirm each.
 PICKS = [
-    ('This is My Jubilee', 'Album · 7 songs', "Seven songs of thanksgiving, celebration and faith, created for Funkie Tee's Ruby Jubilee."),
-    ('Last Dance', 'Album · 7 songs', 'Seven songs of worship, healing and trust.'),
     ('El-Roi (You See Me)', 'Single', 'For the one who feels unseen. He sees you.'),
     ("My Father's Plans For Me", 'Single', 'When you cannot see the road, His plans still stand.'),
+    ('This is My Jubilee', 'Album · 7 songs', "Seven songs of thanksgiving, celebration and faith, created for Funkie Tee's Ruby Jubilee."),
+    ('Last Dance', 'Album · 7 songs', 'Seven songs of worship, healing and trust.'),
     ('The Blood of Jesus', 'From the album This is My Jubilee', 'A song that holds on to the power in the blood of Jesus.'),
 ]
 
@@ -284,7 +285,7 @@ home = head('Funkie Tee | Contemporary Gospel Music',
       <img src="img/video-god-did-it.jpg" alt="" width="1366" height="768" loading="lazy">
       <span class="shade"><span class="disc">{PLAY}</span><span class="lbl">Watch video</span></span>
     </button>
-    <div class="videocap"><b id="vcap-title">Official music video</b><a id="vcap-link" class="playlink" href="https://youtu.be/QLBroPtO5vY" target="_blank" rel="noopener">Set a reminder on YouTube</a></div>
+    <div class="videocap"><b id="vcap-title">Official music video</b><a id="vcap-link" class="playlink" href="https://youtu.be/QLBroPtO5vY" target="_blank" rel="noopener">Watch the music video</a></div>
   </div>
 </section>
 
@@ -293,15 +294,13 @@ home = head('Funkie Tee | Contemporary Gospel Music',
     <div class="head">
       <span class="eyebrow">Connect</span>
       <h2>Follow Funkie Tee</h2>
-      <p class="lead">New songs and the stories behind them, wherever you listen.</p>
+      <p class="lead">New songs and the stories behind them</p>
     </div>
-    <div class="platbtns">
-      {ext(YT, 'YouTube', 'btn btn-ink')}
-      {ext(SP, 'Spotify', 'btn btn-ink')}
-      {ext(AP, 'Apple Music', 'btn btn-ink')}
-      {ext(AM, 'Amazon Music', 'btn btn-ink')}
-    </div>
+    <a class="btn btn-gold btn-big subscribe" href="{YT_SUB}" target="_blank" rel="noopener">{IC['yt']}Subscribe on YouTube</a>
     <div class="socials">
+      <a href="{SP}" target="_blank" rel="noopener">{IC['sp']}Spotify</a>
+      <a href="{AP}" target="_blank" rel="noopener">{IC['ap']}Apple Music</a>
+      <a href="{AM}" target="_blank" rel="noopener">{IC['am']}Amazon Music</a>
       <a href="{IG}" target="_blank" rel="noopener">{IC['ig']}Instagram</a>
       <a href="{TT}" target="_blank" rel="noopener">{IC['tt']}TikTok</a>
       <a href="{FB}" target="_blank" rel="noopener">{IC['fb']}Facebook</a>

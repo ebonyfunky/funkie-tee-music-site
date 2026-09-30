@@ -34,8 +34,7 @@
       a.src=pre+'audio/'+s.audio+'.m4a';
       document.getElementById('p-title').textContent=s.name;
       document.getElementById('p-cover').src=pre+s.cover;
-      document.getElementById('p-yt').href=s.yt;document.getElementById('p-sp').href=s.sp;
-      document.getElementById('p-ap').href=s.apple;document.getElementById('p-am').href=s.am;
+      [['p-yt',s.yt],['p-sp',s.sp],['p-ap',s.apple],['p-am',s.am]].forEach(function(l){var el=document.getElementById(l[0]);var ok=l[1]&&l[1]!=='#';el.hidden=!ok;if(ok)el.href=l[1]});
       P.hidden=false;document.body.classList.add('has-player');
       a.play().catch(function(){});mark();
     }
@@ -74,7 +73,7 @@
     var live=Date.now()>=Date.parse(filmBox.dataset.release);
     var cap=document.getElementById('vcap-title'),lnk=document.getElementById('vcap-link');
     if(live){filmBox.hidden=true;ytBox.hidden=false;if(cap)cap.textContent='Official music video';if(lnk)lnk.textContent='Watch on YouTube';var h=document.querySelector('#video h2'),ey=document.querySelector('#video .eyebrow');if(h)h.textContent='God Did It, the official video';if(ey)ey.textContent='Watch'}
-    else{if(cap)cap.textContent='Official video premieres 1 October, 1:00 PM CT';if(lnk)lnk.textContent='Set a reminder on YouTube'}
+    else{if(cap)cap.textContent='Official video premieres 1 October, 1:00 PM CT';if(lnk)lnk.textContent='Watch the music video'}
   }
 
   // Film: plays silently while it is on screen; one tap restarts it with sound
