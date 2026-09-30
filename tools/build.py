@@ -191,7 +191,7 @@ home = head('Funkie Tee | Contemporary Gospel Music',
       <span class="eyebrow">African contemporary gospel</span>
       <h1>FUNKIE TEE</h1>
       <p class="tagline">Where Faith Meets the Future</p>
-      <p class="statement">Music for the waiting season.<br>Music that declares the victory.<br>Songs that point hearts back to God.</p>
+      <p class="statement">Music for the waiting season.<br>Music that declares the victory.<br>Songs that point hearts to God.</p>
       <p class="support">Funkie Tee is an African contemporary gospel songwriter creating music of faith, testimony and hope — alongside Scripture songs for children, families and choirs.</p>
       <div class="row">
         <a class="btn btn-gold" href="music.html">Listen now</a>
