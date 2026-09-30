@@ -165,8 +165,12 @@ section>.wrap{position:relative;z-index:1}
 .video .title{position:absolute;left:0;right:0;bottom:0;padding:1.1rem 1.2rem;color:#fff;font-family:var(--display);font-size:1.45rem;background:linear-gradient(180deg,transparent,rgba(7,13,42,.92))}
 
 /* About */
-.about .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,90px);align-items:start}
+.about .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,90px);align-items:center}
 @media (max-width:760px){.about .wrap{grid-template-columns:1fr}}
+.portrait{position:relative;max-width:440px;margin-inline:auto}
+.portrait::before{content:"";position:absolute;inset:-12%;border-radius:50%;background:radial-gradient(closest-side,rgba(232,196,92,.4),transparent 72%);filter:blur(34px);z-index:0}
+.portrait img{position:relative;z-index:1;border-radius:18px;aspect-ratio:4/5;object-fit:cover;width:100%;box-shadow:0 40px 90px -30px rgba(0,0,0,.9),0 0 0 1px rgba(232,196,92,.6),0 0 0 8px rgba(7,13,42,.9),0 0 0 9px rgba(232,196,92,.3)}
+.portrait figcaption{position:relative;z-index:1;margin-top:1rem;text-align:center;font-family:var(--display);font-style:italic;font-size:1.15rem;color:var(--ink-soft)}
 .about p{max-width:38rem;color:var(--ink-soft)}
 .signature{font-family:var(--display);font-style:italic;font-size:1.9rem;color:#F7E7A8;text-shadow:0 0 30px rgba(232,196,92,.35)}
 .glass{background:var(--glass);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:clamp(1.4rem,3vw,2.4rem);backdrop-filter:blur(14px);box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 30px 60px -30px rgba(0,0,0,.8)}
@@ -345,16 +349,20 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem
 
 <section id="about" class="about glow-aqua">
   <div class="wrap">
+    <figure class="portrait" style="margin:0">
+      <img src="img/portrait.jpg" alt="Funkie Tee, smiling, in a gold suit against a warm bronze backdrop" width="1200" height="1500" loading="lazy">
+      <figcaption>Funkie Tee</figcaption>
+    </figure>
     <div class="stack">
       <span class="eyebrow">About</span>
-      <h2>Faith first.<br>Always.</h2>
+      <h2>Faith first. Always.</h2>
       <p class="signature">"God cannot leave me stranded."</p>
-    </div>
-    <div class="glass stack">
+      <div class="glass stack">
       <p>Funkie Tee has been singing in choirs since she was six. The music grew up with her: through Nigeria, Canada and the United States, through a career in clinical research and medical affairs, through seasons of waiting, and through raising two sons.</p>
       <p>The songs are what she sings when the door is shut and when it opens. Praise with a live-band pulse. Testimony without exaggeration. Scripture set to melodies simple enough for a child to carry home.</p>
       <p>Off stage she is Dr. Olufunke Omotayo, a pharmacist and public-health professional. On every record she is Funkie Tee, and the message is the same in both places: God is faithful, and it is not over.</p>
       <p style="color:var(--gold)">Released through Charlen Legacy Records.</p>
+      </div>
     </div>
   </div>
 </section>
