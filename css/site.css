@@ -529,3 +529,17 @@ section{padding-block:clamp(80px,11vw,140px)}
   .menu-btn{order:3}
   .brand{order:1}
 }
+
+/* Player bar in ivory so it stands apart from the page */
+.player{background:rgba(252,248,236,.97);color:var(--ink);border-top:1px solid var(--gold);box-shadow:0 -18px 40px -22px rgba(8,14,44,.55)}
+.player .ttl{color:var(--ink)}
+.player .sub{color:var(--gold-ink)}
+.player .sub a{color:var(--ink)}
+.player .sub a:hover{color:var(--gold-ink)}
+.player button{color:var(--ink)}
+.player button:hover{background:rgba(15,26,74,.08)}
+.player .pp{background:var(--ink);color:var(--gold-soft)}
+.player .pp:hover{background:#17256A}
+.player .bar{background:rgba(15,26,74,.14)}
+.player .bar i{background:linear-gradient(90deg,#B8901F,#E3BE4E);box-shadow:none}
+.player .cv{box-shadow:0 0 0 1px rgba(201,162,39,.6)}
