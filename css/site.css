@@ -450,3 +450,11 @@ section{padding-block:clamp(80px,11vw,140px)}
 .about figure.pair .big{right:0;top:0;width:72%;height:86%;box-shadow:0 34px 60px -34px rgba(15,26,74,.55)}
 .about figure.pair .small{left:0;bottom:0;width:50%;aspect-ratio:3/4;border:9px solid var(--ivory);box-shadow:0 44px 70px -30px rgba(15,26,74,.65),0 0 0 1px rgba(201,162,39,.5)}
 @media (max-width:820px){.about figure.pair{max-width:360px;justify-self:start}.about figure.pair::before{right:-10px;top:10px}.about figure.pair .small{border-width:6px}}
+/* Kids Zone: the games are the main door */
+.kids .btn-big{padding:1.15rem 2.3rem;font-size:.84rem;box-shadow:0 18px 40px -14px rgba(255,220,120,.9),0 0 0 4px rgba(255,255,255,.18)}
+.kids .btn-big:hover{transform:translateY(-3px);box-shadow:0 24px 46px -14px rgba(255,220,120,1),0 0 0 4px rgba(255,255,255,.28)}
+.kids .btn-big svg{width:14px;height:14px}
+.playnote{margin-top:1rem;font-size:.9rem;color:rgba(255,255,255,.82)}
+.playnote a{color:#FFE9A8;font-weight:700;text-decoration:none;border-bottom:1px solid rgba(255,233,168,.6)}
+.playnote a:hover{color:#fff;border-color:#fff}
+@media (max-width:820px){.kids .row .btn{flex:1 1 auto;justify-content:center}}
