@@ -298,3 +298,14 @@ body.has-player{padding-bottom:96px}
   h2{font-size:clamp(2rem,8.4vw,2.6rem)}
   section{padding-block:64px}
 }
+
+/* Follow block: compact */
+.follow{padding-block:clamp(44px,5.5vw,72px)}
+.follow .head{gap:.6rem;margin-bottom:1.5rem}
+.follow h2{font-size:clamp(1.9rem,3.2vw,2.5rem)}
+.follow .lead{font-size:1rem}
+.follow .platbtns{max-width:620px;gap:.55rem}
+.follow .platbtns .btn{padding:.72rem .5rem;font-size:.68rem;letter-spacing:.16em}
+.follow .socials{margin-top:1.4rem;gap:.5rem 1.8rem}
+.follow .socials a{font-size:.9rem}
+.follow .socials svg{width:18px;height:18px}
