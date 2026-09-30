@@ -272,14 +272,14 @@ home = head('Funkie Tee | Contemporary Gospel Music',
 <section class="on-indigo" id="video">
   <div class="wrap">
     <div class="head">
-      <span class="eyebrow">Watch</span>
-      <h2>See the song</h2>
+      <span class="eyebrow">Video preview</span>
+      <h2>A first look at God Did It</h2>
     </div>
     <div class="video film" id="film">
       <video muted loop playsinline preload="none" poster="img/video-god-did-it.jpg" width="1366" height="768" aria-label="God Did It, a short film: a woman in a rose dress in a glass-walled room above a city at dusk"><source src="video/god-did-it.mp4" type="video/mp4"></video>
-      <button class="shade" type="button" id="film-btn" aria-label="Watch God Did It with sound"><span class="disc">{PLAY}</span><span class="lbl">Watch video</span></button>
+      <button class="shade" type="button" id="film-btn" aria-label="Watch the God Did It video preview with sound"><span class="disc">{PLAY}</span><span class="lbl">Watch the preview</span></button>
     </div>
-    <div class="videocap"><b>God Did It</b>{ext(YT, 'Watch on YouTube', 'playlink')}</div>
+    <div class="videocap"><b>Official music video</b>{ext(YT, 'Watch on YouTube', 'playlink')}</div>
   </div>
 </section>
 
