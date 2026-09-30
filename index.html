@@ -3,15 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Funkie Tee Music</title>
-<meta name="description" content="Funkie Tee — faith-filled African contemporary praise with gospel-soul depth. Listen to This Is My Jubilee, God Did It, and Scripture songs for children.">
+<title>Funkie Tee Music | African Contemporary Praise and Scripture Songs for Children</title>
+<meta name="description" content="Funkie Tee composes African contemporary praise and Scripture songs for children and children's choirs. Songs of hope, faith and total dependence on God. Listen here.">
 <meta property="og:title" content="Funkie Tee Music">
-<meta property="og:description" content="Where faith meets the future. Praise, testimony and Scripture songs by Funkie Tee.">
+<meta property="og:description" content="Songs of hope, faith and total dependence on God. African contemporary praise, and Bible verses set to music for children.">
 <meta property="og:image" content="https://www.funkieteemusic.com/img/banner.jpg">
 <meta property="og:url" content="https://www.funkieteemusic.com/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://www.funkieteemusic.com/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"MusicGroup","name":"Funkie Tee","url":"https://www.funkieteemusic.com/","image":"https://www.funkieteemusic.com/img/portrait.jpg","genre":["Gospel","African contemporary Christian","Children's music"],"sameAs":["https://www.youtube.com/@Funkieteemusic","https://open.spotify.com/artist/38PxBexr2CgpQjC7OwSqL5","https://music.apple.com/us/artist/funkie-tee/1867356216","https://music.amazon.ca/artists/B0GFKVNXMG","https://www.instagram.com/funkieteemusic","https://www.tiktok.com/@funkieteemusic","https://www.facebook.com/funkieteemusic"]}</script>
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -162,7 +163,8 @@ section>.wrap{position:relative;z-index:1}
 .video .title{position:absolute;left:0;right:0;bottom:0;padding:1.1rem 1.2rem;color:#fff;font-family:var(--display);font-size:1.45rem;background:linear-gradient(180deg,transparent,rgba(7,13,42,.92))}
 
 /* About */
-.about .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,90px);align-items:center}
+.about .wrap{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(32px,6vw,90px);align-items:center}
+.about h2{font-size:clamp(2rem,4.2vw,3.1rem)}
 @media (max-width:760px){.about .wrap{grid-template-columns:1fr}}
 .about p{max-width:38rem;color:var(--ink-soft)}
 .signature{font-family:var(--display);font-style:italic;font-size:1.9rem;color:#F7E7A8;text-shadow:0 0 30px rgba(232,196,92,.35)}
@@ -251,19 +253,34 @@ body.has-player{padding-bottom:96px}
 .emblem img{position:relative;width:100%;filter:drop-shadow(0 30px 50px rgba(0,0,0,.7))}
 footer .mark{display:flex;align-items:center;gap:.7rem}
 footer .mark img{width:32px;height:32px}
+.stream{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem 1.2rem;margin-top:1.6rem;font-size:.82rem;font-weight:600;letter-spacing:.06em;opacity:0;animation:rise 1s 1.3s forwards}
+.stream span{color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.2em;font-size:.7rem}
+.stream a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(232,196,92,.6);padding-bottom:2px}
+.stream a:hover{color:var(--gold)}
+.family{background:linear-gradient(180deg,var(--night) 0%,#2A1F6B 28%,#3B2A86 60%,#1A1550 88%,var(--night) 100%)}
+.family::before{background:radial-gradient(50% 45% at 80% 35%,rgba(200,170,255,.28),transparent 70%),radial-gradient(40% 40% at 12% 80%,rgba(232,196,92,.16),transparent 70%)}
+.vols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1rem,3vw,2.2rem)}
+@media (max-width:700px){.vols{grid-template-columns:1fr;max-width:340px}}
+.vol{text-decoration:none;display:flex;flex-direction:column;gap:.7rem}
+.vol img{border-radius:16px;aspect-ratio:1;object-fit:cover;width:100%;box-shadow:0 30px 60px -24px rgba(0,0,0,.85),0 0 0 1px rgba(232,196,92,.35);transition:transform .35s,box-shadow .35s}
+.vol:hover img{transform:translateY(-8px) rotate(-1deg);box-shadow:0 40px 70px -24px rgba(0,0,0,.9),0 0 0 1px rgba(232,196,92,.7),0 0 50px -8px rgba(232,196,92,.45)}
+.vol h3{color:#fff;font-size:1.5rem}
+.vol .meta{font-size:.84rem;color:var(--ink-soft)}
+.vol .pill{border-color:rgba(232,196,92,.6);color:var(--gold)}
+.signature{margin-top:.4rem}
 </style>
 </head>
 <body>
 
 <nav id="nav">
   <div class="wrap">
-    <a class="brand" href="#top"><img src="img/emblem.png" alt="" width="40" height="40"><span>Funkie <em>Tee</em></span></a>
+    <a class="brand" href="#top"><img src="img/emblem-sm.png" alt="" width="40" height="40"><span>Funkie <em>Tee</em></span></a>
     <div class="links">
       <a href="#latest">Latest</a>
       <a href="#music">Music</a>
-      <a href="#videos">Videos</a>
+      <a href="#videos">YouTube</a>
       <a href="#about">About</a>
-      <a href="#families">For families</a>
+      <a href="#families">For children</a>
       <a href="#connect">Connect</a>
     </div>
     <a class="btn btn-gold" href="https://www.youtube.com/@Funkieteemusic" target="_blank" rel="noopener">Listen now</a>
@@ -276,18 +293,20 @@ footer .mark img{width:32px;height:32px}
   <div class="veil"></div>
   <div class="wrap">
    <div>
-    <p class="kicker">Praise · Testimony · Scripture songs</p>
+    <p class="kicker">African contemporary praise · Scripture songs for children</p>
     <h1 class="gold-text">FUNKIE TEE</h1>
     <p class="tag">Where faith meets the future</p>
-    <p class="sub">African contemporary praise with gospel-soul warmth and a live-band pulse. Songs for the shut door, the open door, and the children singing in the back seat.</p>
+    <p class="sub">Songs of hope, faith and total dependence on God. Praise for the grown-ups, and Bible verses set to music for children and children's choirs.</p>
     <div class="cta">
-      <a class="btn btn-gold" href="https://www.youtube.com/@Funkieteemusic" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.8 15.2V8.8l6 3.2-6 3.2z"/></svg>
-        YouTube
-      </a>
-      <a class="btn btn-glass" href="https://music.apple.com/us/artist/funkie-tee/1867356216" target="_blank" rel="noopener">Apple Music</a>
-      <a class="btn btn-glass" href="https://open.spotify.com/artist/38PxBexr2CgpQjC7OwSqL5" target="_blank" rel="noopener">Spotify</a>
-      <a class="btn btn-glass" href="https://music.amazon.ca/artists/B0GFKVNXMG" target="_blank" rel="noopener">Amazon Music</a>
+      <button class="btn btn-gold" type="button" data-play="god-did-it"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Play a song</button>
+      <a class="btn btn-glass" href="#music">See all the music</a>
+    </div>
+    <div class="stream">
+      <span>Listen on</span>
+      <a href="https://www.youtube.com/@Funkieteemusic" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://open.spotify.com/artist/38PxBexr2CgpQjC7OwSqL5" target="_blank" rel="noopener">Spotify</a>
+      <a href="https://music.apple.com/us/artist/funkie-tee/1867356216" target="_blank" rel="noopener">Apple Music</a>
+      <a href="https://music.amazon.ca/artists/B0GFKVNXMG" target="_blank" rel="noopener">Amazon Music</a>
     </div>
    </div>
    <div class="hero-portrait">
@@ -336,25 +355,22 @@ footer .mark img{width:32px;height:32px}
         <span class="frame"><img src="img/jubilee.jpg" alt="This Is My Jubilee album cover: a jewelled crown under fireworks" width="640" height="640"><span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span></span>
         <span class="pill">Album</span>
         <h3>This Is My Jubilee</h3>
-        <span class="meta">Praise and testimony · 2026</span>
+        <span class="meta">Released April 2026</span>
       </a>
       <a class="card" href="https://www.youtube.com/playlist?list=OLAK5uy_kGRXI_ujmY8qt5tMy8edhc8ZU_q_V4lS8" target="_blank" rel="noopener">
         <span class="frame"><img src="img/last-dance.jpg" alt="Last Dance cover: a single rose on a lit ballroom floor beneath a chandelier" width="640" height="640"><span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span></span>
         <span class="pill">Album</span>
         <h3>Last Dance</h3>
-        <span class="meta">Worship and surrender</span>
       </a>
       <a class="card" href="https://www.youtube.com/watch?v=eF5pqTqbDN0" target="_blank" rel="noopener">
         <span class="frame"><img src="img/fathers-plans.jpg" alt="My Father's Plans For Me cover: a golden road through green hills at sunrise" width="640" height="640"><span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span></span>
         <span class="pill">Single</span>
         <h3>My Father's Plans For Me</h3>
-        <span class="meta">Encouragement</span>
       </a>
       <a class="card" href="https://www.youtube.com/watch?v=vPvw6wyyqkc" target="_blank" rel="noopener">
         <span class="frame"><img src="img/el-roi.jpg" alt="El-Roi (You See Me) cover: a column of light breaking through storm clouds" width="640" height="640"><span class="play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span></span>
         <span class="pill">Single</span>
         <h3>El-Roi (You See Me)</h3>
-        <span class="meta">The God who sees</span>
       </a>
     </div>
 
@@ -384,8 +400,8 @@ footer .mark img{width:32px;height:32px}
 <section id="videos" class="glow-gold">
   <div class="wrap">
     <div class="head">
-      <span class="eyebrow">Watch</span>
-      <h2>Music videos</h2>
+      <span class="eyebrow">YouTube</span>
+      <h2>Play the full songs</h2>
     </div>
     <div class="videos">
       <a class="video" href="https://www.youtube.com/watch?v=jnyfwOIjw3c" target="_blank" rel="noopener">
@@ -405,7 +421,7 @@ footer .mark img{width:32px;height:32px}
       </a>
     </div>
     <div class="row" style="margin-top:2.4rem">
-      <a class="btn btn-glass" href="https://www.youtube.com/@Funkieteemusic" target="_blank" rel="noopener">All videos on YouTube</a>
+      <a class="btn btn-glass" href="https://www.youtube.com/@Funkieteemusic" target="_blank" rel="noopener">Open the YouTube channel</a>
     </div>
   </div>
 </section>
@@ -415,33 +431,49 @@ footer .mark img{width:32px;height:32px}
     <div class="emblem"><img src="img/emblem.png" alt="Funkie Tee Music emblem: a gold cross with a diamond at its centre inside a gold ring" width="512" height="512" loading="lazy"></div>
     <div class="stack">
       <span class="eyebrow">About</span>
-      <h2>Faith first. Always.</h2>
-      <p class="signature">"God cannot leave me stranded."</p>
+      <h2>I write the songs. AI sings them. God anoints and blesses.</h2>
       <div class="glass stack">
-      <p>Funkie Tee has been singing in choirs since she was six. The music grew up with her: through Nigeria, Canada and the United States, through a career in clinical research and medical affairs, through seasons of waiting, and through raising two sons.</p>
-      <p>The songs are what she sings when the door is shut and when it opens. Praise with a live-band pulse. Testimony without exaggeration. Scripture set to melodies simple enough for a child to carry home.</p>
-      <p>Off stage she is Dr. Olufunke Omotayo, a pharmacist and public-health professional. On every record she is Funkie Tee, and the message is the same in both places: God is faithful, and it is not over.</p>
-      <p style="color:var(--gold)">Released through Charlen Legacy Records.</p>
+        <p>I have been singing in choirs since I was six. I compose every song here myself. AI helps me make them into music, and the voice you hear is AI. I chose that on purpose. The tool is new. The message is not.</p>
+        <p>I believe that God is very faithful and never leaves His children helpless. Every song here is a song of hope, faith and total dependence on God.</p>
+        <p>I also compose Scripture songs for children: one Bible verse, one melody, made to be sung together at home, in Sunday school and in children's choirs.</p>
+        <p>Off the record, I am also known as Dr. Funkie Tee, a mom of 2 amazing boys who rock my world, and a PharmD with over 2 decades of experience in pharmacy, public health and clinical research.</p>
+        <p class="signature">"God cannot leave me stranded."</p>
+        <p style="color:var(--gold)">Released through Charlen Legacy Records.</p>
       </div>
     </div>
   </div>
 </section>
 
 <section id="families" class="family">
-  <div class="wrap split">
-    <div class="stack">
-      <span class="eyebrow">For families</span>
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">For children, choirs and families</span>
       <h2>Bible verses you can sing</h2>
-      <p class="lead">Verse Vanish is a three-volume set of Scripture songs for children, one KJV verse per song, short enough to learn on the school run. Each volume pairs with a free memory-verse game at Charlen Play.</p>
-      <div class="row">
-        <a class="btn btn-gold" href="https://www.youtube.com/playlist?list=OLAK5uy_km_A4u-g6XJtyzuR9VsN4Z_U0F-Cp-2rM" target="_blank" rel="noopener">Listen to Vol. 1</a>
-        <a class="btn btn-glass" href="https://charlenplay.com" target="_blank" rel="noopener">Play the games</a>
-      </div>
+      <p class="lead">Verse Vanish is three albums of Scripture songs for children. One KJV verse per song, short enough to learn on the school run and simple enough to sing together in Sunday school or a children's choir.</p>
     </div>
-    <div class="trio">
-      <a href="https://www.youtube.com/playlist?list=OLAK5uy_km_A4u-g6XJtyzuR9VsN4Z_U0F-Cp-2rM" target="_blank" rel="noopener"><img src="img/verse-vanish-1.jpg" alt="Verse Vanish Vol. 1: Trust and Courage" width="640" height="640"></a>
-      <a href="https://www.youtube.com/playlist?list=OLAK5uy_nNXoYNPy8DpgBagwQBBnLxB4j_WO_fQMM" target="_blank" rel="noopener"><img src="img/verse-vanish-2.jpg" alt="Verse Vanish Vol. 2: Praise and Wonder" width="640" height="640"></a>
-      <a href="https://www.youtube.com/playlist?list=OLAK5uy_kYufB1T3ET3UrKcsDPgxCz0owRfBmcB-M" target="_blank" rel="noopener"><img src="img/verse-vanish-3.jpg" alt="Verse Vanish Vol. 3: Love and Kindness" width="640" height="640"></a>
+    <div class="vols">
+      <a class="vol" href="https://www.youtube.com/playlist?list=OLAK5uy_km_A4u-g6XJtyzuR9VsN4Z_U0F-Cp-2rM" target="_blank" rel="noopener">
+        <img src="img/verse-vanish-1.jpg" alt="Verse Vanish Vol. 1: Trust and Courage album cover" width="640" height="640" loading="lazy">
+        <span class="pill">Vol. 1</span>
+        <h3>Trust and Courage</h3>
+        <span class="meta">8 songs · Listen</span>
+      </a>
+      <a class="vol" href="https://www.youtube.com/playlist?list=OLAK5uy_nNXoYNPy8DpgBagwQBBnLxB4j_WO_fQMM" target="_blank" rel="noopener">
+        <img src="img/verse-vanish-2.jpg" alt="Verse Vanish Vol. 2: Praise and Wonder album cover" width="640" height="640" loading="lazy">
+        <span class="pill">Vol. 2</span>
+        <h3>Praise and Wonder</h3>
+        <span class="meta">9 songs · Listen</span>
+      </a>
+      <a class="vol" href="https://www.youtube.com/playlist?list=OLAK5uy_kYufB1T3ET3UrKcsDPgxCz0owRfBmcB-M" target="_blank" rel="noopener">
+        <img src="img/verse-vanish-3.jpg" alt="Verse Vanish Vol. 3: Love and Kindness album cover" width="640" height="640" loading="lazy">
+        <span class="pill">Vol. 3</span>
+        <h3>Love and Kindness</h3>
+        <span class="meta">9 songs · Listen</span>
+      </a>
+    </div>
+    <div class="row" style="margin-top:2.4rem">
+      <a class="btn btn-gold" href="https://www.youtube.com/playlist?list=OLAK5uy_km_A4u-g6XJtyzuR9VsN4Z_U0F-Cp-2rM" target="_blank" rel="noopener">Start with Vol. 1</a>
+      <a class="btn btn-glass" href="https://charlenplay.com" target="_blank" rel="noopener">Play the free memory-verse games</a>
     </div>
   </div>
 </section>
@@ -451,7 +483,7 @@ footer .mark img{width:32px;height:32px}
     <div class="head">
       <span class="eyebrow">Connect</span>
       <h2>Come and sing along</h2>
-      <p class="lead">New songs, behind-the-song stories and live moments land here first.</p>
+      <p class="lead">Follow for new songs and the stories behind them.</p>
     </div>
     <div class="row" style="margin-bottom:1.6rem">
       <a class="btn btn-glass" href="https://open.spotify.com/artist/38PxBexr2CgpQjC7OwSqL5" target="_blank" rel="noopener">Spotify</a>
@@ -482,8 +514,8 @@ footer .mark img{width:32px;height:32px}
 
 <footer>
   <div class="wrap">
-    <span class="mark"><img src="img/emblem.png" alt="" width="32" height="32">© 2026 Funkie Tee Music · Charlen Legacy Records</span>
-    <span>Songs available on YouTube, Apple Music, Spotify, Amazon Music and more</span>
+    <span class="mark"><img src="img/emblem-sm.png" alt="" width="32" height="32">© 2026 Funkie Tee Music · Charlen Legacy Records</span>
+    <span>Songs composed by Funkie Tee. Music and vocals produced with AI.</span>
   </div>
 </footer>
 
