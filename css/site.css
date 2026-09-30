@@ -471,3 +471,12 @@ section{padding-block:clamp(80px,11vw,140px)}
 .hero-wide .nowpill .np-title{font-size:1.1rem}
 /* About credit: a rule, not a box */
 .about .credit{background:none;border:0;border-left:2px solid var(--gold);padding:.2rem 0 .2rem 1.2rem;font-weight:600;color:var(--ink)}
+/* Slimmer header */
+.site-head .wrap{height:60px}
+.brand{font-size:1.45rem}
+.brand img{width:36px;height:36px}
+.links a{font-size:.68rem}
+.head-social svg{width:17px;height:17px}
+.hero-wide .wrap{padding-block:clamp(40px,6vh,72px)}
+.hero-bg img{object-position:72% 6%}
+@media (max-width:820px){.site-head .wrap{height:58px}.brand{font-size:1.3rem}.brand img{width:34px;height:34px}}
