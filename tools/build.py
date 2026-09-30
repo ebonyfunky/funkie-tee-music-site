@@ -11,7 +11,7 @@ IC = json.load(open('data/icons.json'))
 REL = {r['id']: r for r in cat['releases']}
 SONGS = cat['songs']
 e = html.escape
-V = "14"  # bump to refresh cached css/js
+V = "16"  # bump to refresh cached css/js
 
 SITE = 'https://www.funkieteemusic.com/'
 YT = 'https://www.youtube.com/@Funkieteemusic'
@@ -185,7 +185,7 @@ home = head('Funkie Tee | Contemporary Gospel Music',
             '', 'Funkie Tee | Contemporary Gospel Music') + header('home') + f'''
 <main id="main">
 <section class="hero hero-wide" id="top" style="padding-block:0">
-  <picture class="hero-bg"><source media="(max-width:820px)" srcset="img/hero-tall.jpg"><img src="img/hero-wide.jpg" alt="Funkie Tee in a gold beaded gown beside a window over a city at dusk" width="2000" height="1498" fetchpriority="high"></picture>
+  <picture class="hero-bg"><source media="(max-width:820px)" srcset="img/hero-tall.jpg"><img src="img/hero-wide.jpg" alt="Funkie Tee in a gold beaded gown beside a window over a city at dusk" width="2000" height="1125" fetchpriority="high"></picture>
   <div class="wrap">
     <div class="hero-copy">
       <span class="eyebrow">African contemporary gospel</span>
@@ -236,7 +236,10 @@ home = head('Funkie Tee | Contemporary Gospel Music',
 
 <section class="on-ivory" id="about">
   <div class="wrap about">
-    <figure><img src="img/portrait-about.jpg?v=4" alt="Funkie Tee standing in a navy gown with gold detail" width="1000" height="1500" loading="lazy"></figure>
+    <figure class="duo">
+      <img class="back" src="img/portrait-about.jpg?v=5" alt="Funkie Tee standing in a navy gown with gold embroidery" width="1000" height="1500" loading="lazy">
+      <img class="front" src="img/portrait-rose.jpg?v=2" alt="Funkie Tee standing in a rose peplum dress" width="1000" height="1792" loading="lazy">
+    </figure>
     <div class="stack">
       <span class="eyebrow">The heart behind the music</span>
       <h2 class="voice">An African voice in contemporary gospel, creating songs of faith for a global generation.</h2>
