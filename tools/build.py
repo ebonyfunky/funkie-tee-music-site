@@ -159,9 +159,8 @@ PICKS = [
     ('This is My Jubilee', 'Album · 7 songs', "Released for Funkie Tee's Ruby Jubilee. A timeless song for every thanksgiving occasion."),
     ('Last Dance', 'Album · 7 songs', 'Seven songs of worship, healing and trust.'),
     ('El-Roi (You See Me)', 'Single', 'For the one who feels unseen. He sees you.'),
-    ('Just Your Voice', 'From the album Last Dance', 'When everything else is loud, His voice is the one you need.'),
-    ('Rapha', 'From the album Last Dance', 'For the one who needs healing. He is the God who heals.'),
     ("My Father's Plans For Me", 'Single', 'When you cannot see the road, His plans still stand.'),
+    ('The Blood of Jesus', 'From the album This is My Jubilee', 'A song that holds on to the power in the blood of Jesus.'),
 ]
 
 
