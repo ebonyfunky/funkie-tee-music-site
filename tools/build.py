@@ -156,7 +156,7 @@ def kids_vols():
 # ------------------------------------------------------------------ HOME
 # One-liners below the titles. Drafted from the titles and their Scripture; Funkie to confirm each.
 PICKS = [
-    ('This is My Jubilee', 'Album · 7 songs', 'Seven songs of thanksgiving to the God who turned it around.'),
+    ('This is My Jubilee', 'Album · 7 songs', "Released for Funkie Tee's Ruby Jubilee. A timeless song for every thanksgiving occasion."),
     ('Last Dance', 'Album · 7 songs', 'Seven songs of worship, healing and trust.'),
     ('El-Roi (You See Me)', 'Single', 'For the one who feels unseen. He sees you.'),
     ('Nothing Missing, Nothing Broken', 'Single', 'Peace that leaves nothing missing and nothing broken.'),
