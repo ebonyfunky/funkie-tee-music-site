@@ -333,6 +333,69 @@ nav,nav.solid{background:rgba(252,248,236,.97);backdrop-filter:blur(14px);border
 .player .p-links a{color:#fff;margin-left:.6rem;text-decoration:underline;text-decoration-color:rgba(232,196,92,.7);text-underline-offset:3px}
 .player .p-links a:hover{color:var(--gold)}
 .about-photo{max-width:340px}
+/* ---- Round 4: floating pearl nav, featured single in a case, phone fixes ---- */
+section,header.hero{scroll-margin-top:104px}
+nav,nav.solid{background:none;border:0;box-shadow:none;backdrop-filter:none;padding-top:calc(env(safe-area-inset-top,0px) + 12px);pointer-events:none}
+nav .wrap{pointer-events:auto;height:62px;width:calc(100% - 24px);max-width:1120px;padding-inline:12px 9px;border-radius:999px;background:linear-gradient(180deg,#FFFFFF 0%,#FDFAF0 55%,#F6EDD6 100%);border:1px solid #C9A227;box-shadow:0 22px 44px -20px rgba(0,0,0,.85),0 0 0 4px rgba(232,196,92,.14),inset 0 1px 0 #fff,inset 0 -1px 0 rgba(201,162,39,.35)}
+.brand{font-size:1.5rem;letter-spacing:.08em;white-space:nowrap}
+.brand img{width:42px;height:42px;box-shadow:0 0 0 1px #C9A227,0 4px 10px rgba(15,26,74,.35)}
+.links{gap:1.9rem}
+.links a{text-transform:uppercase;font-size:.7rem;letter-spacing:.18em;font-weight:700;color:#1B2A6B;position:relative;padding-block:.4rem}
+.links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:#C9A227;transform:scaleX(0);transition:transform .25s}
+.links a:hover{color:#0F1A4A}
+.links a:hover::after{transform:scaleX(1)}
+.nav-cta{background:linear-gradient(180deg,#1B2A6B,#0F1A4A);color:#F3DB8A;border:1px solid #C9A227;padding:.7rem 1.25rem;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;box-shadow:inset 0 1px 0 rgba(255,255,255,.18);white-space:nowrap}
+.nav-cta:hover{color:#fff}
+.feature{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(20px,4vw,56px);align-items:center;padding:clamp(14px,2.4vw,28px);padding-right:clamp(16px,4vw,52px);border-radius:26px;background:linear-gradient(180deg,#FFFEFA 0%,#F8F0DC 100%);border:1px solid #D9B84A;box-shadow:0 40px 80px -34px rgba(0,0,0,.95),0 0 0 6px rgba(232,196,92,.12),0 0 70px -20px rgba(232,196,92,.45),inset 0 1px 0 #fff;color:#0F1A4A}
+.feature .cover{border-radius:16px;box-shadow:0 18px 36px -14px rgba(15,26,74,.6);transform:none}
+.feature h2{color:#0F1A4A}
+.feature .eyebrow{color:#7A5E0D}
+.feature .eyebrow::before{background:linear-gradient(90deg,#B8901F,transparent)}
+.feature .lead{color:#3A4468}
+.feature .verse{color:#0F1A4A;border-left-color:#B8901F}
+.feature .verse small{color:#7A5E0D}
+.feature .btn-glass{background:#fff;border-color:#C9A227;color:#0F1A4A;backdrop-filter:none;box-shadow:0 4px 10px -6px rgba(15,26,74,.4)}
+.feature .btn-glass:hover{background:#FBF1D2;border-color:#8A6D12}
+@media (max-width:760px){
+  .feature{grid-template-columns:1fr;padding:12px 12px 20px}
+  .feature .stack{padding-inline:6px}
+  nav .wrap{height:58px;padding-inline:8px 7px}
+  .brand{font-size:1.25rem;gap:.5rem}
+  .brand img{width:38px;height:38px}
+  .nav-cta{padding:.62rem .95rem;font-size:.7rem}
+}
+/* ---- Phone fixes ---- */
+section,header.hero{scroll-margin-top:calc(env(safe-area-inset-top,0px) + 96px)}
+@media (max-width:760px){
+  .hero .wrap{padding-block:calc(env(safe-area-inset-top,0px) + 108px) 52px;gap:22px}
+  .hero-portrait{justify-self:center;max-width:230px}
+  .hero-portrait img{object-position:50% 0}
+  .hero .kicker{font-size:.66rem;letter-spacing:.14em;margin-bottom:.8rem}
+  .hero .sub{font-size:1.04rem}
+  .hero .cta .btn{flex:1 1 auto;justify-content:center}
+  .stream{gap:.5rem 1rem}
+  h2{font-size:clamp(2rem,8.6vw,2.6rem)}
+  section{padding-block:64px}
+  .head{margin-bottom:1.8rem}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}
+  .case{padding:8px 8px 12px;border-radius:14px;gap:.5rem}
+  .case h3{font-size:1.08rem}
+  .case .pill{font-size:.58rem;letter-spacing:.1em;padding:.18rem .5rem}
+  .case .plats{font-size:.68rem;gap:.3rem .4rem}
+  .vols{margin-inline:auto}
+  .vols .case{padding:12px 12px 16px}
+  .vols .case h3{font-size:1.4rem}
+  .vols .case .plats{font-size:.76rem}
+  .songs .t{font-size:1.22rem}
+  .songs .plats{font-size:.7rem;gap:.15rem .6rem}
+  .about-photo{max-width:230px}
+  .platbtns{max-width:none}
+  .player{gap:.5rem .6rem}
+  .player .p-links{display:none}
+  .player .cv{width:44px;height:44px}
+  .player .ttl{font-size:1.1rem}
+  footer .wrap{flex-direction:column}
+}
 </style>
 </head>
 <body>
@@ -347,7 +410,7 @@ nav,nav.solid{background:rgba(252,248,236,.97);backdrop-filter:blur(14px);border
       <a href="#families">For children</a>
       <a href="#connect">Connect</a>
     </div>
-    <a class="btn btn-gold" href="https://www.youtube.com/@Funkieteemusic" target="_blank" rel="noopener">Listen now</a>
+    <a class="btn nav-cta" href="#music">Listen now</a>
   </div>
 </nav>
 
@@ -385,11 +448,9 @@ nav,nav.solid{background:rgba(252,248,236,.97);backdrop-filter:blur(14px);border
 </div>
 
 <section id="latest" class="glow-gold">
-  <div class="wrap split">
-    <div class="halo">
-      <img class="cover" src="img/cv/god-did-it.jpg" alt="God Did It single cover: a golden doorway standing open in a dark hall" width="900" height="900">
-      <div class="reflect" aria-hidden="true"><img src="img/cv/god-did-it.jpg" alt="" width="900" height="900"></div>
-    </div>
+  <div class="wrap">
+   <div class="feature">
+    <img class="cover" src="img/cv/god-did-it.jpg" alt="God Did It single cover: a golden doorway standing open in a dark hall" width="900" height="900">
     <div class="stack">
       <span class="eyebrow">Latest single</span>
       <h2>God Did It</h2>
@@ -405,6 +466,7 @@ nav,nav.solid{background:rgba(252,248,236,.97);backdrop-filter:blur(14px);border
         <a class="btn btn-glass" href="https://music.amazon.ca/artists/B0GFKVNXMG" target="_blank" rel="noopener">Amazon Music</a>
       </div>
     </div>
+   </div>
   </div>
 </section>
 
@@ -536,13 +598,13 @@ nav,nav.solid{background:rgba(252,248,236,.97);backdrop-filter:blur(14px);border
     <figure class="about-photo"><img src="img/portrait-about.jpg?v=3" alt="Funkie Tee standing full length in a rose-pink peplum dress" width="900" height="1613" loading="lazy"></figure>
     <div class="stack">
       <span class="eyebrow">About</span>
-      <h2>I write the songs. AI sings them. God anoints and blesses.</h2>
+      <h2>The heart behind the songs</h2>
       <div class="glass stack">
-        <p>I have been singing in choirs since I was six. I am a songwriter, and I write and produce every song here myself. AI helps me turn them into finished music, and the voice you hear is AI.</p>
-        <p>I made that choice with care. I am a healthcare professional and a serial entrepreneur with leadership responsibilities, and my days are full. I did not want a full calendar to keep these songs from the people they were written for. AI lets me keep ministering. The tool is new. The message is not.</p>
+        <p>Funkie Tee is the name I release music under. Behind every song is a real songwriter. I have been singing in choirs since I was six, and I write and produce each song myself.</p>
+        <p>The voice you hear is AI. I chose it with care, so that a full life never keeps a song from the people it was written for. The words are not generated. They are mine, written out of my own walk with God.</p>
         <p>I believe that God is very faithful and never leaves His children helpless. Every song here is a song of hope, faith and total dependence on God.</p>
-        <p>I also compose Scripture songs for children: one Bible verse, one melody, made to be sung together at home, in Sunday school and in children's choirs.</p>
-        <p>Off the record, I am also known as Dr. Funkie Tee, a mom of 2 amazing boys who rock my world, and a healthcare professional with over 2 decades of combined experience in pharmacy, public health and clinical research.</p>
+        <p>These songs are for the one who is still waiting, the one who is tired but still trusting, and the family that wants to sing the Word together. That is why I also write Scripture songs for children: one Bible verse, one melody, made for home, Sunday school and children's choirs.</p>
+        <p>My prayer is simple: that you finish each song more sure of God than when you pressed play.</p>
         <p class="signature">"God cannot leave me stranded."</p>
         <p style="color:var(--gold)">Released through Charlen Legacy Records.</p>
       </div>
@@ -591,11 +653,11 @@ nav,nav.solid{background:rgba(252,248,236,.97);backdrop-filter:blur(14px);border
       <h2>Come and sing along</h2>
       <p class="lead">Follow for new songs and the stories behind them.</p>
     </div>
-    <div class="row" style="margin-bottom:1.6rem">
+    <div class="platbtns" style="margin-bottom:1.6rem">
+      <a class="btn btn-glass" href="https://www.youtube.com/@Funkieteemusic" target="_blank" rel="noopener">YouTube</a>
       <a class="btn btn-glass" href="https://open.spotify.com/artist/38PxBexr2CgpQjC7OwSqL5" target="_blank" rel="noopener">Spotify</a>
       <a class="btn btn-glass" href="https://music.apple.com/us/artist/funkie-tee/1867356216" target="_blank" rel="noopener">Apple Music</a>
       <a class="btn btn-glass" href="https://music.amazon.ca/artists/B0GFKVNXMG" target="_blank" rel="noopener">Amazon Music</a>
-      <a class="btn btn-glass" href="https://www.youtube.com/@Funkieteemusic" target="_blank" rel="noopener">YouTube</a>
     </div>
     <div class="social">
       <a href="https://www.youtube.com/@Funkieteemusic" target="_blank" rel="noopener">
