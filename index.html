@@ -163,7 +163,7 @@ section>.wrap{position:relative;z-index:1}
 .video .title{position:absolute;left:0;right:0;bottom:0;padding:1.1rem 1.2rem;color:#fff;font-family:var(--display);font-size:1.45rem;background:linear-gradient(180deg,transparent,rgba(7,13,42,.92))}
 
 /* About */
-.about .wrap{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(32px,6vw,90px);align-items:center}
+.about .wrap{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(32px,6vw,90px);align-items:center}
 .about h2{font-size:clamp(2rem,4.2vw,3.1rem)}
 @media (max-width:760px){.about .wrap{grid-template-columns:1fr}}
 .about p{max-width:38rem;color:var(--ink-soft)}
@@ -268,6 +268,10 @@ footer .mark img{width:32px;height:32px}
 .vol .meta{font-size:.84rem;color:var(--ink-soft)}
 .vol .pill{border-color:rgba(232,196,92,.6);color:var(--gold)}
 .signature{margin-top:.4rem}
+.about-photo{position:relative;margin:0 auto;max-width:400px;width:100%}
+.about-photo::before{content:"";position:absolute;inset:-10%;background:radial-gradient(closest-side,rgba(63,224,204,.22),rgba(232,196,92,.2) 55%,transparent 75%);filter:blur(36px);animation:breathe 6s ease-in-out infinite}
+.about-photo img{position:relative;width:100%;border-radius:18px;box-shadow:0 40px 90px -30px rgba(0,0,0,.9),0 0 0 1px rgba(232,196,92,.6),0 0 0 8px rgba(7,13,42,.9),0 0 0 9px rgba(232,196,92,.3)}
+@media (max-width:760px){.about-photo{max-width:300px}}
 </style>
 </head>
 <body>
@@ -428,13 +432,13 @@ footer .mark img{width:32px;height:32px}
 
 <section id="about" class="about glow-aqua">
   <div class="wrap">
-    <div class="emblem"><img src="img/emblem.png" alt="Funkie Tee Music emblem: a gold cross with a diamond at its centre inside a gold ring" width="512" height="512" loading="lazy"></div>
+    <figure class="about-photo"><img src="img/portrait-about.jpg" alt="Funkie Tee standing in a pale blue beaded dress" width="1000" height="1549" loading="lazy"></figure>
     <div class="stack">
       <span class="eyebrow">About</span>
       <h2>I write the songs. AI sings them. God anoints and blesses.</h2>
       <div class="glass stack">
-        <p>I have been singing in choirs since I was six. I compose every song here myself. AI helps me make them into music, and the voice you hear is AI.</p>
-        <p>Here is why. I am a very busy healthcare professional with leadership responsibilities, and I do not want my profession to get in the way. So I leverage AI to minister to people. The tool is new. The message is not.</p>
+        <p>I have been singing in choirs since I was six, and I compose every song here myself. AI helps me turn them into finished music, and the voice you hear is AI.</p>
+        <p>I made that choice with care. I am a healthcare professional and a serial entrepreneur with leadership responsibilities, and my days are full. I did not want a full calendar to keep these songs from the people they were written for. AI lets me keep ministering. The tool is new. The message is not.</p>
         <p>I believe that God is very faithful and never leaves His children helpless. Every song here is a song of hope, faith and total dependence on God.</p>
         <p>I also compose Scripture songs for children: one Bible verse, one melody, made to be sung together at home, in Sunday school and in children's choirs.</p>
         <p>Off the record, I am also known as Dr. Funkie Tee, a mom of 2 amazing boys who rock my world, and a PharmD with over 2 decades of experience in pharmacy, public health and clinical research.</p>
