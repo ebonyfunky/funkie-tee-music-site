@@ -11,7 +11,7 @@ IC = json.load(open('data/icons.json'))
 REL = {r['id']: r for r in cat['releases']}
 SONGS = cat['songs']
 e = html.escape
-V = "41"  # bump to refresh cached css/js
+V = "42"  # bump to refresh cached css/js
 
 SITE = 'https://www.funkieteemusic.com/'
 YT = 'https://www.youtube.com/@Funkieteemusic'
@@ -158,7 +158,7 @@ PICKS = [
     ("My Father's Plans For Me", 'Single', 'When you cannot see the road, His plans still stand.'),
     ('This is My Jubilee', 'Album · 7 songs', "Seven songs of thanksgiving, celebration and faith, created for Funkie Tee's Ruby Jubilee."),
     ('Last Dance', 'Album · 7 songs', 'Seven songs of worship, healing and trust.'),
-    ('The Blood of Jesus', 'From the album This is My Jubilee', 'A song that holds on to the power in the blood of Jesus.'),
+    ('A Basket of Goodies', 'Single', 'Every good gift comes from above. A song of thanks for His goodness.'),
 ]
 
 
