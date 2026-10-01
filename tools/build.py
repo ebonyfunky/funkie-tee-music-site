@@ -11,7 +11,7 @@ IC = json.load(open('data/icons.json'))
 REL = {r['id']: r for r in cat['releases']}
 SONGS = cat['songs']
 e = html.escape
-V = "44"  # bump to refresh cached css/js
+V = "45"  # bump to refresh cached css/js
 
 SITE = 'https://www.funkieteemusic.com/'
 YT = 'https://www.youtube.com/@Funkieteemusic'
@@ -84,6 +84,7 @@ def header(page):
     <nav class="links" id="navlinks" aria-label="Main">
       <a href="{home or '#top'}"{cur('home')}>Home</a>
       <a href="music.html"{cur('music')}>Music</a>
+      <a href="podcast.html"{cur('podcast')}>Podcast</a>
       <a href="{home}#about">About</a>
       <a href="{home}#kids">Kids Zone</a>
       <a href="{home}#follow">Connect</a>
@@ -426,11 +427,74 @@ music = head('Music | Funkie Tee',
 </main>
 ''' + footer()
 
+
+# ------------------------------------------------------------------ PODCAST
+POD = json.load(open('data/podcast.json'))
+
+
+def episodes():
+    if not POD['episodes']:
+        return '''      <li class="ep soon">
+        <span class="kind">Episode 1</span>
+        <h3>The first episode is on its way.</h3>
+        <p>A few minutes of encouragement for the week ahead. Subscribe on YouTube and you will see it the moment it lands.</p>
+      </li>'''
+    out = []
+    for i, ep in enumerate(reversed(POD['episodes'])):
+        n = len(POD['episodes']) - i
+        audio = f'<audio controls preload="none" src="{e(ep["audio"])}"></audio>' if ep.get('audio') else ''
+        links = ''.join(ext(ep[k], lbl) for k, lbl in (('yt', 'YouTube'), ('sp', 'Spotify'), ('apple', 'Apple Podcasts')) if ep.get(k))
+        out.append(f'''      <li class="ep">
+        <span class="kind">Episode {n} · {e(ep['date'])}</span>
+        <h3>{e(ep['title'])}</h3>
+        <p>{e(ep['summary'])}</p>
+        {audio}
+        {f'<p class="also"><span>Listen on</span>{links}</p>' if links else ''}
+      </li>''')
+    return '\n'.join(out)
+
+
+podlinks = ''.join(ext(POD['links'][k], lbl, 'btn btn-line') for k, lbl in (('youtube', 'YouTube'), ('spotify', 'Spotify'), ('apple', 'Apple Podcasts')) if POD['links'].get(k))
+
+podcast = head('Podcast | Funkie Tee',
+               'Faith Meets the Future: short, encouraging weekly episodes from Funkie Tee for the week ahead.',
+               'podcast', 'Podcast | Funkie Tee') + header('podcast') + f'''
+<main id="main">
+<section class="pagehead" id="top">
+  <div class="wrap">
+    <span class="eyebrow">The podcast</span>
+    <h1>{e(POD['name'])}</h1>
+    <p class="lead">{e(POD['tagline'])} A new episode every week, each one under ten minutes.</p>
+  </div>
+</section>
+
+<section class="on-ivory" id="about-pod">
+  <div class="wrap pod-intro">
+    <p class="pitch">Scripture, a story and one thing to carry into your week. No long preambles. Press play on your way to work, in the kitchen, or before you sleep.</p>
+    <div class="row">
+      {ext(YT_SUB, 'Subscribe on YouTube', 'btn btn-gold')}
+      {podlinks}
+    </div>
+  </div>
+</section>
+
+<section class="on-ivory" id="episodes" style="padding-top:0">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">Episodes</span><h2>Listen</h2></div>
+    <ul class="eps">
+{episodes()}
+    </ul>
+  </div>
+</section>
+</main>
+''' + footer()
+
 open('index.html', 'w').write(home)
+open('podcast.html', 'w').write(podcast)
 open('music.html', 'w').write(music)
 
 js = open('js/site.src.js').read()
 slim = [{k: s[k] for k in ('slug', 'name', 'audio', 'cover', 'yt', 'sp', 'apple', 'am')} for s in SONGS]
 open('js/site.js', 'w').write(js.replace('/*SONGS*/[]', json.dumps(slim, separators=(',', ':'))))
-open('sitemap.xml', 'w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>' + SITE + '</loc></url><url><loc>' + SITE + 'music</loc></url></urlset>\n')
+open('sitemap.xml', 'w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>' + SITE + '</loc></url><url><loc>' + SITE + 'music</loc></url><url><loc>' + SITE + 'podcast</loc></url></urlset>\n')
 print('built', len(home), len(music))
