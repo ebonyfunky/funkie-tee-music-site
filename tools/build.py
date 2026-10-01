@@ -11,7 +11,7 @@ IC = json.load(open('data/icons.json'))
 REL = {r['id']: r for r in cat['releases']}
 SONGS = cat['songs']
 e = html.escape
-V = "36"  # bump to refresh cached css/js
+V = "37"  # bump to refresh cached css/js
 
 SITE = 'https://www.funkieteemusic.com/'
 YT = 'https://www.youtube.com/@Funkieteemusic'
@@ -79,7 +79,7 @@ def header(page):
     cur = lambda p: ' aria-current="page"' if p == page else ''
     return f'''<header class="site-head" id="site-head">
   <div class="wrap">
-    <a class="brand" href="{home or '#top'}"><img src="img/emblem-sm.png" alt="" width="44" height="44"><span>Funkie <em>Tee</em></span></a>
+    <a class="brand" href="{home or '#top'}"><img src="img/emblem-sm.png" alt="" width="44" height="44"><span class="bname"><span>Funkie <em>Tee</em></span><small>Contemporary gospel</small></span></a>
     <button class="menu-btn" type="button" id="menu-btn" aria-expanded="false" aria-controls="navlinks">Menu</button>
     <nav class="links" id="navlinks" aria-label="Main">
       <a href="{home or '#top'}"{cur('home')}>Home</a>
