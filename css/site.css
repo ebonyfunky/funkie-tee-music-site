@@ -598,3 +598,8 @@ section{padding-block:clamp(80px,11vw,140px)}
   .brand em{background:linear-gradient(180deg,#D9B646,#9A7515);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
   .brand img{width:40px;height:40px}
 }
+/* Wordmark: Playfair Display black for a heavier, more premium brand */
+.brand{font-family:"Playfair Display",var(--display);font-weight:900;letter-spacing:.03em;font-size:1.45rem}
+@media (max-width:880px){.brand{font-size:1.4rem;font-weight:900;letter-spacing:.03em}}
+.brand .bname{display:inline;white-space:nowrap}
+@media (max-width:880px){.brand{font-size:1.28rem;gap:.55rem}.site-head .wrap{gap:.45rem}}
