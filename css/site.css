@@ -663,3 +663,6 @@ section{padding-block:clamp(80px,11vw,140px)}
   .stereo.on .short{display:none}.stereo.on .full{display:inline}
   .stereo{margin-right:.8rem}
 }
+/* Page header photo: keep her head in frame */
+.pagehead::before{background-position:76% 0%}
+@media (max-width:820px){.pagehead::before{background-position:72% 0%}}
