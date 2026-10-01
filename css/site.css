@@ -590,3 +590,11 @@ section{padding-block:clamp(80px,11vw,140px)}
   .stereo{flex:none;padding:.45rem .65rem .45rem .6rem;font-size:.56rem;letter-spacing:.14em}
   .menu-btn{flex:none;padding:.5rem .75rem;font-size:.58rem;letter-spacing:.14em}
 }
+/* Phone brand: no label; bolder, more premium wordmark */
+@media (max-width:880px){
+  .brand .bname{display:inline;white-space:nowrap}
+  .brand{font-size:1.5rem;font-weight:700;letter-spacing:.07em;gap:.65rem}
+  .brand span{background:linear-gradient(180deg,#1B2B78,#0F1A4A);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+  .brand em{background:linear-gradient(180deg,#D9B646,#9A7515);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+  .brand img{width:40px;height:40px}
+}
