@@ -11,7 +11,7 @@ IC = json.load(open('data/icons.json'))
 REL = {r['id']: r for r in cat['releases']}
 SONGS = cat['songs']
 e = html.escape
-V = "42"  # bump to refresh cached css/js
+V = "43"  # bump to refresh cached css/js
 
 SITE = 'https://www.funkieteemusic.com/'
 YT = 'https://www.youtube.com/@Funkieteemusic'
@@ -154,10 +154,10 @@ def kids_vols():
 # ------------------------------------------------------------------ HOME
 # One-liners below the titles. Drafted from the titles and their Scripture; Funkie to confirm each.
 PICKS = [
-    ('El-Roi (You See Me)', 'Single', 'For the one who feels unseen. He sees you.'),
-    ("My Father's Plans For Me", 'Single', 'When you cannot see the road, His plans still stand.'),
     ('This is My Jubilee', 'Album · 7 songs', "Seven songs of thanksgiving, celebration and faith, created for Funkie Tee's Ruby Jubilee."),
     ('Last Dance', 'Album · 7 songs', 'Seven songs of worship, healing and trust.'),
+    ('El-Roi (You See Me)', 'Single', 'For the one who feels unseen. He sees you.'),
+    ("My Father's Plans For Me", 'Single', 'When you cannot see the road, His plans still stand.'),
     ('A Basket of Goodies', 'Single', 'Every good gift comes from above. A song of thanks for His goodness.'),
 ]
 
