@@ -638,3 +638,28 @@ section{padding-block:clamp(80px,11vw,140px)}
 .eps .soon h3{color:var(--ink)}
 .links a{white-space:nowrap}
 @media (min-width:881px) and (max-width:1180px){.links{gap:1.1rem}.links a{font-size:.64rem}}
+/* Tablet and small laptops: the full nav does not fit beside the wordmark, use the Menu */
+@media (min-width:881px) and (max-width:1120px){
+  .menu-btn{display:block;order:3}
+  .head-social{display:none}
+  .links{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:0;background:var(--paper);border-bottom:1px solid var(--gold);box-shadow:0 26px 40px -20px rgba(0,0,0,.6);padding:.3rem clamp(20px,5vw,48px) 1rem}
+  .site-head.open .links{display:flex}
+  .links a{padding:1.05rem 0;border-bottom:1px solid rgba(201,162,39,.28);font-size:.8rem;white-space:normal}
+  .links a:last-child{border-bottom:0}
+  .links a::after{display:none}
+  .stereo{order:2;margin-left:auto;margin-right:.8rem}
+  .brand{order:1}
+}
+.pagehead::before{background-image:url("../img/music-header.jpg?v=2")}
+/* Laptop widths: tighter nav so it never runs into the wordmark */
+@media (min-width:1121px){
+  .site-head .wrap{gap:2.2rem}
+  .brand{flex:none}
+  .links{flex:1 1 auto;justify-content:center;gap:clamp(.9rem,2vw,2rem)}
+  .links a{font-size:.64rem;letter-spacing:.16em}
+}
+@media (min-width:1121px) and (max-width:1400px){
+  .stereo .full{display:none}.stereo .short{display:inline}
+  .stereo.on .short{display:none}.stereo.on .full{display:inline}
+  .stereo{margin-right:.8rem}
+}
