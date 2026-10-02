@@ -11,7 +11,7 @@ IC = json.load(open('data/icons.json'))
 REL = {r['id']: r for r in cat['releases']}
 SONGS = cat['songs']
 e = html.escape
-V = "49"  # bump to refresh cached css/js
+V = "50"  # bump to refresh cached css/js
 
 SITE = 'https://www.funkieteemusic.com/'
 YT = 'https://www.youtube.com/@Funkieteemusic'
@@ -152,6 +152,28 @@ def kids_vols():
     return '\n'.join(out)
 
 
+
+# ------------------------------------------------------------------ NEXT RELEASE
+# Shown on the home and music pages. site.js flips the wording on release day.
+NEXT = {'title': 'I Have Escaped', 'cover': 'img/cv/i-have-escaped.jpg', 'date': '2026-10-17T00:00:00-05:00',
+        'when': '17 October', 'link': 'https://distrokid.com/hyperfollow/funkietee/i-have-escaped'}
+
+
+def upcoming():
+    return f'''<section class="next" id="next" data-release="{NEXT['date']}">
+  <div class="wrap">
+    <a class="cover" href="{NEXT['link']}" target="_blank" rel="noopener" aria-label="Pre-save {NEXT['title']}"><img src="{NEXT['cover']}" alt="{NEXT['title']} cover art: a prison wall broken open to golden light, broken chains on the ground" width="900" height="900"></a>
+    <div class="stack">
+      <span class="eyebrow" id="next-eyebrow">New single · {NEXT['when']}</span>
+      <h2>{NEXT['title']}</h2>
+      <p class="pitch">The wall is down and the chains are on the floor. A song of freedom for anyone who has been held by fear, shame or pain.</p>
+      <blockquote>“The snare is broken, and we are escaped.”<cite>— Psalm 124:7</cite></blockquote>
+      <a class="btn btn-gold" id="next-btn" href="{NEXT['link']}" target="_blank" rel="noopener">Pre-save now</a>
+    </div>
+  </div>
+</section>
+'''
+
 # ------------------------------------------------------------------ HOME
 # One-liners below the titles. Drafted from the titles and their Scripture; Funkie to confirm each.
 PICKS = [
@@ -202,6 +224,7 @@ home = head('Funkie Tee | Contemporary Gospel Music',
   </div>
 </section>
 
+{upcoming()}
 <section class="on-ivory" id="latest">
   <div class="wrap feature">
     <div class="art"><img src="img/cv/god-did-it.jpg" alt="God Did It cover art: golden doors standing open" width="900" height="900" loading="lazy"></div>
@@ -352,6 +375,7 @@ music = head('Music | Funkie Tee',
   </div>
 </section>
 
+{upcoming()}
 <section class="on-ivory" id="latest">
   <div class="wrap feature">
     <div class="art"><img src="img/cv/god-did-it.jpg" alt="God Did It cover art: golden doors standing open" width="900" height="900"></div>

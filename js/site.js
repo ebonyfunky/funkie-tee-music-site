@@ -105,4 +105,8 @@
       v.parentNode.replaceChild(box,v);
     });
   });
+  // Next release: on release day the pre-save card becomes an "out now" card
+  (function(){var n=document.getElementById('next');if(!n||!n.dataset.release)return;
+    if(Date.now()>=new Date(n.dataset.release).getTime()){var e=document.getElementById('next-eyebrow'),b=document.getElementById('next-btn');if(e)e.textContent='Out now · New single';if(b){b.textContent='Listen now';var c=n.querySelector('.cover');if(c)c.setAttribute('aria-label','Listen to I Have Escaped')}}
+  })();
 })();
