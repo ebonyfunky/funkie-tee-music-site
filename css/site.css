@@ -713,3 +713,5 @@ section{padding-block:clamp(80px,11vw,140px)}
   .next .cover{max-width:300px}
   .next .btn{width:100%;justify-content:center;text-align:center}
 }
+/* About portrait is now a three-quarter crop */
+.about figure.pair.solo{aspect-ratio:4/5}
