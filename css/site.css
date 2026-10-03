@@ -715,3 +715,18 @@ section{padding-block:clamp(80px,11vw,140px)}
 }
 /* About portrait is now a three-quarter crop */
 .about figure.pair.solo{aspect-ratio:4/5}
+/* Slim "also coming" row inside the next-release band */
+.next .also-rel{grid-column:1/-1;display:grid;grid-template-columns:96px minmax(0,1fr) auto;gap:1.2rem;align-items:center;margin-top:1.4rem;padding:1rem 1.2rem;border:1px solid rgba(201,162,39,.45);border-radius:12px;background:rgba(255,255,255,.04);color:var(--ivory);text-decoration:none;transition:background .2s,border-color .2s}
+.next .also-rel:hover{background:rgba(255,255,255,.08);border-color:var(--gold)}
+.next .also-rel img{width:96px;height:96px;border-radius:6px;display:block;box-shadow:0 0 0 1px rgba(201,162,39,.6)}
+.next .also-rel .txt{display:flex;flex-direction:column;gap:.15rem;min-width:0}
+.next .also-rel .kind{font:700 .62rem var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft)}
+.next .also-rel strong{font-family:var(--display);font-weight:500;font-size:1.45rem;line-height:1.15;color:#fff}
+.next .also-rel .line{font-size:.92rem;color:var(--mist)}
+.next .also-rel .go{font:800 .66rem var(--body);letter-spacing:.2em;text-transform:uppercase;color:#1C1503;background:linear-gradient(180deg,#F1D67F,#CBA52C);padding:.7rem 1.1rem;border-radius:999px;white-space:nowrap}
+@media (max-width:720px){
+  .next .also-rel{grid-template-columns:72px minmax(0,1fr);gap:.9rem;padding:.9rem}
+  .next .also-rel img{width:72px;height:72px}
+  .next .also-rel .go{grid-column:2;justify-self:start}
+  .next .also-rel strong{font-size:1.25rem}
+}

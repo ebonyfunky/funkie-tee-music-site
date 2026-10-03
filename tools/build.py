@@ -11,7 +11,7 @@ IC = json.load(open('data/icons.json'))
 REL = {r['id']: r for r in cat['releases']}
 SONGS = cat['songs']
 e = html.escape
-V = "52"  # bump to refresh cached css/js
+V = "53"  # bump to refresh cached css/js
 
 SITE = 'https://www.funkieteemusic.com/'
 YT = 'https://www.youtube.com/@Funkieteemusic'
@@ -170,9 +170,30 @@ def upcoming():
       <blockquote>“The snare is broken, and we are escaped.”<cite>— Psalm 124:7</cite></blockquote>
       <a class="btn btn-gold" id="next-btn" href="{NEXT['link']}" target="_blank" rel="noopener">Pre-save now</a>
     </div>
+    {also()}
   </div>
 </section>
 '''
+
+
+# Other upcoming releases, shown as a slim row under the main one
+ALSO = [
+    {'title': "My Father's Plans for Me (Remix)", 'cover': 'img/cv/my-fathers-plans-for-me-remix.jpg', 'when': 'Coming soon',
+     'line': 'A new, fuller take on the January single.',
+     'link': 'https://distrokid.com/hyperfollow/funkietee/my-fathers-plans-for-me-remix'},
+]
+
+
+def also():
+    out = []
+    for r in ALSO:
+        out.append(f'''    <a class="also-rel" href="{r['link']}" target="_blank" rel="noopener">
+      <img src="{r['cover']}" alt="{e(r['title'])} cover art" width="900" height="900" loading="lazy">
+      <span class="txt"><span class="kind">Also coming · {e(r['when'])}</span><strong>{e(r['title'])}</strong><span class="line">{e(r['line'])}</span></span>
+      <span class="go">Pre-save</span>
+    </a>''')
+    return '\n'.join(out)
+
 
 # ------------------------------------------------------------------ HOME
 # One-liners below the titles. Drafted from the titles and their Scripture; Funkie to confirm each.
