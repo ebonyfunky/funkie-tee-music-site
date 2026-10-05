@@ -730,3 +730,4 @@ section{padding-block:clamp(80px,11vw,140px)}
   .next .also-rel .go{grid-column:2;justify-self:start}
   .next .also-rel strong{font-size:1.25rem}
 }
+.next button.also-rel{width:100%;font:inherit;text-align:left;cursor:pointer}

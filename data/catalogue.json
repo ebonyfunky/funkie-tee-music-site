@@ -220,6 +220,20 @@
    "yt": "https://www.youtube.com/playlist?list=OLAK5uy_km_A4u-g6XJtyzuR9VsN4Z_U0F-Cp-2rM",
    "sp": "https://open.spotify.com/album/2Ob0yhZPnN49cMpGAW5QJo",
    "am": "https://music.amazon.ca/albums/B0HKLCJ2R6"
+  },
+  {
+   "id": "6819094839",
+   "name": "My Father's Plans for Me (Remix)",
+   "slug": "my-fathers-plans-for-me-remix",
+   "count": 1,
+   "date": "2026-10-03",
+   "kind": "single",
+   "cover": "img/cv/my-fathers-plans-for-me-remix.jpg",
+   "apple": "https://music.apple.com/us/album/my-fathers-plans-for-me-remix/6819094839?i=6819094840",
+   "yt": "https://www.youtube.com/watch?v=tt5kdEgY1FI",
+   "sp": "https://open.spotify.com/album/1W52Qmn7nJIkMdbftYn73d",
+   "am": "https://music.amazon.ca/artists/B0GFKVNXMG",
+   "lead": "my-fathers-plans-for-me-remix"
   }
  ],
  "songs": [
@@ -234,6 +248,18 @@
    "yt": "https://www.youtube.com/watch?v=jnyfwOIjw3c",
    "sp": "https://open.spotify.com/track/3BAfG6dZxP5Ydbwav6AU3O",
    "am": "https://music.amazon.ca/albums/B0HJPTW15M"
+  },
+  {
+   "slug": "my-fathers-plans-for-me-remix",
+   "name": "My Father's Plans for Me (Remix)",
+   "audio": "my-fathers-plans-for-me-remix",
+   "release": "6819094839",
+   "no": 1,
+   "cover": "img/cv/my-fathers-plans-for-me-remix.jpg",
+   "apple": "https://music.apple.com/us/album/my-fathers-plans-for-me-remix/6819094839?i=6819094840",
+   "yt": "https://www.youtube.com/watch?v=tt5kdEgY1FI",
+   "sp": "https://open.spotify.com/album/1W52Qmn7nJIkMdbftYn73d",
+   "am": "https://music.amazon.ca/artists/B0GFKVNXMG"
   },
   {
    "slug": "streams-of-joy",

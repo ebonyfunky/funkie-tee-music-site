@@ -11,7 +11,7 @@ IC = json.load(open('data/icons.json'))
 REL = {r['id']: r for r in cat['releases']}
 SONGS = cat['songs']
 e = html.escape
-V = "55"  # bump to refresh cached css/js
+V = "56"  # bump to refresh cached css/js
 
 SITE = 'https://www.funkieteemusic.com/'
 YT = 'https://www.youtube.com/@Funkieteemusic'
@@ -178,20 +178,19 @@ def upcoming():
 
 # Other upcoming releases, shown as a slim row under the main one
 ALSO = [
-    {'title': "My Father's Plans for Me (Remix)", 'cover': 'img/cv/my-fathers-plans-for-me-remix.jpg', 'when': 'Coming soon',
-     'line': 'A new, fuller take on the January single.',
-     'link': 'https://distrokid.com/hyperfollow/funkietee/my-fathers-plans-for-me-remix'},
+    {'title': "My Father's Plans for Me (Remix)", 'cover': 'img/cv/my-fathers-plans-for-me-remix.jpg', 'when': 'Out now',
+     'line': 'A new, fuller take on the January single.', 'play': 'my-fathers-plans-for-me-remix'},
 ]
 
 
 def also():
     out = []
     for r in ALSO:
-        out.append(f'''    <a class="also-rel" href="{r['link']}" target="_blank" rel="noopener">
-      <img src="{r['cover']}" alt="{e(r['title'])} cover art" width="900" height="900" loading="lazy">
-      <span class="txt"><span class="kind">Also coming · {e(r['when'])}</span><strong>{e(r['title'])}</strong><span class="line">{e(r['line'])}</span></span>
-      <span class="go">Pre-save</span>
-    </a>''')
+        out.append(f'''    <button class="also-rel" type="button" data-play="{r['play']}" aria-label="Listen to a preview of {e(r['title'])}">
+      <img src="{r['cover']}" alt="" width="900" height="900" loading="lazy">
+      <span class="txt"><span class="kind">New remix · {e(r['when'])}</span><strong>{e(r['title'])}</strong><span class="line">{e(r['line'])}</span></span>
+      <span class="go">Listen</span>
+    </button>''')
     return '\n'.join(out)
 
 
@@ -376,7 +375,7 @@ singles.sort(key=lambda r: r['date'], reverse=True)
 def rows():
     out = []
     for s in SONGS:
-        new = ' <span class="newtag">New</span>' if s['slug'] == 'god-did-it' else ''
+        new = ' <span class="newtag">New</span>' if s['slug'] in ('god-did-it', 'my-fathers-plans-for-me-remix') else ''
         out.append(f'''      <li data-song="{s['slug']}"><button class="pl" type="button" aria-label="Play a preview of {e(s['name'])}">{PP}</button><span class="body"><span class="t">{e(s['name'])}{new}</span>{four(s['yt'], s['sp'], s['apple'], s['am'])}</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></li>''')
     return '\n'.join(out)
 
@@ -389,7 +388,7 @@ music = head('Music | Funkie Tee',
   <div class="wrap">
     <span class="eyebrow">The catalogue</span>
     <h1>Music</h1>
-    <p class="lead">Two albums, eleven singles and three albums of Scripture songs for children.</p>
+    <p class="lead">Two albums, twelve singles and three albums of Scripture songs for children.</p>
     <nav class="subnav" aria-label="On this page">
       <a href="#latest">Latest release</a><a href="#albums">Albums</a><a href="#singles">Singles</a><a href="#songs">All songs</a><a href="#kids">Kids</a>
     </nav>
