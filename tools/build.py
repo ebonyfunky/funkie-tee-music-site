@@ -11,7 +11,7 @@ IC = json.load(open('data/icons.json'))
 REL = {r['id']: r for r in cat['releases']}
 SONGS = cat['songs']
 e = html.escape
-V = "56"  # bump to refresh cached css/js
+V = "57"  # bump to refresh cached css/js
 
 SITE = 'https://www.funkieteemusic.com/'
 YT = 'https://www.youtube.com/@Funkieteemusic'
@@ -135,6 +135,7 @@ def release(name):
 
 
 GDI = song('god-did-it')
+IHE = song('i-have-escaped')
 KIDS = sorted([r for r in cat['releases'] if r['kind'] == 'kids'], key=lambda r: r['name'])
 
 
@@ -160,16 +161,8 @@ NEXT = {'title': 'I Have Escaped', 'cover': 'img/cv/i-have-escaped.jpg', 'date':
 
 
 def upcoming():
-    return f'''<section class="next" id="next" data-release="{NEXT['date']}">
-  <div class="wrap">
-    <a class="cover" href="{NEXT['link']}" target="_blank" rel="noopener" aria-label="Pre-save {NEXT['title']}"><img src="{NEXT['cover']}" alt="{NEXT['title']} cover art: a prison wall broken open to golden light, broken chains on the ground" width="900" height="900"></a>
-    <div class="stack">
-      <span class="eyebrow" id="next-eyebrow">New single · {NEXT['when']}</span>
-      <h2>{NEXT['title']}</h2>
-      <p class="pitch">The wall is down and the chains are on the floor. A song of freedom for anyone who has been held by fear, shame or pain.</p>
-      <blockquote>“The snare is broken, and we are escaped.”<cite>— Psalm 124:7</cite></blockquote>
-      <a class="btn btn-gold" id="next-btn" href="{NEXT['link']}" target="_blank" rel="noopener">Pre-save now</a>
-    </div>
+    return f'''<section class="next" id="next">
+  <div class="wrap wrap-also">
     {also()}
   </div>
 </section>
@@ -239,7 +232,7 @@ home = head('Funkie Tee | Contemporary Gospel Music',
         <a class="btn btn-gold" href="music.html">Listen now</a>
         <a class="btn btn-line" href="#about">Discover Funkie Tee</a>
       </div>
-      <button class="nowpill" type="button" data-play="god-did-it"><span class="np-tag">Out now</span><span class="np-title">God Did It</span><span class="np-play">{PLAY}Play</span></button>
+      <button class="nowpill" type="button" data-play="i-have-escaped"><span class="np-tag">Out now</span><span class="np-title">I Have Escaped</span><span class="np-play">{PLAY}Play</span></button>
     </div>
   </div>
 </section>
@@ -247,17 +240,17 @@ home = head('Funkie Tee | Contemporary Gospel Music',
 {upcoming()}
 <section class="on-ivory" id="latest">
   <div class="wrap feature">
-    <div class="art"><img src="img/cv/god-did-it.jpg" alt="God Did It cover art: golden doors standing open" width="900" height="900" loading="lazy"></div>
+    <div class="art"><img src="img/cv/i-have-escaped.jpg" alt="I Have Escaped cover art: a prison wall broken open to golden light, broken chains on the ground" width="900" height="900" loading="lazy"></div>
     <div class="stack">
       <span class="eyebrow">Out now · Single</span>
-      <h2>God Did It</h2>
-      <p class="pitch">When the door was shut, He showed up. A testimony song for anyone who waited longer than they expected and still saw God move.</p>
-      <blockquote>“This is the LORD's doing; it is marvellous in our eyes.”<cite>— Psalm 118:23</cite></blockquote>
+      <h2>I Have Escaped</h2>
+      <p class="pitch">The wall is down and the chains are on the floor. A song of freedom for anyone who has been held by fear, shame or pain.</p>
+      <blockquote>“The snare is broken, and we are escaped.”<cite>— Psalm 124:7</cite></blockquote>
       <div class="row">
-        <button class="btn btn-ink" type="button" data-play="god-did-it">{PLAY}Listen now</button>
-        <a class="btn btn-line" href="#video">Watch video</a>
+        <button class="btn btn-ink" type="button" data-play="i-have-escaped">{PLAY}Listen now</button>
+        {ext(IHE['yt'], 'Watch on YouTube', 'btn btn-line')}
       </div>
-      <p class="also"><span>Full song</span>{ext(GDI['yt'], 'YouTube')}{ext(GDI['sp'], 'Spotify')}{ext(GDI['apple'], 'Apple Music')}{ext(GDI['am'], 'Amazon Music')}</p>
+      <p class="also"><span>Full song</span>{ext(IHE['yt'], 'YouTube')}{ext(IHE['sp'], 'Spotify')}{ext(IHE['apple'], 'Apple Music')}{ext(IHE['am'], 'Amazon Music')}</p>
     </div>
   </div>
 </section>
@@ -375,7 +368,7 @@ singles.sort(key=lambda r: r['date'], reverse=True)
 def rows():
     out = []
     for s in SONGS:
-        new = ' <span class="newtag">New</span>' if s['slug'] in ('god-did-it', 'my-fathers-plans-for-me-remix') else ''
+        new = ' <span class="newtag">New</span>' if s['slug'] in ('i-have-escaped', 'my-fathers-plans-for-me-remix') else ''
         out.append(f'''      <li data-song="{s['slug']}"><button class="pl" type="button" aria-label="Play a preview of {e(s['name'])}">{PP}</button><span class="body"><span class="t">{e(s['name'])}{new}</span>{four(s['yt'], s['sp'], s['apple'], s['am'])}</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></li>''')
     return '\n'.join(out)
 
@@ -388,7 +381,7 @@ music = head('Music | Funkie Tee',
   <div class="wrap">
     <span class="eyebrow">The catalogue</span>
     <h1>Music</h1>
-    <p class="lead">Two albums, twelve singles and three albums of Scripture songs for children.</p>
+    <p class="lead">Two albums, thirteen singles and three albums of Scripture songs for children.</p>
     <nav class="subnav" aria-label="On this page">
       <a href="#latest">Latest release</a><a href="#albums">Albums</a><a href="#singles">Singles</a><a href="#songs">All songs</a><a href="#kids">Kids</a>
     </nav>
@@ -398,16 +391,16 @@ music = head('Music | Funkie Tee',
 {upcoming()}
 <section class="on-ivory" id="latest">
   <div class="wrap feature">
-    <div class="art"><img src="img/cv/god-did-it.jpg" alt="God Did It cover art: golden doors standing open" width="900" height="900"></div>
+    <div class="art"><img src="img/cv/i-have-escaped.jpg" alt="I Have Escaped cover art: a prison wall broken open to golden light, broken chains on the ground" width="900" height="900"></div>
     <div class="stack">
       <span class="eyebrow">Latest release · Single</span>
-      <h2>God Did It</h2>
-      <p class="pitch">When the door was shut, He showed up. A testimony song for anyone who waited longer than they expected and still saw God move.</p>
+      <h2>I Have Escaped</h2>
+      <p class="pitch">The wall is down and the chains are on the floor. A song of freedom for anyone who has been held by fear, shame or pain.</p>
       <div class="row">
-        <button class="btn btn-ink" type="button" data-play="god-did-it">{PLAY}Listen now</button>
-        {ext(GDI['yt'], 'Watch video', 'btn btn-line')}
+        <button class="btn btn-ink" type="button" data-play="i-have-escaped">{PLAY}Listen now</button>
+        {ext(IHE['yt'], 'Watch on YouTube', 'btn btn-line')}
       </div>
-      <p class="also"><span>Full song</span>{ext(GDI['yt'], 'YouTube')}{ext(GDI['sp'], 'Spotify')}{ext(GDI['apple'], 'Apple Music')}{ext(GDI['am'], 'Amazon Music')}</p>
+      <p class="also"><span>Full song</span>{ext(IHE['yt'], 'YouTube')}{ext(IHE['sp'], 'Spotify')}{ext(IHE['apple'], 'Apple Music')}{ext(IHE['am'], 'Amazon Music')}</p>
     </div>
   </div>
 </section>

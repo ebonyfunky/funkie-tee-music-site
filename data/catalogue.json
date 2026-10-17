@@ -234,9 +234,35 @@
    "sp": "https://open.spotify.com/album/1W52Qmn7nJIkMdbftYn73d",
    "am": "https://music.amazon.ca/artists/B0GFKVNXMG",
    "lead": "my-fathers-plans-for-me-remix"
+  },
+  {
+   "id": "6818846814",
+   "name": "I Have Escaped",
+   "slug": "i-have-escaped",
+   "count": 1,
+   "date": "2026-10-17",
+   "kind": "single",
+   "cover": "img/cv/i-have-escaped.jpg",
+   "apple": "https://music.apple.com/us/album/i-have-escaped/6818846814?i=6818846815",
+   "yt": "https://www.youtube.com/watch?v=tnGLhAAsNRw",
+   "sp": "https://open.spotify.com/album/0Q5k4fhfVv618Xruec5Npr",
+   "am": "https://music.amazon.ca/artists/B0GFKVNXMG",
+   "lead": "i-have-escaped"
   }
  ],
  "songs": [
+  {
+   "slug": "i-have-escaped",
+   "name": "I Have Escaped",
+   "audio": "i-have-escaped",
+   "release": "6818846814",
+   "no": 1,
+   "cover": "img/cv/i-have-escaped.jpg",
+   "apple": "https://music.apple.com/us/album/i-have-escaped/6818846814?i=6818846815",
+   "yt": "https://www.youtube.com/watch?v=tnGLhAAsNRw",
+   "sp": "https://open.spotify.com/album/0Q5k4fhfVv618Xruec5Npr",
+   "am": "https://music.amazon.ca/artists/B0GFKVNXMG"
+  },
   {
    "slug": "god-did-it",
    "name": "God Did It",

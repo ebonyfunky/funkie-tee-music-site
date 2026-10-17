@@ -731,3 +731,5 @@ section{padding-block:clamp(80px,11vw,140px)}
   .next .also-rel strong{font-size:1.25rem}
 }
 .next button.also-rel{width:100%;font:inherit;text-align:left;cursor:pointer}
+.next .wrap-also{grid-template-columns:1fr}
+.next .wrap-also .also-rel{margin-top:0}
