@@ -11,7 +11,7 @@ IC = json.load(open('data/icons.json'))
 REL = {r['id']: r for r in cat['releases']}
 SONGS = cat['songs']
 e = html.escape
-V = "57"  # bump to refresh cached css/js
+V = "58"  # bump to refresh cached css/js
 
 SITE = 'https://www.funkieteemusic.com/'
 YT = 'https://www.youtube.com/@Funkieteemusic'
@@ -156,13 +156,21 @@ def kids_vols():
 
 # ------------------------------------------------------------------ NEXT RELEASE
 # Shown on the home and music pages. site.js flips the wording on release day.
-NEXT = {'title': 'I Have Escaped', 'cover': 'img/cv/i-have-escaped.jpg', 'date': '2026-10-17T00:00:00-05:00',
-        'when': '17 October', 'link': 'https://distrokid.com/hyperfollow/funkietee/i-have-escaped'}
+NEXT = {'title': "I'm Taking It Back", 'cover': 'img/cv/im-taking-it-back.jpg', 'date': '2026-11-07T00:00:00-06:00',
+        'when': 'Saturday 7 November', 'link': 'https://distrokid.com/hyperfollow/funkietee/im-taking-it-back'}
 
 
 def upcoming():
-    return f'''<section class="next" id="next">
-  <div class="wrap wrap-also">
+    return f'''<section class="next" id="next" data-release="{NEXT['date']}">
+  <div class="wrap">
+    <a class="cover" href="{NEXT['link']}" target="_blank" rel="noopener" aria-label="Pre-save {e(NEXT['title'])}"><img src="{NEXT['cover']}" alt="{e(NEXT['title'])} cover art: a golden arrow curling upward on a lit stage" width="900" height="900"></a>
+    <div class="stack">
+      <span class="eyebrow" id="next-eyebrow">New single · {NEXT['when']}</span>
+      <h2>{e(NEXT['title'])}</h2>
+      <p class="pitch">What was stolen does not get to stay stolen. A song of bold faith for everyone ready to reclaim their joy, their peace and their place.</p>
+      <blockquote>“And David recovered all.”<cite>— 1 Samuel 30:19</cite></blockquote>
+      <a class="btn btn-gold" id="next-btn" href="{NEXT['link']}" target="_blank" rel="noopener">Pre-save now</a>
+    </div>
     {also()}
   </div>
 </section>
