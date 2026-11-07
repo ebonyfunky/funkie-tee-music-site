@@ -11,7 +11,7 @@ IC = json.load(open('data/icons.json'))
 REL = {r['id']: r for r in cat['releases']}
 SONGS = cat['songs']
 e = html.escape
-V = "58"  # bump to refresh cached css/js
+V = "59"  # bump to refresh cached css/js
 
 SITE = 'https://www.funkieteemusic.com/'
 YT = 'https://www.youtube.com/@Funkieteemusic'
@@ -136,6 +136,7 @@ def release(name):
 
 GDI = song('god-did-it')
 IHE = song('i-have-escaped')
+LEAD = song('im-taking-it-back')
 KIDS = sorted([r for r in cat['releases'] if r['kind'] == 'kids'], key=lambda r: r['name'])
 
 
@@ -161,16 +162,8 @@ NEXT = {'title': "I'm Taking It Back", 'cover': 'img/cv/im-taking-it-back.jpg', 
 
 
 def upcoming():
-    return f'''<section class="next" id="next" data-release="{NEXT['date']}">
-  <div class="wrap">
-    <a class="cover" href="{NEXT['link']}" target="_blank" rel="noopener" aria-label="Pre-save {e(NEXT['title'])}"><img src="{NEXT['cover']}" alt="{e(NEXT['title'])} cover art: a golden arrow curling upward on a lit stage" width="900" height="900"></a>
-    <div class="stack">
-      <span class="eyebrow" id="next-eyebrow">New single · {NEXT['when']}</span>
-      <h2>{e(NEXT['title'])}</h2>
-      <p class="pitch">What was stolen does not get to stay stolen. A song of bold faith for everyone ready to reclaim their joy, their peace and their place.</p>
-      <blockquote>“And David recovered all.”<cite>— 1 Samuel 30:19</cite></blockquote>
-      <a class="btn btn-gold" id="next-btn" href="{NEXT['link']}" target="_blank" rel="noopener">Pre-save now</a>
-    </div>
+    return f'''<section class="next" id="next">
+  <div class="wrap wrap-also">
     {also()}
   </div>
 </section>
@@ -240,7 +233,7 @@ home = head('Funkie Tee | Contemporary Gospel Music',
         <a class="btn btn-gold" href="music.html">Listen now</a>
         <a class="btn btn-line" href="#about">Discover Funkie Tee</a>
       </div>
-      <button class="nowpill" type="button" data-play="i-have-escaped"><span class="np-tag">Out now</span><span class="np-title">I Have Escaped</span><span class="np-play">{PLAY}Play</span></button>
+      <button class="nowpill" type="button" data-play="im-taking-it-back"><span class="np-tag">Out now</span><span class="np-title">I'm Taking It Back</span><span class="np-play">{PLAY}Play</span></button>
     </div>
   </div>
 </section>
@@ -248,17 +241,17 @@ home = head('Funkie Tee | Contemporary Gospel Music',
 {upcoming()}
 <section class="on-ivory" id="latest">
   <div class="wrap feature">
-    <div class="art"><img src="img/cv/i-have-escaped.jpg" alt="I Have Escaped cover art: a prison wall broken open to golden light, broken chains on the ground" width="900" height="900" loading="lazy"></div>
+    <div class="art"><img src="img/cv/im-taking-it-back.jpg" alt="I'm Taking It Back cover art: a golden arrow curling upward on a lit stage" width="900" height="900" loading="lazy"></div>
     <div class="stack">
       <span class="eyebrow">Out now · Single</span>
-      <h2>I Have Escaped</h2>
-      <p class="pitch">The wall is down and the chains are on the floor. A song of freedom for anyone who has been held by fear, shame or pain.</p>
-      <blockquote>“The snare is broken, and we are escaped.”<cite>— Psalm 124:7</cite></blockquote>
+      <h2>I'm Taking It Back</h2>
+      <p class="pitch">What was stolen does not get to stay stolen. A song of bold faith for everyone ready to reclaim their joy, their peace and their place.</p>
+      <blockquote>“And David recovered all.”<cite>— 1 Samuel 30:19</cite></blockquote>
       <div class="row">
-        <button class="btn btn-ink" type="button" data-play="i-have-escaped">{PLAY}Listen now</button>
-        {ext(IHE['yt'], 'Watch on YouTube', 'btn btn-line')}
+        <button class="btn btn-ink" type="button" data-play="im-taking-it-back">{PLAY}Listen now</button>
+        {ext(LEAD['yt'], 'Watch on YouTube', 'btn btn-line')}
       </div>
-      <p class="also"><span>Full song</span>{ext(IHE['yt'], 'YouTube')}{ext(IHE['sp'], 'Spotify')}{ext(IHE['apple'], 'Apple Music')}{ext(IHE['am'], 'Amazon Music')}</p>
+      <p class="also"><span>Full song</span>{ext(LEAD['yt'], 'YouTube')}{ext(LEAD['sp'], 'Spotify')}{ext(LEAD['apple'], 'Apple Music')}{ext(LEAD['am'], 'Amazon Music')}</p>
     </div>
   </div>
 </section>
@@ -376,7 +369,7 @@ singles.sort(key=lambda r: r['date'], reverse=True)
 def rows():
     out = []
     for s in SONGS:
-        new = ' <span class="newtag">New</span>' if s['slug'] in ('i-have-escaped', 'my-fathers-plans-for-me-remix') else ''
+        new = ' <span class="newtag">New</span>' if s['slug'] in ('im-taking-it-back', 'i-have-escaped') else ''
         out.append(f'''      <li data-song="{s['slug']}"><button class="pl" type="button" aria-label="Play a preview of {e(s['name'])}">{PP}</button><span class="body"><span class="t">{e(s['name'])}{new}</span>{four(s['yt'], s['sp'], s['apple'], s['am'])}</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></li>''')
     return '\n'.join(out)
 
@@ -389,7 +382,7 @@ music = head('Music | Funkie Tee',
   <div class="wrap">
     <span class="eyebrow">The catalogue</span>
     <h1>Music</h1>
-    <p class="lead">Two albums, thirteen singles and three albums of Scripture songs for children.</p>
+    <p class="lead">Two albums, fourteen singles and three albums of Scripture songs for children.</p>
     <nav class="subnav" aria-label="On this page">
       <a href="#latest">Latest release</a><a href="#albums">Albums</a><a href="#singles">Singles</a><a href="#songs">All songs</a><a href="#kids">Kids</a>
     </nav>
@@ -399,16 +392,16 @@ music = head('Music | Funkie Tee',
 {upcoming()}
 <section class="on-ivory" id="latest">
   <div class="wrap feature">
-    <div class="art"><img src="img/cv/i-have-escaped.jpg" alt="I Have Escaped cover art: a prison wall broken open to golden light, broken chains on the ground" width="900" height="900"></div>
+    <div class="art"><img src="img/cv/im-taking-it-back.jpg" alt="I'm Taking It Back cover art: a golden arrow curling upward on a lit stage" width="900" height="900"></div>
     <div class="stack">
       <span class="eyebrow">Latest release · Single</span>
-      <h2>I Have Escaped</h2>
-      <p class="pitch">The wall is down and the chains are on the floor. A song of freedom for anyone who has been held by fear, shame or pain.</p>
+      <h2>I'm Taking It Back</h2>
+      <p class="pitch">What was stolen does not get to stay stolen. A song of bold faith for everyone ready to reclaim their joy, their peace and their place.</p>
       <div class="row">
-        <button class="btn btn-ink" type="button" data-play="i-have-escaped">{PLAY}Listen now</button>
-        {ext(IHE['yt'], 'Watch on YouTube', 'btn btn-line')}
+        <button class="btn btn-ink" type="button" data-play="im-taking-it-back">{PLAY}Listen now</button>
+        {ext(LEAD['yt'], 'Watch on YouTube', 'btn btn-line')}
       </div>
-      <p class="also"><span>Full song</span>{ext(IHE['yt'], 'YouTube')}{ext(IHE['sp'], 'Spotify')}{ext(IHE['apple'], 'Apple Music')}{ext(IHE['am'], 'Amazon Music')}</p>
+      <p class="also"><span>Full song</span>{ext(LEAD['yt'], 'YouTube')}{ext(LEAD['sp'], 'Spotify')}{ext(LEAD['apple'], 'Apple Music')}{ext(LEAD['am'], 'Amazon Music')}</p>
     </div>
   </div>
 </section>

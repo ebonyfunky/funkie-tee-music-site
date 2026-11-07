@@ -248,9 +248,35 @@
    "sp": "https://open.spotify.com/album/0Q5k4fhfVv618Xruec5Npr",
    "am": "https://music.amazon.ca/artists/B0GFKVNXMG",
    "lead": "i-have-escaped"
+  },
+  {
+   "id": "6829611952",
+   "name": "I'm Taking It Back",
+   "slug": "im-taking-it-back",
+   "count": 1,
+   "date": "2026-11-07",
+   "kind": "single",
+   "cover": "img/cv/im-taking-it-back.jpg",
+   "apple": "https://music.apple.com/us/album/im-taking-it-back/6829611952?i=6829611953",
+   "yt": "https://www.youtube.com/watch?v=l81pspF395k",
+   "sp": "https://open.spotify.com/album/5tmZJIWty3iaS6ekzLgcDi",
+   "am": "https://music.amazon.ca/artists/B0GFKVNXMG",
+   "lead": "im-taking-it-back"
   }
  ],
  "songs": [
+  {
+   "slug": "im-taking-it-back",
+   "name": "I'm Taking It Back",
+   "audio": "im-taking-it-back",
+   "release": "6829611952",
+   "no": 1,
+   "cover": "img/cv/im-taking-it-back.jpg",
+   "apple": "https://music.apple.com/us/album/im-taking-it-back/6829611952?i=6829611953",
+   "yt": "https://www.youtube.com/watch?v=l81pspF395k",
+   "sp": "https://open.spotify.com/album/5tmZJIWty3iaS6ekzLgcDi",
+   "am": "https://music.amazon.ca/artists/B0GFKVNXMG"
+  },
   {
    "slug": "i-have-escaped",
    "name": "I Have Escaped",
