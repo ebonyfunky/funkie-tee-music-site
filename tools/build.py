@@ -11,7 +11,7 @@ IC = json.load(open('data/icons.json'))
 REL = {r['id']: r for r in cat['releases']}
 SONGS = cat['songs']
 e = html.escape
-V = "59"  # bump to refresh cached css/js
+V = "60"  # bump to refresh cached css/js
 
 SITE = 'https://www.funkieteemusic.com/'
 YT = 'https://www.youtube.com/@Funkieteemusic'
@@ -136,7 +136,7 @@ def release(name):
 
 GDI = song('god-did-it')
 IHE = song('i-have-escaped')
-LEAD = song('im-taking-it-back')
+LEAD = song('i-came-to-say-thank-you-jesus')
 KIDS = sorted([r for r in cat['releases'] if r['kind'] == 'kids'], key=lambda r: r['name'])
 
 
@@ -233,7 +233,7 @@ home = head('Funkie Tee | Contemporary Gospel Music',
         <a class="btn btn-gold" href="music.html">Listen now</a>
         <a class="btn btn-line" href="#about">Discover Funkie Tee</a>
       </div>
-      <button class="nowpill" type="button" data-play="im-taking-it-back"><span class="np-tag">Out now</span><span class="np-title">I'm Taking It Back</span><span class="np-play">{PLAY}Play</span></button>
+      <button class="nowpill" type="button" data-play="i-came-to-say-thank-you-jesus"><span class="np-tag">Out now</span><span class="np-title">I Came to Say Thank You Jesus</span><span class="np-play">{PLAY}Play</span></button>
     </div>
   </div>
 </section>
@@ -241,14 +241,14 @@ home = head('Funkie Tee | Contemporary Gospel Music',
 {upcoming()}
 <section class="on-ivory" id="latest">
   <div class="wrap feature">
-    <div class="art"><img src="img/cv/im-taking-it-back.jpg" alt="I'm Taking It Back cover art: a golden arrow curling upward on a lit stage" width="900" height="900" loading="lazy"></div>
+    <div class="art"><img src="img/cv/i-came-to-say-thank-you-jesus.jpg" alt="I Came to Say Thank You Jesus cover art: a golden harvest wreath of wheat and olive on royal blue" width="900" height="900" loading="lazy"></div>
     <div class="stack">
       <span class="eyebrow">Out now · Single</span>
-      <h2>I'm Taking It Back</h2>
-      <p class="pitch">What was stolen does not get to stay stolen. A song of bold faith for everyone ready to reclaim their joy, their peace and their place.</p>
-      <blockquote>“And David recovered all.”<cite>— 1 Samuel 30:19</cite></blockquote>
+      <h2>I Came to Say Thank You Jesus</h2>
+      <p class="pitch">No request this time. Just thanks. A song of gratitude for everything He has already done.</p>
+      <blockquote>“Enter into his gates with thanksgiving, and into his courts with praise.”<cite>— Psalm 100:4</cite></blockquote>
       <div class="row">
-        <button class="btn btn-ink" type="button" data-play="im-taking-it-back">{PLAY}Listen now</button>
+        <button class="btn btn-ink" type="button" data-play="i-came-to-say-thank-you-jesus">{PLAY}Listen now</button>
         {ext(LEAD['yt'], 'Watch on YouTube', 'btn btn-line')}
       </div>
       <p class="also"><span>Full song</span>{ext(LEAD['yt'], 'YouTube')}{ext(LEAD['sp'], 'Spotify')}{ext(LEAD['apple'], 'Apple Music')}{ext(LEAD['am'], 'Amazon Music')}</p>
@@ -369,7 +369,7 @@ singles.sort(key=lambda r: r['date'], reverse=True)
 def rows():
     out = []
     for s in SONGS:
-        new = ' <span class="newtag">New</span>' if s['slug'] in ('im-taking-it-back', 'i-have-escaped') else ''
+        new = ' <span class="newtag">New</span>' if s['slug'] in ('i-came-to-say-thank-you-jesus', 'im-taking-it-back') else ''
         out.append(f'''      <li data-song="{s['slug']}"><button class="pl" type="button" aria-label="Play a preview of {e(s['name'])}">{PP}</button><span class="body"><span class="t">{e(s['name'])}{new}</span>{four(s['yt'], s['sp'], s['apple'], s['am'])}</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></li>''')
     return '\n'.join(out)
 
@@ -382,7 +382,7 @@ music = head('Music | Funkie Tee',
   <div class="wrap">
     <span class="eyebrow">The catalogue</span>
     <h1>Music</h1>
-    <p class="lead">Two albums, fourteen singles and three albums of Scripture songs for children.</p>
+    <p class="lead">Two albums, fifteen singles and three albums of Scripture songs for children.</p>
     <nav class="subnav" aria-label="On this page">
       <a href="#latest">Latest release</a><a href="#albums">Albums</a><a href="#singles">Singles</a><a href="#songs">All songs</a><a href="#kids">Kids</a>
     </nav>
@@ -392,13 +392,13 @@ music = head('Music | Funkie Tee',
 {upcoming()}
 <section class="on-ivory" id="latest">
   <div class="wrap feature">
-    <div class="art"><img src="img/cv/im-taking-it-back.jpg" alt="I'm Taking It Back cover art: a golden arrow curling upward on a lit stage" width="900" height="900"></div>
+    <div class="art"><img src="img/cv/i-came-to-say-thank-you-jesus.jpg" alt="I Came to Say Thank You Jesus cover art: a golden harvest wreath of wheat and olive on royal blue" width="900" height="900"></div>
     <div class="stack">
       <span class="eyebrow">Latest release · Single</span>
-      <h2>I'm Taking It Back</h2>
-      <p class="pitch">What was stolen does not get to stay stolen. A song of bold faith for everyone ready to reclaim their joy, their peace and their place.</p>
+      <h2>I Came to Say Thank You Jesus</h2>
+      <p class="pitch">No request this time. Just thanks. A song of gratitude for everything He has already done.</p>
       <div class="row">
-        <button class="btn btn-ink" type="button" data-play="im-taking-it-back">{PLAY}Listen now</button>
+        <button class="btn btn-ink" type="button" data-play="i-came-to-say-thank-you-jesus">{PLAY}Listen now</button>
         {ext(LEAD['yt'], 'Watch on YouTube', 'btn btn-line')}
       </div>
       <p class="also"><span>Full song</span>{ext(LEAD['yt'], 'YouTube')}{ext(LEAD['sp'], 'Spotify')}{ext(LEAD['apple'], 'Apple Music')}{ext(LEAD['am'], 'Amazon Music')}</p>

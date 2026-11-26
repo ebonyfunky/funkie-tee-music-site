@@ -262,9 +262,35 @@
    "sp": "https://open.spotify.com/album/5tmZJIWty3iaS6ekzLgcDi",
    "am": "https://music.amazon.ca/artists/B0GFKVNXMG",
    "lead": "im-taking-it-back"
+  },
+  {
+   "id": "6837287405",
+   "name": "I Came to Say Thank You Jesus",
+   "slug": "i-came-to-say-thank-you-jesus",
+   "count": 1,
+   "date": "2026-11-26",
+   "kind": "single",
+   "cover": "img/cv/i-came-to-say-thank-you-jesus.jpg",
+   "apple": "https://music.apple.com/us/album/i-came-to-say-thank-you-jesus/6837287405?i=6837287406",
+   "yt": "https://www.youtube.com/watch?v=6bg0WbIso0E",
+   "sp": "https://open.spotify.com/album/7yOsos0BoZnpm0HrcXMiPt",
+   "am": "https://music.amazon.ca/artists/B0GFKVNXMG",
+   "lead": "i-came-to-say-thank-you-jesus"
   }
  ],
  "songs": [
+  {
+   "slug": "i-came-to-say-thank-you-jesus",
+   "name": "I Came to Say Thank You Jesus",
+   "audio": "i-came-to-say-thank-you-jesus",
+   "release": "6837287405",
+   "no": 1,
+   "cover": "img/cv/i-came-to-say-thank-you-jesus.jpg",
+   "apple": "https://music.apple.com/us/album/i-came-to-say-thank-you-jesus/6837287405?i=6837287406",
+   "yt": "https://www.youtube.com/watch?v=6bg0WbIso0E",
+   "sp": "https://open.spotify.com/album/7yOsos0BoZnpm0HrcXMiPt",
+   "am": "https://music.amazon.ca/artists/B0GFKVNXMG"
+  },
   {
    "slug": "im-taking-it-back",
    "name": "I'm Taking It Back",
