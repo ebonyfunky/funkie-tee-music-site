@@ -11,7 +11,7 @@ IC = json.load(open('data/icons.json'))
 REL = {r['id']: r for r in cat['releases']}
 SONGS = cat['songs']
 e = html.escape
-V = "61"  # bump to refresh cached css/js
+V = "62"  # bump to refresh cached css/js
 
 SITE = 'https://www.funkieteemusic.com/'
 YT = 'https://www.youtube.com/@Funkieteemusic'
@@ -164,7 +164,7 @@ NEXT = {'title': "I'm Taking It Back", 'cover': 'img/cv/im-taking-it-back.jpg', 
 def upcoming():
     return f'''<section class="next" id="next">
   <div class="wrap">
-    <a class="cover flyer" href="{LEAD['yt']}" target="_blank" rel="noopener" aria-label="Watch I Came to Say Thank You Jesus on YouTube"><img src="img/flyer-thank-you-jesus.jpg" alt="Flyer: Happy Thanksgiving, family. My new song, I Came to Say Thank You Jesus, is out now. A heart full of gratitude." width="941" height="1672"></a>
+    <a class="cover flyer" href="{LEAD['yt']}" target="_blank" rel="noopener" aria-label="Watch I Came to Say Thank You Jesus on YouTube"><img src="img/flyer-thank-you-jesus-2.jpg" alt="Flyer: Happy Thanksgiving, family. My new song, I Came to Say Thank You Jesus, is out now. A heart full of gratitude." width="1024" height="1536"></a>
     <div class="stack">
       <span class="eyebrow">Happy Thanksgiving, family</span>
       <h2>A heart full of gratitude</h2>
